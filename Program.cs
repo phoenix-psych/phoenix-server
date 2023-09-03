@@ -39,10 +39,16 @@ builder.Services.AddCors(opt =>
         p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
     });
 });
+
 builder.Services.AddDbContext<AppDbContext>(option =>
 {
-    option.UseNpgsql(builder.Configuration.GetConnectionString("DBConnStr"));
+    option.UseSqlServer(builder.Configuration.GetConnectionString("DBConnStr"));
 });
+
+//builder.Services.AddDbContext<AppDbContext>(option =>
+//{
+//    option.UseNpgsql(builder.Configuration.GetConnectionString("DBConnStr"));
+//});
 
 var app = builder.Build();
 
