@@ -12,15 +12,15 @@ namespace Web.Entity.Context
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<UserType> UserTypes { get; set; }
-        public DbSet<Stock> Stocks { get; set; }
-        public DbSet<StockDetail> StockDetails { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<DailyProductDetail> DailyProductDetails { get; set; }
-        public DbSet<ProductStock> ProductStocks { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<DineInTable> DineInTables { get; set; }
+        public DbSet<UserDetail> UserDetails { get; set; }
+        public DbSet<QuestionType> QuestionTypes { get; set; }
+        public DbSet<Questions> Questions { get; set; }
+        public DbSet<Answers> Answers { get; set; }
+        public DbSet<Slot> Slots { get; set; }
+        public DbSet<AssessorSlot> AssessorSlots { get; set; }
+        public DbSet<AssessorPayment> AssessorPayments { get; set; }
+        public DbSet<AssessorBooking> AssessorBookings { get; set; }
+        public DbSet<Billing> Billings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,9 +39,9 @@ namespace Web.Entity.Context
         private void UserRelations(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
-                .HasOne(x => x.UserType)
-                .WithMany(x => x.Users)
-                .HasForeignKey(x => x.UserTypeId);
+            .HasOne<UserDetail>(x => x.UserDetail)
+            .WithOne(x => x.User)
+            .HasForeignKey<UserDetail>(x => x.UserId);
         }
         private void StockRelations(ModelBuilder modelBuilder)
         {
