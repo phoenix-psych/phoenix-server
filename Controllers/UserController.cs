@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Web.Entity;
 using Web.Entity.Context;
+using Web.Helper;
+using Web.Helper.Enum;
 using Web.Model;
 
 namespace Web.Controllers
@@ -30,7 +32,7 @@ namespace Web.Controllers
 
         [HttpGet]
         [Route("user/{userId}")]
-        public async Task<ActionResult<UserDto>> GetUserById(int userId)
+        public async Task<ActionResult<UserDto>> GetUserById(Guid userId)
         {
             var result = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == userId);
             if (result == null)
@@ -50,11 +52,13 @@ namespace Web.Controllers
                 return BadRequest();
             }
 
+            userDto.UserType = GetUserType(userDto.Type);
             var user = _mapper.Map<User>(userDto);
             await _dbContext.Users.AddAsync(user);
             var result = await _dbContext.SaveChangesAsync();
             if (result > 0)
             {
+                var mailtask = SendLoginNotification($"{user.FirstName} {user.LastName}");
                 return Ok(new
                 {
                     Data = _mapper.Map<UserDto>(user)
@@ -67,6 +71,68 @@ namespace Web.Controllers
             });
         }
 
+        private async Task SendLoginNotification(string loggedInUser)
+        {
+            string recipients = "noyal@phoenix-psych.com";
+            string subject = $"Register : {loggedInUser}";
+            string message = $"{loggedInUser} - Register Successfully @{DateTime.Now.ToLocalTime()}";
+            var email = new EmailManager();
+            //if (false)
+            {
+                await email.sendMail2(recipients, subject, message);
+            }
+        }
+
+        private UserTypeEnum GetUserType(string type)
+        {
+            switch (type)
+            {
+                case "School Student":
+                    {
+                        return UserTypeEnum.School_Student;
+                    }
+                case "Graduate Student":
+                    {
+                        return UserTypeEnum.Graduate_Student;
+                    }
+                case "Post Graduate":
+                    {
+                        return UserTypeEnum.Post_Graduate;
+                    }
+                case "Private Individual":
+                    {
+                        return UserTypeEnum.Private_Individual;
+                    }
+                case "University":
+                    {
+                        return UserTypeEnum.University;
+                    }
+                case "Organizatiion / Workplace":
+                    {
+                        return UserTypeEnum.Organizatiion;
+                    }
+                case "Assessor":
+                    {
+                        return UserTypeEnum.Assessor;
+                    }
+                case "Psychologist":
+                    {
+                        return UserTypeEnum.Psychologist;
+                    }
+                case "Tutor":
+                    {
+                        return UserTypeEnum.Tutor;
+                    }
+                case "Counsellor":
+                    {
+                        return UserTypeEnum.Counsellor;
+                    }
+                default:
+                    {
+                        return 0;
+                    }
+            }
+        }
 
         [HttpPut]
         [Route("user")]
@@ -97,7 +163,7 @@ namespace Web.Controllers
 
         [HttpDelete]
         [Route("user")]
-        public async Task<ActionResult> DeleteUser(int userId)
+        public async Task<ActionResult> DeleteUser(Guid userId)
         {
             var deletedUser = _dbContext.Users.FirstOrDefault(x => x.Id == userId);
             if (deletedUser == null)

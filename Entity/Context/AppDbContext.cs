@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Diagnostics;
+using System.Reflection.Metadata;
 
 namespace Web.Entity.Context
 {
@@ -12,8 +13,6 @@ namespace Web.Entity.Context
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<UserDetail> UserDetails { get; set; }
-        public DbSet<QuestionType> QuestionTypes { get; set; }
         public DbSet<Questions> Questions { get; set; }
         public DbSet<Answers> Answers { get; set; }
         public DbSet<Slot> Slots { get; set; }
@@ -21,76 +20,61 @@ namespace Web.Entity.Context
         public DbSet<AssessorPayment> AssessorPayments { get; set; }
         public DbSet<AssessorBooking> AssessorBookings { get; set; }
         public DbSet<Billing> Billings { get; set; }
+        public DbSet<AssessorProfile> AssessorProfiles { get; set; }
+        public DbSet<AssessorAnswer> AssessorAnswers { get; set; }
+        public DbSet<CTOPPMaster> CTOPPMasters { get; set; }
+        public DbSet<CTOPPCompositeMaster> CTOPPCompositeMasters { get; set; }
+        public DbSet<CTOPPDescriptiveTerm> CTOPPDescriptiveTerms { get; set; }
+        public DbSet<TOMALMaster> TOMALMasters { get; set; }
+        public DbSet<TOMALIndex> TOMALIndexs { get; set; }
+        public DbSet<WRITGeneral> WRITGenerals { get; set; }
+        public DbSet<WRITSubtest> WRITSubtests { get; set; }
+        public DbSet<WRITVerbal> WRITVerbals { get; set; }
+        public DbSet<WRITVisual> WRITVisuals { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.HasDefaultSchema("public");
-            //modelBuilder.Entity<User>().ToTable("users");
-
             UserRelations(modelBuilder);
-            StockRelations(modelBuilder);
-            ProductRelations(modelBuilder);
-            OrderRelations(modelBuilder);
-            DineInRelations(modelBuilder);
+            UserAnswers(modelBuilder);
+            AssessorProfileRelation(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }
 
+        private void AssessorProfileRelation(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<AssessorProfile>()
+                .HasOne(e => e.User)
+                .WithOne(e => e.AssessorProfile)
+                .HasForeignKey<AssessorProfile>(e => e.UserId)
+                .IsRequired();
+
+        }
+
         private void UserRelations(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
-            .HasOne<UserDetail>(x => x.UserDetail)
-            .WithOne(x => x.User)
-            .HasForeignKey<UserDetail>(x => x.UserId);
-        }
-        private void StockRelations(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Stock>()
-                .HasMany(x => x.StockDetails)
-                .WithOne(x => x.Stock)
-                .HasForeignKey(x => x.StockId);
-            modelBuilder.Entity<Stock>()
-                .HasMany(x => x.ProductStocks)
-                .WithOne(x => x.Stock)
-                .HasForeignKey(x => x.StockId);
-        }
-        private void ProductRelations(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Product>()
-                .HasMany(x => x.ProductStocks)
-                .WithOne(x => x.Product)
-                .HasForeignKey(x => x.ProductId);
-            modelBuilder.Entity<Product>()
-                .HasMany(x => x.OrderDetails)
-                .WithOne(x => x.Product)
-                .HasForeignKey(x => x.ProductId);
-            modelBuilder.Entity<Product>()
-                .HasMany(x => x.DailyProductDetails)
-                .WithOne(x => x.Product)
-                .HasForeignKey(x => x.ProductId);
+
         }
 
-        private void OrderRelations(ModelBuilder modelBuilder)
+        private void UserAnswers(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Order>()
-                .HasMany(x => x.OrderDetails)
-                .WithOne(x => x.Order)
-                .HasForeignKey(x => x.OrderId);
-            
-        }
+            modelBuilder.Entity<Answers>()
+            .HasOne<Questions>(x => x.Question)
+            .WithMany(x => x.Answers)
+            .HasForeignKey(x => x.QuestionId)
+            .HasPrincipalKey(x => x.Id);
 
-        private void DineInRelations(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<DineInTable>()
-                .HasMany(x => x.Orders)
-                .WithOne(x => x.DineInTable)
-                .HasForeignKey(x => x.DineInTableId);
+            //modelBuilder.Entity<Answers>()
+            //.HasOne<User>(x => x.User)
+            //.WithMany(x => x.Answers)
+            //.HasForeignKey(x => x.IndividualId)
+            //.HasPrincipalKey(x=>x.Id);
         }
-
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            var applicationUserId = 1;
+            var applicationUserId = Guid.Parse("f0f9664e-2069-419b-a8e9-431e3089fbdc");
             var applicationDate = DateTime.Now;
             UpdateBaseEntity(applicationUserId, applicationDate);
             return base.SaveChangesAsync(cancellationToken);
@@ -99,28 +83,29 @@ namespace Web.Entity.Context
 
         public override int SaveChanges()
         {
-            var applicationUserId = 1;
+            var applicationUserId = Guid.Parse("f0f9664e-2069-419b-a8e9-431e3089fbdc");
             var applicationDate = DateTime.Now;
             UpdateBaseEntity(applicationUserId, applicationDate);
             return base.SaveChanges();
         }
 
-        private void UpdateBaseEntity(int applicationUserId, DateTime applicationDate)
+        private void UpdateBaseEntity(Guid applicationUserId, DateTime applicationDate)
         {
             var addedEntities = ChangeTracker.Entries().Where(x => x.State == EntityState.Added).ToList();
             addedEntities.ForEach(x =>
             {
+                x.Property("Id").CurrentValue = Guid.NewGuid();
                 x.Property("CreatedDate").CurrentValue = applicationDate;
-                x.Property("CreatedBy").CurrentValue = applicationUserId;
+                x.Property("CreatedUser").CurrentValue = applicationUserId;
                 x.Property("ModifiedDate").CurrentValue = applicationDate;
-                x.Property("ModifiedBy").CurrentValue = applicationUserId;
+                x.Property("ModifiedUser").CurrentValue = applicationUserId;
             });
 
             var modifiedEntities = ChangeTracker.Entries().Where(x => x.State == EntityState.Modified).ToList();
             modifiedEntities.ForEach(x =>
             {
                 x.Property("ModifiedDate").CurrentValue = applicationDate;
-                x.Property("ModifiedBy").CurrentValue = applicationUserId;
+                x.Property("ModifiedUser").CurrentValue = applicationUserId;
             });
         }
     }

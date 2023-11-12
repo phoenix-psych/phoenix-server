@@ -9,6 +9,10 @@ namespace Web.Mapper
         public MapperProfile()
         {
             CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<Questions, QuestionDto>().ReverseMap();
+            CreateMap<AssessorProfile, AssessorProfileDto>().ReverseMap();
+            CreateMap<AssessorAnswer, AssessorAnswerDto>().ReverseMap();
+            
         }
     }
 }

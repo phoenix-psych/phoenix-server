@@ -1,15 +1,31 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Web.Helper.Enum;
 
 namespace Web.Entity
 {
     public class User : BaseEntity
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public byte Status { get; set; }
+        public string Name { get; set; }
 
-        public virtual UserDetail UserDetail { get; set; }
+        [Required]
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public DateTime Dob { get; set; }
+
+        [Required]
+        public string Username { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+
+        public string Email { get; set; }
+
+        public UserTypeEnum UserType { get; set; }
+
+        public virtual AssessorProfile AssessorProfile { get; set; }
 
     }
 }

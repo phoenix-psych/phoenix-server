@@ -6,6 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Web.Entity.Context;
+using Web.Helper;
 using Web.Model;
 
 namespace Web.Controllers
@@ -17,12 +18,12 @@ namespace Web.Controllers
         private readonly AppDbContext _dbContext;
         private readonly IMapper _mapper;
         private readonly IConfiguration _config;
-        
+
         public LoginController(AppDbContext appDbContext, IMapper mapper, IConfiguration config)
         {
             _dbContext = appDbContext;
             _mapper = mapper;
-            _config= config;
+            _config = config;
         }
 
         [HttpPost]
@@ -44,13 +45,28 @@ namespace Web.Controllers
             }
 
             var token = GenerateToken(user.Username);
+            var mailtask = SendLoginNotification($"{user.FirstName} {user.LastName}");
+            
             return Ok(new
             {
                 StatusCode = 200,
-                //Role = user.Role,
-                Message = "Login Success!",
-                JwtToken = token
+                UserType = (byte)user.UserType,
+                UserId = user.Id,
+                Token = token,
+                Name = $"{user.FirstName} {user.LastName}"
             });
+        }
+
+        private async Task SendLoginNotification(string loggedInUser)
+        {
+            string recipients = "noyal@phoenix-psych.com";
+            string subject = $"Login : {loggedInUser}";
+            string message = $"{loggedInUser} - Login Successfully @{DateTime.Now.ToLocalTime()}";
+            var email = new EmailManager();
+            //if (false)
+            {
+                await email.sendMail2(recipients, subject, message);
+            }
         }
 
         private string GenerateToken(string username)
@@ -58,17 +74,17 @@ namespace Web.Controllers
             var handler = new JwtSecurityTokenHandler();
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var claims = new[] 
+            var claims = new[]
             {
                 new Claim(ClaimTypes.UserData, username),
-                new Claim("Company", "SJ Program")
+                new Claim("Company", "AIMS")
             };
 
             var token = new JwtSecurityToken(
                 issuer: _config["Jwt:Issuer"],
                 audience: _config["Jwt:Audience"],
                 claims,
-                expires:DateTime.Now.AddDays(1),
+                expires: DateTime.Now.AddDays(1),
                 signingCredentials: credentials
                 );
 

@@ -7,8 +7,8 @@ namespace Web.Entity
         [Key]
         public Guid Id { get; set; }
 
-        public long CreatedUser { get; set; }
-        public long ModifiedUser { get; set; }
+        public Guid CreatedUser { get; set; }
+        public Guid ModifiedUser { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
     }

@@ -6,5 +6,6 @@
         Text = 2,
         Option = 3,
         MultiSelect = 4,
+        Document = 5,
     }
 }

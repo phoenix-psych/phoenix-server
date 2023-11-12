@@ -5,12 +5,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Web;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Extensions;
+using System.Diagnostics;
+using System.Reflection.Metadata;
 using System.Text;
 using Web.Entity.Context;
+using Web.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(opt =>
     {
@@ -25,11 +28,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
     });
-    //.AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
 
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(opt =>
@@ -45,25 +46,93 @@ builder.Services.AddDbContext<AppDbContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("DBConnStr"));
 });
 
-//builder.Services.AddDbContext<AppDbContext>(option =>
-//{
-//    option.UseNpgsql(builder.Configuration.GetConnectionString("DBConnStr"));
-//});
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<AppDbContext>();
+    context.Database.Migrate();
+    
+    {
+        context.Database.EnsureCreated();
+
+        // admin user
+        var admin = context.Users.FirstOrDefault(b => b.Username == "admin");
+        if (admin == null)
+        {
+            context.Users.Add(new Web.Entity.User {
+                FirstName = "admin",
+                Username = "admin",
+                Password = "aims@123",
+                UserType = 0,
+
+                Dob = new DateTime(),
+                Email = "",
+                LastName = "",
+                Name = "",
+
+            });
+
+            await context.SaveChangesAsync();
+        }
+
+        SeedEmployeesData(context);
+        await context.SaveChangesAsync();
+    }
 }
+
+app.UseSwagger();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    options.RoutePrefix = string.Empty;
+});
 
 app.UseHttpsRedirection();
 app.UseCors("RPolicy");
+
+// global error handler
+app.UseMiddleware<ErrorHandlerMiddleware>();
+
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
+
+
+static void SeedEmployeesData(AppDbContext context)
+{
+    string folder = Path.Combine(Directory.GetCurrentDirectory(), "Seed");
+    if (!string.IsNullOrWhiteSpace(folder))
+    {
+        string filter = "*.sql";
+        string[] files = Directory.GetFiles(folder, filter);
+        foreach (var file in files)
+        {
+            string command = string.Empty;
+            command = File.ReadAllText(file);
+
+            if (String.IsNullOrWhiteSpace(command))
+                continue;
+
+            using (var transaction = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    context.Database.ExecuteSqlRaw(command);
+                    context.SaveChanges();
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+
+        }
+    }
+}

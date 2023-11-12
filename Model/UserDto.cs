@@ -1,31 +1,27 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Web.Helper.Enum;
 
 namespace Web.Model
 {
     public class UserDto
     {
-        [Key]
-        public long Id { get; set; }
+        public string Name { get; set; }
 
-        [Required]
         public string FirstName { get; set; }
 
-        [Required]
         public string LastName { get; set; }
 
-        [Required]
         public string Username { get; set; }
 
-        [Required]
         public string Password { get; set; }
 
-        [Required]
-        public string Role { get; set; }
+        public DateTime Dob { get; set; }
 
-        [Required]
         public string Email { get; set; }
 
-        [Required]
-        public string PhoneNumber { get; set; }
+        public string Type { get; set; }
+
+        public UserTypeEnum UserType { get; set; }
+
     }
 }

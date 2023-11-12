@@ -1,0 +1,41 @@
+trigger:
+- prod
+
+pr:
+- '*'
+
+pool:
+  vmImage: 'windows-latest'
+
+# variables:
+# - group: YourVariableGroup  # Optional: If you have variable groups defined
+
+stages:
+- stage: Build
+  jobs:
+  - job: BuildJob
+    displayName: 'Build'
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '3.x' 
+
+    - script: dotnet restore
+      displayName: 'Restore NuGet packages'
+
+    - script: dotnet build --configuration $(BuildConfiguration) -p:Configuration=$(BuildConfiguration)
+      displayName: 'Build'
+      env:
+        BuildConfiguration: 'Release'
+
+    - script: dotnet publish --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)
+      displayName: 'Publish'
+      env:
+        BuildConfiguration: 'Release'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      condition: succeededOrFailed()

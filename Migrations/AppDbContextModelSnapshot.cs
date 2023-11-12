@@ -22,345 +22,824 @@ namespace Web.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Web.Entity.DailyProductDetail", b =>
+            modelBuilder.Entity("Web.Entity.Answers", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("uniqueidentifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
-                    b.Property<int>("Balance")
-                        .HasColumnType("int");
+                    b.Property<string>("Answer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("CreatedUser")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("DailyMin")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsMinRequired")
-                        .HasColumnType("bit");
+                    b.Property<Guid>("IndividualId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("ModifiedUser")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Opening")
-                        .HasColumnType("int");
+                    b.Property<Guid>("QuestionId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("ProductId")
-                        .HasColumnType("bigint");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("QuestionId");
 
-                    b.ToTable("DailyProductDetails");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Answers");
                 });
 
-            modelBuilder.Entity("Web.Entity.DineInTable", b =>
+            modelBuilder.Entity("Web.Entity.AssessorAnswer", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("uniqueidentifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+                    b.Property<string>("Answer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("CreatedUser")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("ModifiedUser")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<byte>("SeatCapacity")
-                        .HasColumnType("tinyint");
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
 
-                    b.Property<string>("TableNo")
+                    b.Property<int>("Page")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("QustionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AssessorAnswers");
+                });
+
+            modelBuilder.Entity("Web.Entity.AssessorBooking", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AssessorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("IndividualId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Slot")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("DineInTables");
+                    b.ToTable("AssessorBookings");
                 });
 
-            modelBuilder.Entity("Web.Entity.Order", b =>
+            modelBuilder.Entity("Web.Entity.AssessorPayment", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("uniqueidentifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+                    b.Property<Guid>("AssessorId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("CreatedUser")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("DineInTableId")
-                        .HasColumnType("bigint");
+                    b.Property<DateTime>("From")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("ModifiedUser")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("OrderNo")
-                        .HasColumnType("int");
-
-                    b.Property<byte>("OrderType")
-                        .HasColumnType("tinyint");
-
-                    b.Property<string>("PaymentType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte>("Status")
-                        .HasColumnType("tinyint");
-
-                    b.Property<decimal>("TotalAmount")
+                    b.Property<decimal>("Payment")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime>("To")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("DineInTableId");
-
-                    b.ToTable("Orders");
+                    b.ToTable("AssessorPayments");
                 });
 
-            modelBuilder.Entity("Web.Entity.OrderDetail", b =>
+            modelBuilder.Entity("Web.Entity.AssessorProfile", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
-                    b.Property<int>("Count")
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("CreatedUser")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("ModifiedUser")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("OrderId")
-                        .HasColumnType("bigint");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<long>("ProductId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("OrderDetails");
-                });
-
-            modelBuilder.Entity("Web.Entity.Product", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("CreatedUser")
-                        .HasColumnType("bigint");
-
-                    b.Property<bool>("IsAvailable")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("ModifiedUser")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("CurrentAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhotoUrl")
+                    b.Property<string>("Dob")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<long>("ProductStockId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("Web.Entity.ProductStock", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("CreatedUser")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("ModifiedUser")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("ProductId")
-                        .HasColumnType("bigint");
-
-                    b.Property<decimal>("RequiredQty")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<long>("StockId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("StockId");
-
-                    b.ToTable("ProductStocks");
-                });
-
-            modelBuilder.Entity("Web.Entity.Stock", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("CreatedUser")
-                        .HasColumnType("bigint");
-
-                    b.Property<bool>("IsMinRequired")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("ModifiedUser")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("StockMin")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UOM")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Stocks");
-                });
-
-            modelBuilder.Entity("Web.Entity.StockDetail", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("CreatedUser")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("Current")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("ModifiedUser")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("Needed")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("StockId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StockId");
-
-                    b.ToTable("StockDetails");
-                });
-
-            modelBuilder.Entity("Web.Entity.User", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("CreatedUser")
-                        .HasColumnType("bigint");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("ModifiedUser")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pin")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pronoun")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("AssessorProfiles");
+                });
+
+            modelBuilder.Entity("Web.Entity.AssessorSlot", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AssessorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte>("Availability")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SlotId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AssessorSlots");
+                });
+
+            modelBuilder.Entity("Web.Entity.Billing", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("IndividualContribution")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<Guid>("IndividualId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("UniversityContribution")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Billings");
+                });
+
+            modelBuilder.Entity("Web.Entity.CTOPPCompositeMaster", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("CompositeScore")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PercentileRank")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("SumOf2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SumOf3")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CTOPPCompositeMasters");
+                });
+
+            modelBuilder.Entity("Web.Entity.CTOPPDescriptiveTerm", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("CompositeScoreFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CompositeScoreTo")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("DescriptiveTerm")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("ScaledScoreFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ScaledScoreTo")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CTOPPDescriptiveTerms");
+                });
+
+            modelBuilder.Entity("Web.Entity.CTOPPMaster", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("AgeFromMonth")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AgeFromYear")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AgeToMonth")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AgeToYear")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BlendingNonwordsFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BlendingNonwordsTo")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BlendingWordsFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BlendingWordsTo")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("ElisionFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ElisionTo")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MemoryForDigitsFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MemoryForDigitsTo")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("NonwordRepetitionFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NonwordRepetitionTo")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PercentageRankFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PercentageRankTo")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PhonemeIsolationFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PhonemeIsolationTo")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RapidColorNamingFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RapidColorNamingTo")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RapidDigitNamingFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RapidDigitNamingTo")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RapidLetterNamingFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RapidLetterNamingTo")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RapidObjectNamingFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RapidObjectNamingTo")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ScaledScore")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SegmentingNonwordsFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SegmentingNonwordsTo")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SoundMatchingFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SoundMatchingTo")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CTOPPMasters");
+                });
+
+            modelBuilder.Entity("Web.Entity.Questions", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte>("Group")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Option1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Option2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Option3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Option4")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Option5")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Option6")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Option7")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Question")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("Type")
+                        .HasColumnType("tinyint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("Web.Entity.Slot", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte>("MaxHour")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("MaxMinute")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("MinHour")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("MinMinute")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Slots");
+                });
+
+            modelBuilder.Entity("Web.Entity.TOMALIndex", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("ACI")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ACI_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ARI")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ARI_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CMI")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CMI_TO")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("FRI")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FRI_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Ind")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LI")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LI_TO")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("NMI")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NMI_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Percentile")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Percentile_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SRI")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SRI_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VDRI")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VDRI_1")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VMI")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TOMALIndexs");
+                });
+
+            modelBuilder.Entity("Web.Entity.TOMALMaster", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("AVM_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AVM_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AgeFromMonth")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AgeFromYear")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AgeToMonth")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AgeToYear")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("DB_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DB_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DF_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DF_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FM_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FM_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LB_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LB_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LF_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LF_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MFLTO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MFL_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MFSD_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MFSD_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MFS_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MFS_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MI_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MI_TO")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("OR_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("OR_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PR_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PR_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Scaled_Score")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VSM_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VSM_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VSR_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VSR_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("WSRD")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("WSR_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("WSR_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ile_Rank")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TOMALMasters");
+                });
+
+            modelBuilder.Entity("Web.Entity.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Dob")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -370,19 +849,8 @@ namespace Web.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhotoUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte>("Sex")
+                    b.Property<byte>("UserType")
                         .HasColumnType("tinyint");
-
-                    b.Property<long>("UserTypeId")
-                        .HasColumnType("bigint");
 
                     b.Property<string>("Username")
                         .IsRequired()
@@ -390,154 +858,257 @@ namespace Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserTypeId");
-
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Web.Entity.UserType", b =>
+            modelBuilder.Entity("Web.Entity.WRITGeneral", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("uniqueidentifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+                    b.Property<decimal?>("CONFIDENCE_INETRVAL_90_FROM")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("CONFIDENCE_INETRVAL_90_TO")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("CONFIDENCE_INETRVAL_95_FROM")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("CONFIDENCE_INETRVAL_95_TO")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("CreatedUser")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal?>("IQ_SCORES_FROM")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("IQ_SCORE_TO")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("ModifiedUser")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("PERCENTILES_FROM")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<long>("Value")
-                        .HasColumnType("bigint");
+                    b.Property<decimal?>("PERCENTILES_TO")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("SUM_OF_ALL_SUBTEST_STD_SCORE_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SUM_OF_ALL_SUBTEST_STD_SCORE_TO")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserTypes");
+                    b.ToTable("WRITGenerals");
                 });
 
-            modelBuilder.Entity("Web.Entity.DailyProductDetail", b =>
+            modelBuilder.Entity("Web.Entity.WRITSubtest", b =>
                 {
-                    b.HasOne("Web.Entity.Product", "Product")
-                        .WithMany("DailyProductDetails")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Navigation("Product");
+                    b.Property<int>("AGE_MONTH_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AGE_MONTH_TO")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AGE_YEAR_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AGE_YEAR_TO")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal?>("Diamonds_Standard_scores")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("Matrices_Standard_Scores")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal?>("Raw_Scores")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("Verbal_Analogies_Std_Scores")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("Vocabulary_Standard_Scores")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WRITSubtests");
                 });
 
-            modelBuilder.Entity("Web.Entity.Order", b =>
+            modelBuilder.Entity("Web.Entity.WRITVerbal", b =>
                 {
-                    b.HasOne("Web.Entity.DineInTable", "DineInTable")
-                        .WithMany("Orders")
-                        .HasForeignKey("DineInTableId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Navigation("DineInTable");
+                    b.Property<decimal?>("CONFIDENCE_90_FROM")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("CONFIDENCE_90_TO")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal?>("INTERVALS_95_FROM")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("INTERVALS_95_TO")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("IQ_SCORES_FROM")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("IQ_SCORES_TO")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal?>("PERCENTILES_FROM")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("PERCENTILES_TO")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("SUM_OF_VERBAL_STD_SCORES_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SUM_OF_VERBAL_STD_SCORES_TO")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WRITVerbals");
                 });
 
-            modelBuilder.Entity("Web.Entity.OrderDetail", b =>
+            modelBuilder.Entity("Web.Entity.WRITVisual", b =>
                 {
-                    b.HasOne("Web.Entity.Order", "Order")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.HasOne("Web.Entity.Product", "Product")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<decimal?>("CONFIDENCE_INTERVALS90_FROM")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Navigation("Order");
+                    b.Property<decimal?>("CONFIDENCE_INTERVALS90_TO")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Navigation("Product");
+                    b.Property<decimal?>("CONFIDENCE_INTERVAL_95_FROM")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("CONFIDENCE_INTERVAL_95_TO")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal?>("IQ_SCORES_FREOM")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("IQ_SCORES_TO")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal?>("PERCENTILES_FROM")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("PERCENTILES_TO")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("SUM_OF_VISUAL_STD_SCORES_FROM")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SUM_OF_VISUAL_STD_SCORES_TO")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WRITVisuals");
                 });
 
-            modelBuilder.Entity("Web.Entity.ProductStock", b =>
+            modelBuilder.Entity("Web.Entity.Answers", b =>
                 {
-                    b.HasOne("Web.Entity.Product", "Product")
-                        .WithMany("ProductStocks")
-                        .HasForeignKey("ProductId")
+                    b.HasOne("Web.Entity.Questions", "Question")
+                        .WithMany("Answers")
+                        .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Web.Entity.Stock", "Stock")
-                        .WithMany("ProductStocks")
-                        .HasForeignKey("StockId")
+                    b.HasOne("Web.Entity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Product");
+                    b.Navigation("Question");
 
-                    b.Navigation("Stock");
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Web.Entity.StockDetail", b =>
+            modelBuilder.Entity("Web.Entity.AssessorProfile", b =>
                 {
-                    b.HasOne("Web.Entity.Stock", "Stock")
-                        .WithMany("StockDetails")
-                        .HasForeignKey("StockId")
+                    b.HasOne("Web.Entity.User", "User")
+                        .WithOne("AssessorProfile")
+                        .HasForeignKey("Web.Entity.AssessorProfile", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Stock");
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Web.Entity.Questions", b =>
+                {
+                    b.Navigation("Answers");
                 });
 
             modelBuilder.Entity("Web.Entity.User", b =>
                 {
-                    b.HasOne("Web.Entity.UserType", "UserType")
-                        .WithMany("Users")
-                        .HasForeignKey("UserTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.Navigation("AssessorProfile")
                         .IsRequired();
-
-                    b.Navigation("UserType");
-                });
-
-            modelBuilder.Entity("Web.Entity.DineInTable", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("Web.Entity.Order", b =>
-                {
-                    b.Navigation("OrderDetails");
-                });
-
-            modelBuilder.Entity("Web.Entity.Product", b =>
-                {
-                    b.Navigation("DailyProductDetails");
-
-                    b.Navigation("OrderDetails");
-
-                    b.Navigation("ProductStocks");
-                });
-
-            modelBuilder.Entity("Web.Entity.Stock", b =>
-                {
-                    b.Navigation("ProductStocks");
-
-                    b.Navigation("StockDetails");
-                });
-
-            modelBuilder.Entity("Web.Entity.UserType", b =>
-                {
-                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }
