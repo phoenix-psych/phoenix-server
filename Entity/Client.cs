@@ -6,12 +6,11 @@ namespace AIMSService.Entity
 {
     public class Client : BaseEntity
     {
-        [Required]
         public string Name { get; set; }
-
-        [Required]
         public DateTime Dob { get; set; }
-        public ClientStatusEnum Status { get; set; }
+        public ClientStatusEnum? Status { get; set; }
+        public string? Email { get; set; }
+        public string? Phone { get; set; }
 
     }
 }

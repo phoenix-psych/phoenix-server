@@ -47,14 +47,22 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("client")]
-        public async Task<ActionResult> AddClient([FromBody] ClientDto ClientDto)
+        public async Task<ActionResult> AddClient([FromBody] ClientDto clientDto)
         {
-            if (ClientDto == null)
+            if (clientDto == null)
             {
                 return BadRequest();
             }
 
-            var client = _mapper.Map<Client>(ClientDto);
+            var client = new Client()
+            {
+                Name = clientDto.Name,
+                Dob = clientDto.Dob.Value,
+                Email = clientDto.Email,
+                Phone = clientDto.Phone,
+                Status = ClientStatusEnum.In_Progress
+            };
+
             await _dbContext.Clients.AddAsync(client);
             var result = await _dbContext.SaveChangesAsync();
             return Ok(new
