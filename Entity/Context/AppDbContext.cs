@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AIMSService.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Diagnostics;
 using System.Reflection.Metadata;
@@ -31,6 +32,7 @@ namespace Web.Entity.Context
         public DbSet<WRITSubtest> WRITSubtests { get; set; }
         public DbSet<WRITVerbal> WRITVerbals { get; set; }
         public DbSet<WRITVisual> WRITVisuals { get; set; }
+        public DbSet<Client> Clients { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
