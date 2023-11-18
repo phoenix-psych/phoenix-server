@@ -1,4 +1,5 @@
 ﻿using AIMSService.Entity;
+using AIMSService.Helper.Enum;
 using AIMSService.Model;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -29,7 +30,20 @@ namespace Web.Controllers
         public async Task<ActionResult<List<ClientDto>>> GetClient()
         {
             var results = await _dbContext.Clients.ToListAsync();
-            return Ok(_mapper.Map<List<ClientDto>>(results));
+            var data = results.Select(x => new ClientDto
+            {
+                Id = x.Id.ToString(),
+                Dob = x.Dob,
+                Name = x.Name,
+                Email = x.Email,
+                Phone = x.Phone,
+                Service = x.Service,
+                ServiceName = x.Service != null ? ((AssessorServiceEnum)x.Service).ToString().Replace('_', ' ') : string.Empty,
+                Status = x.Status != null ? x.Status?.ToString().Replace('_', ' ') : string.Empty,
+
+            });
+
+            return Ok(data);
         }
 
         [HttpGet]
@@ -60,6 +74,7 @@ namespace Web.Controllers
                 Dob = clientDto.Dob.Value,
                 Email = clientDto.Email,
                 Phone = clientDto.Phone,
+                Service = clientDto.Service,
                 Status = ClientStatusEnum.In_Progress
             };
 

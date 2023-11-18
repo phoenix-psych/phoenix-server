@@ -1,4 +1,5 @@
 ﻿using AIMSService.Entity;
+using AIMSService.Helper.Enum;
 using AIMSService.Model;
 using AutoMapper;
 using Web.Entity;
@@ -15,12 +16,8 @@ namespace Web.Mapper
             CreateMap<Questions, QuestionDto>().ReverseMap();
             CreateMap<AssessorProfile, AssessorProfileDto>().ReverseMap();
             CreateMap<AssessorAnswer, AssessorAnswerDto>().ReverseMap();
-            CreateMap<Client, ClientDto>()
-                .ForMember(x=>x.Status, y=> y.MapFrom(s=>s.Status.ToString()))
-                .ForMember(x=>x.Id, y => y.MapFrom(s=>s.Id.ToString()));
-            CreateMap<ClientDto, Client>()
-                .ForMember(x=>x.Status, y=> y.MapFrom(s=> s.Status))
-                ;
+            CreateMap<Client, ClientDto>().ReverseMap();
+            ;
 
         }
     }

@@ -11,6 +11,8 @@ namespace AIMSService.Entity
         public ClientStatusEnum? Status { get; set; }
         public string? Email { get; set; }
         public string? Phone { get; set; }
+        public int? Service { get; set; }
+
 
     }
 }

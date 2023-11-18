@@ -10,5 +10,7 @@ namespace AIMSService.Model
         public string? Status { get; set; }
         public string? Email { get; set; }
         public string? Phone { get; set; }
+        public int? Service { get; set; }
+        public string? ServiceName { get; set; }
     }
 }
