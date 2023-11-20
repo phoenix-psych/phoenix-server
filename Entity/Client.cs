@@ -14,5 +14,8 @@ namespace AIMSService.Entity
         public int? Service { get; set; }
 
 
+        //public Guid? UserId { get; set; }
+        //public Guid? ReportingTo { get; set; }
+
     }
 }
