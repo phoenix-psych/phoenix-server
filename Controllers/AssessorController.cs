@@ -16,6 +16,7 @@ using System.Dynamic;
 using System.Reflection;
 using Microsoft.Data.SqlClient.Server;
 using System;
+using AIMSService.Entity;
 
 namespace Web.Controllers
 {
@@ -655,6 +656,78 @@ namespace Web.Controllers
                 }
             }
            
+            return Ok(result);
+        }
+
+
+        [HttpGet]
+        [Route("assessor/art")]
+        public async Task<ActionResult<WRITSubtestDto>> GetArtScore([FromQuery] string type, [FromQuery] int score)
+        {
+            var result = new ARTDto();
+            ARTMaster data;
+
+            if (type == "acc")
+            {
+                data = _dbContext.ARTMasters.FirstOrDefault(x => x.Aloud_reading_accuracy == score);
+                if (data != null) 
+                {
+                    result.StandardScore = Convert.ToInt32(data.Standard_score_equivalent);
+                    result.Centile = Convert.ToInt32(data.Centile);
+
+                }
+            }
+            if (type == "compA")
+            {
+                data = _dbContext.ARTMasters.FirstOrDefault(x => x.Aloud_reading_comprehension == score);
+                if (data != null)
+                {
+                    result.StandardScore = Convert.ToInt32(data.Standard_score_equivalent);
+                    result.Centile = Convert.ToInt32(data.Centile);
+
+                }
+            }
+            if (type == "spdA")
+            {
+                data = _dbContext.ARTMasters.FirstOrDefault(x => x.Aloud_reading_rate == score);
+                if (data != null)
+                {
+                    result.StandardScore = Convert.ToInt32(data.Standard_score_equivalent);
+                    result.Centile = Convert.ToInt32(data.Centile);
+
+                }
+            }
+            if (type == "compS")
+            {
+                data = _dbContext.ARTMasters.FirstOrDefault(x => x.Silent_reading_comprehension == score);
+                if (data != null)
+                {
+                    result.StandardScore = Convert.ToInt32(data.Standard_score_equivalent);
+                    result.Centile = Convert.ToInt32(data.Centile);
+
+                }
+            }
+            if (type == "spdS")
+            {
+                data = _dbContext.ARTMasters.FirstOrDefault(x => x.Silent_reading_rate == score);
+                if (data != null)
+                {
+                    result.StandardScore = Convert.ToInt32(data.Standard_score_equivalent);
+                    result.Centile = Convert.ToInt32(data.Centile);
+
+                }
+            }
+            if (type == "wSpd")
+            {
+                data = _dbContext.ARTMasters.FirstOrDefault(x => x.Writing_speed == score);
+                if (data != null)
+                {
+                    result.StandardScore = Convert.ToInt32(data.Standard_score_equivalent);
+                    result.Centile = Convert.ToInt32(data.Centile);
+
+                }
+            }
+
             return Ok(result);
         }
 

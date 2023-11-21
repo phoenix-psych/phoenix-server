@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Seed\ART_Seed.sql" />
     <None Remove="Seed\CTOPP_Comp_Seed.sql" />
     <None Remove="Seed\CTOPP_Desc_Term.sql" />
     <None Remove="Seed\CTOPP_Seed.sql" />
@@ -20,6 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Seed\ART_Seed.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Seed\WRIT_Seed.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

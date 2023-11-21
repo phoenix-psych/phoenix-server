@@ -33,6 +33,7 @@ namespace Web.Entity.Context
         public DbSet<WRITVerbal> WRITVerbals { get; set; }
         public DbSet<WRITVisual> WRITVisuals { get; set; }
         public DbSet<Client> Clients { get; set; }
+        public DbSet<ARTMaster> ARTMasters { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
