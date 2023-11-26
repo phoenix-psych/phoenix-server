@@ -34,6 +34,10 @@ namespace Web.Entity.Context
         public DbSet<WRITVisual> WRITVisuals { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<ARTMaster> ARTMasters { get; set; }
+        public DbSet<WRAT_Blue> WRAT_Blues { get; set; }
+        public DbSet<WRAT_Green> WRAT_Greens { get; set; }
+        public DbSet<WRAT_CI_Blue> WRAT_CI_Blues { get; set; }
+        public DbSet<WRAT_CI_Green> WRAT_CI_Greens { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

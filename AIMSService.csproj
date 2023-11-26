@@ -14,6 +14,16 @@
     <None Remove="Seed\CTOPP_Seed.sql" />
     <None Remove="Seed\TOMAL_Index_Seed.sql" />
     <None Remove="Seed\TOMAL_Seed.sql" />
+    <None Remove="Seed\TOWRE_GRADE_EQUI_Seed.sql" />
+    <None Remove="Seed\TOWRE_PDE_Seed.sql" />
+    <None Remove="Seed\TOWRE_RANK_Seed.sql" />
+    <None Remove="Seed\TOWRE_READING_INDEX_Seed.sql" />
+    <None Remove="Seed\TOWRE_SAGE_EQUI_Seed.sql" />
+    <None Remove="Seed\TOWRE_SWE_Seed.sql" />
+    <None Remove="Seed\WRAT_Blue_CI_Seed.sql" />
+    <None Remove="Seed\WRAT_Blue_Seed.sql" />
+    <None Remove="Seed\WRAT_Green_CI_Seed.sql" />
+    <None Remove="Seed\WRAT_Green_Seed.sql" />
     <None Remove="Seed\WRIT_General.sql" />
     <None Remove="Seed\WRIT_Seed.sql" />
     <None Remove="Seed\WRIT_Verbal.sql" />
@@ -22,6 +32,18 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Seed\ART_Seed.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\WRAT_Green_CI_Seed.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\WRAT_Green_Seed.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\WRAT_Blue_Seed.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\WRAT_Blue_CI_Seed.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Seed\WRIT_Seed.sql">
@@ -73,6 +95,15 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Service\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Seed\TOWRE_GRADE_EQUI_Seed.sql" />
+    <Page Include="Seed\TOWRE_PDE_Seed.sql" />
+    <Page Include="Seed\TOWRE_RANK_Seed.sql" />
+    <Page Include="Seed\TOWRE_READING_INDEX_Seed.sql" />
+    <Page Include="Seed\TOWRE_SAGE_EQUI_Seed.sql" />
+    <Page Include="Seed\TOWRE_SWE_Seed.sql" />
   </ItemGroup>
 
   <ItemGroup>
