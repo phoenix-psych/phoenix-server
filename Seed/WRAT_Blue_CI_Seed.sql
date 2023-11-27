@@ -5,7 +5,7 @@ IF NOT EXISTS (SELECT 1 FROM WRAT_CI_Blues)
 BEGIN 
 
 	INSERT INTO WRAT_CI_Blues
-		(AgeFromYear,AgeToYear,AgeFromMonth,AgeToMonth,CI,Word_Reading,Spelling,Math_Computation,Sentence_Comprehension,Reading_Composite,
+		(AgeFromYear,AgeFromMonth,AgeToYear,AgeToMonth,CI,Word_Reading,Spelling,Math_Computation,Sentence_Comprehension,Reading_Composite,
 			ID,CreatedUser,ModifiedUser,CreatedDate,ModifiedDate)  
 	VALUES 
 		(5,0,5,2,0.9,6,8,10,NULL,NULL,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
@@ -142,7 +142,7 @@ BEGIN
 		(25,0,34,11,0.95,8,7,7,9,7,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(35,0,44,11,0.9,7,6,6,7,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(35,0,44,11,0.95,8,7,7,9,7,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
-		(35,0,44,11,0.9,7,6,6,NULL,NULL,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
+		(35,0,44,11,0.9,7,6,6,NULL,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(35,0,44,11,0.95,8,7,7,9,7,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(45,0,54,11,0.9,6,5,7,8,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(45,0,54,11,0.95,7,6,8,10,7,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
@@ -155,7 +155,7 @@ BEGIN
 		(65,0,74,11,0.9,6,6,7,6,5,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(65,0,74,11,0.95,7,7,8,7,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(65,0,74,11,0.9,6,6,2,6,5,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
-		(65,0,74,11,0.95,7,7,S,7,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
+		(65,0,74,11,0.95,7,7,5,7,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(75,0,85,0,0.9,6,6,7,6,5,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(75,0,85,0,0.95,7,7,8,7,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(75,0,85,0,0.9,6,6,7,6,5,NEWID(),@ID,@ID,GETDATE(),GETDATE()),

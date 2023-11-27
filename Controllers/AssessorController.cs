@@ -17,6 +17,7 @@ using System.Reflection;
 using Microsoft.Data.SqlClient.Server;
 using System;
 using AIMSService.Entity;
+using AIMSService.Model;
 
 namespace Web.Controllers
 {
@@ -662,7 +663,7 @@ namespace Web.Controllers
 
         [HttpGet]
         [Route("assessor/art")]
-        public async Task<ActionResult<WRITSubtestDto>> GetArtScore([FromQuery] string type, [FromQuery] int score)
+        public async Task<ActionResult<ARTDto>> GetWratScore([FromQuery] string type, [FromQuery] int score)
         {
             var result = new ARTDto();
             ARTMaster data;
@@ -731,6 +732,208 @@ namespace Web.Controllers
             return Ok(result);
         }
 
+
+
+
+        [HttpGet]
+        [Route("assessor/wrat")]
+        public async Task<ActionResult<WRATScoreDto>> GetArtScore([FromQuery] string color, [FromQuery] string type, [FromQuery] int score, [FromQuery] int year, [FromQuery] int month, [FromQuery] decimal ciType)
+        {
+            var result = new WRATScoreDto();
+
+            if (color == "blue")
+            {
+                WRAT_Blue? data;
+
+                if (type == "wr")
+                {
+                    data = _dbContext.WRAT_Blues.FirstOrDefault(x => (year >= x.year_from && year <= x.year_to)
+                                                           && (month >= x.month_from && month <= x.month_to)
+                                                           && (score >= x.Word_Reading_FROM && score <= x.Word_Reading_TO));
+                    if (data != null)
+                    {
+                        result.StandardScore = Convert.ToInt32(data.Standard_score);
+                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                                                           && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
+                                                           ciType == Convert.ToDecimal(x.CI));
+                        if (ci != null)
+                        {
+                            result.ConfidenceInterval = $"{result.StandardScore - ci.Word_Reading} - {result.StandardScore + ci.Word_Reading}";
+                        }
+
+                    }
+                }
+                else if (type == "sp")
+                {
+                    data = _dbContext.WRAT_Blues.FirstOrDefault(x => (year >= x.year_from && year <= x.year_to)
+                                                           && (month >= x.month_from && month <= x.month_to)
+                                                           && (score >= x.Spelling_FROM && score <= x.SpellingTO));
+                    if (data != null)
+                    {
+                        result.StandardScore = Convert.ToInt32(data.Standard_score);
+                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                                                           && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
+                                                           ciType == Convert.ToDecimal(x.CI));
+                        if (ci != null)
+                        {
+                            result.ConfidenceInterval = $"{result.StandardScore - ci.Spelling} - {result.StandardScore + ci.Spelling}";
+                        }
+
+                    }
+                }
+                else if (type == "mc")
+                {
+                    data = _dbContext.WRAT_Blues.FirstOrDefault(x => (year >= x.year_from && year <= x.year_to)
+                                                           && (month >= x.month_from && month <= x.month_to)
+                                                           && (score >= x.Math_Computation_FROM && score <= x.Math_Computation_TO));
+                    if (data != null)
+                    {
+                        result.StandardScore = Convert.ToInt32(data.Standard_score);
+                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                                                           && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
+                                                           ciType == Convert.ToDecimal(x.CI));
+                        if (ci != null)
+                        {
+                            result.ConfidenceInterval = $"{result.StandardScore - ci.Math_Computation} - {result.StandardScore + ci.Math_Computation}";
+                        }
+
+                    }
+                }
+                else if (type == "sc")
+                {
+                    data = _dbContext.WRAT_Blues.FirstOrDefault(x => (year >= x.year_from && year <= x.year_to)
+                                                           && (month >= x.month_from && month <= x.month_to)
+                                                           && (score >= x.Sentence_Comprehension_FROM && score <= x.Sentence_ComprehensionTO));
+                    if (data != null)
+                    {
+                        result.StandardScore = Convert.ToInt32(data.Standard_score);
+                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                                                           && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
+                                                           ciType == Convert.ToDecimal(x.CI));
+                        if (ci != null)
+                        {
+                            result.ConfidenceInterval = $"{result.StandardScore - ci.Sentence_Comprehension} - {result.StandardScore + ci.Sentence_Comprehension}";
+                        }
+
+                    }
+                }
+                else if (type == "rc")
+                {
+                    data = _dbContext.WRAT_Blues.FirstOrDefault(x => (year >= x.year_from && year <= x.year_to)
+                                                           && (month >= x.month_from && month <= x.month_to)
+                                                           && (score >= x.Reading_Composite_FROM && score <= x.Reading_Composite_TO));
+                    if (data != null)
+                    {
+                        result.StandardScore = Convert.ToInt32(data.Standard_score);
+                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                                                           && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
+                                                           ciType == Convert.ToDecimal(x.CI));
+                        if (ci != null)
+                        {
+                            result.ConfidenceInterval = $"{result.StandardScore - ci.Reading_Composite} - {result.StandardScore + ci.Reading_Composite}";
+                        }
+
+                    }
+                }
+            }
+            else
+            {
+                WRAT_Green? data;
+                if (type == "wr")
+                {
+                    data = _dbContext.WRAT_Greens.FirstOrDefault(x => (year >= x.year_from && year <= x.year_to)
+                                                           && (month >= x.month_from && month <= x.month_to)
+                                                           && (score >= x.Word_Reading_FROM && score <= x.Word_Reading_TO));
+                    if (data != null)
+                    {
+                        result.StandardScore = Convert.ToInt32(data.Standard_score);
+                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                                                           && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
+                                                           ciType == Convert.ToDecimal(x.CI));
+                        if (ci != null)
+                        {
+                            result.ConfidenceInterval = $"{result.StandardScore - ci.Word_Reading} - {result.StandardScore + ci.Word_Reading}";
+                        }
+
+                    }
+                }
+                else if (type == "sp")
+                {
+                    data = _dbContext.WRAT_Greens.FirstOrDefault(x => (year >= x.year_from && year <= x.year_to)
+                                                           && (month >= x.month_from && month <= x.month_to)
+                                                           && (score >= x.Spelling_FROM && score <= x.Spelling_TO));
+                    if (data != null)
+                    {
+                        result.StandardScore = Convert.ToInt32(data.Standard_score);
+                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                                                           && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
+                                                           ciType == Convert.ToDecimal(x.CI));
+                        if (ci != null)
+                        {
+                            result.ConfidenceInterval = $"{result.StandardScore - ci.Spelling} - {result.StandardScore + ci.Spelling}";
+                        }
+
+                    }
+                }
+                else if (type == "mc")
+                {
+                    data = _dbContext.WRAT_Greens.FirstOrDefault(x => (year >= x.year_from && year <= x.year_to)
+                                                           && (month >= x.month_from && month <= x.month_to)
+                                                           && (score >= x.Math_Computation_FROM && score <= x.Math_Computation_TO));
+                    if (data != null)
+                    {
+                        result.StandardScore = Convert.ToInt32(data.Standard_score);
+                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                                                           && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
+                                                           ciType == Convert.ToDecimal(x.CI));
+                        if (ci != null)
+                        {
+                            result.ConfidenceInterval = $"{result.StandardScore - ci.Math_Computation} - {result.StandardScore + ci.Math_Computation}";
+                        }
+
+                    }
+                }
+                else if (type == "sc")
+                {
+                    data = _dbContext.WRAT_Greens.FirstOrDefault(x => (year >= x.year_from && year <= x.year_to)
+                                                           && (month >= x.month_from && month <= x.month_to)
+                                                           && (score >= x.Sentence_Comprehension_FROM && score <= x.Sentence_Comprehension_TO));
+                    if (data != null)
+                    {
+                        result.StandardScore = Convert.ToInt32(data.Standard_score);
+                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                                                           && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
+                                                           ciType == Convert.ToDecimal(x.CI));
+                        if (ci != null)
+                        {
+                            result.ConfidenceInterval = $"{result.StandardScore - ci.Sentence_Comprehension} - {result.StandardScore + ci.Sentence_Comprehension}";
+                        }
+
+                    }
+                }
+                else if (type == "rc")
+                {
+                    data = _dbContext.WRAT_Greens.FirstOrDefault(x => (year >= x.year_from && year <= x.year_to)
+                                                           && (month >= x.month_from && month <= x.month_to)
+                                                           && (score >= x.Reading_Composite_FROM && score <= x.Reading_Composite_TO));
+                    if (data != null)
+                    {
+                        result.StandardScore = Convert.ToInt32(data.Standard_score);
+                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                                                           && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
+                                                           ciType == Convert.ToDecimal(x.CI));
+                        if (ci != null)
+                        {
+                            result.ConfidenceInterval = $"{result.StandardScore - ci.Reading_Composite} - {result.StandardScore + ci.Reading_Composite}";
+                        }
+
+                    }
+                }
+            }
+
+
+            return Ok(result);
+        }
 
 
 

@@ -5,7 +5,7 @@ IF NOT EXISTS (SELECT 1 FROM WRAT_CI_Greens)
 BEGIN 
 
 	INSERT INTO WRAT_CI_Greens
-		(AgeFromYear,AgeToYear,AgeFromMonth,AgeToMonth,CI,Word_Reading,Spelling,Math_Computation,Sentence_Comprehension,Reading_Composite,
+		(AgeFromYear,AgeFromMonth,AgeToYear,AgeToMonth,CI,Word_Reading,Spelling,Math_Computation,Sentence_Comprehension,Reading_Composite,
 			ID,CreatedUser,ModifiedUser,CreatedDate,ModifiedDate)  
 	VALUES 
 		(5,0,5,2,0.9,6,8,10,NULL,NULL,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
@@ -53,7 +53,7 @@ BEGIN
 		(8,0,8,3,0.9,5,7,10,6,4,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(8,0,8,3,0.95,6,8,11,7,5,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(8,4,8,7,0.9,5,7,10,6,4,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
-		(8,4,8,7,0.95,e,8,11,7,5,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
+		(8,4,8,7,0.95,6,8,11,7,5,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(8,4,8,7,0.9,5,7,10,6,4,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(8,4,8,7,0.95,6,8,11,7,5,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(8,8,8,11,0.9,5,7,10,6,4,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
@@ -79,7 +79,7 @@ BEGIN
 		(10,4,10,7,0.9,7,7,6,7,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(10,4,10,7,0.95,8,8,7,8,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(10,4,10,7,0.9,7,7,6,7,5,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
-		(10,4,10,7,0.95,8,8,7,S,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
+		(10,4,10,7,0.95,8,8,7,5,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(10,8,10,11,0.9,7,7,6,7,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(10,8,10,11,0.95,8,8,7,8,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(10,8,10,11,0.9,7,7,6,7,5,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
@@ -130,7 +130,7 @@ BEGIN
 		(17,0,17,11,0.95,7,8,9,10,7,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(18,0,19,11,0.9,6,7,7,8,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(18,0,19,11,0.95,7,8,8,10,7,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
-		(18,0,19,11,0.9,6,7,7,a,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
+		(18,0,19,11,0.9,6,7,7,10,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(18,0,19,11,0.95,7,8,8,10,7,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(20,0,24,11,0.9,7,7,9,10,7,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 		(20,0,24,11,0.95,8,8,11,11,6,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
