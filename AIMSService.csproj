@@ -14,11 +14,11 @@
     <None Remove="Seed\CTOPP_Seed.sql" />
     <None Remove="Seed\TOMAL_Index_Seed.sql" />
     <None Remove="Seed\TOMAL_Seed.sql" />
+    <None Remove="Seed\TOWRE_AGE_EQUI_Seed.sql" />
     <None Remove="Seed\TOWRE_GRADE_EQUI_Seed.sql" />
     <None Remove="Seed\TOWRE_PDE_Seed.sql" />
     <None Remove="Seed\TOWRE_RANK_Seed.sql" />
     <None Remove="Seed\TOWRE_READING_INDEX_Seed.sql" />
-    <None Remove="Seed\TOWRE_SAGE_EQUI_Seed.sql" />
     <None Remove="Seed\TOWRE_SWE_Seed.sql" />
     <None Remove="Seed\WRAT_Blue_CI_Seed.sql" />
     <None Remove="Seed\WRAT_Blue_Seed.sql" />
@@ -73,6 +73,24 @@
     <EmbeddedResource Include="Seed\WRIT_Visual.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+	<EmbeddedResource Include="Seed\TOWRE_AGE_EQUI_Seed.sql">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</EmbeddedResource>
+	<EmbeddedResource Include="Seed\TOWRE_GRADE_EQUI_Seed.sql">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</EmbeddedResource>
+	<EmbeddedResource Include="Seed\TOWRE_PDE_Seed.sql">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</EmbeddedResource>
+	<EmbeddedResource Include="Seed\TOWRE_RANK_Seed.sql">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</EmbeddedResource>
+	<EmbeddedResource Include="Seed\TOWRE_READING_INDEX_Seed.sql">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</EmbeddedResource>
+	<EmbeddedResource Include="Seed\TOWRE_SWE_Seed.sql">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -102,8 +120,29 @@
     <Page Include="Seed\TOWRE_PDE_Seed.sql" />
     <Page Include="Seed\TOWRE_RANK_Seed.sql" />
     <Page Include="Seed\TOWRE_READING_INDEX_Seed.sql" />
-    <Page Include="Seed\TOWRE_SAGE_EQUI_Seed.sql" />
+    <Page Include="Seed\TOWRE_AGE_EQUI_Seed.sql" />
     <Page Include="Seed\TOWRE_SWE_Seed.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Entity\TowreAgeEqui.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="Entity\TowreGradeEqui.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="Entity\TowrePde.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="Entity\TowreRank.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="Entity\TowreSwe.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="Entity\TowreWR.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web.Entity.Context;
 
@@ -11,9 +12,10 @@ using Web.Entity.Context;
 namespace Web.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231203103350_Towre")]
+    partial class Towre
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -147,7 +149,7 @@ namespace Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TowreAgeEquis");
+                    b.ToTable("TowreAgeEqui");
                 });
 
             modelBuilder.Entity("AIMSService.Entity.TowreGradeEqui", b =>
@@ -161,9 +163,6 @@ namespace Web.Migrations
 
                     b.Property<Guid>("CreatedUser")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal?>("Grade_equivalent")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");

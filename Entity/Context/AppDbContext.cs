@@ -38,7 +38,12 @@ namespace Web.Entity.Context
         public DbSet<WRAT_Green> WRAT_Greens { get; set; }
         public DbSet<WRAT_CI_Blue> WRAT_CI_Blues { get; set; }
         public DbSet<WRAT_CI_Green> WRAT_CI_Greens { get; set; }
-
+        public DbSet<TowreAgeEqui> TowreAgeEquis { get; set; }
+        public DbSet<TowreGradeEqui> TowreGradeEquis { get; set; }
+        public DbSet<TowrePde> TowrePdes { get; set; }
+        public DbSet<TowreRank> TowreRanks { get; set; }
+        public DbSet<TowreSwe> TowreSwes { get; set; }
+        public DbSet<TowreWR> TowreWRs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
