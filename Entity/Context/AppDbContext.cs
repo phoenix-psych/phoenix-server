@@ -45,6 +45,21 @@ namespace Web.Entity.Context
         public DbSet<TowreSwe> TowreSwes { get; set; }
         public DbSet<TowreWR> TowreWRs { get; set; }
 
+        public DbSet<GoartFormAAccuracy> GoartFormAAccuracys { get; set; }
+        public DbSet<GoartFormAAgeEqui> GoartFormAAgeEquis { get; set; }
+        public DbSet<GoartFormAComprehension> GoartFormAComprehensions { get; set; }
+        public DbSet<GoartFormAFluency> GoartFormAFluencys { get; set; }
+        public DbSet<GoartFormAGradeEqui> GoartFormAGradeEquis { get; set; }
+        public DbSet<GoartFormARate> GoartFormARates { get; set; }
+        public DbSet<GoartFormBAccuracy> GoartFormBAccuracys { get; set; }
+        public DbSet<GoartFormBAgeEqui> GoartFormBAgeEquis { get; set; }
+        public DbSet<GoartFormBComprehension> GoartFormBComprehensions { get; set; }
+        public DbSet<GoartFormBFluency> GoartFormBFluencys { get; set; }
+        public DbSet<GoartFormBGradeEqui> GoartFormBGradeEquis { get; set; }
+        public DbSet<GoartFormBRate> GoartFormBRates { get; set; }
+        public DbSet<GoartRank> GoartRanks { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             UserRelations(modelBuilder);

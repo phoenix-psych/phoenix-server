@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web.Entity.Context;
 
@@ -11,9 +12,10 @@ using Web.Entity.Context;
 namespace Web.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231210161934_goart t5")]
+    partial class goartt5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -170,8 +172,8 @@ namespace Web.Migrations
                     b.Property<int?>("Accuracy_TO")
                         .HasColumnType("int");
 
-                    b.Property<decimal?>("Age_equiv")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int?>("Age_equiv")
+                        .HasColumnType("int");
 
                     b.Property<int?>("Comprehension_FROM")
                         .HasColumnType("int");
@@ -186,9 +188,6 @@ namespace Web.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("Fluency_FROM")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Fluency_TO")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ModifiedDate")

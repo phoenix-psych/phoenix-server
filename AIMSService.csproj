@@ -12,6 +12,19 @@
     <None Remove="Seed\CTOPP_Comp_Seed.sql" />
     <None Remove="Seed\CTOPP_Desc_Term.sql" />
     <None Remove="Seed\CTOPP_Seed.sql" />
+    <None Remove="Seed\GOART_FORMA_ACCURACY.sql" />
+    <None Remove="Seed\GOART_FORMA_AGE_EQUI.sql" />
+    <None Remove="Seed\GOART_FORMA_COMPREHENSION.sql" />
+    <None Remove="Seed\GOART_FORMA_FLUENCY.sql" />
+    <None Remove="Seed\GOART_FORMA_GRADE_EQUI.sql" />
+    <None Remove="Seed\GOART_FORMA_RATE.sql" />
+    <None Remove="Seed\GOART_FORMB_ACCURACY.sql" />
+    <None Remove="Seed\GOART_FORMB_AGE_EQUI.sql" />
+    <None Remove="Seed\GOART_FORMB_COMPREHENSION.sql" />
+    <None Remove="Seed\GOART_FORMB_FLUENCY.sql" />
+    <None Remove="Seed\GOART_FORMB_GRADE_EQUI.sql" />
+    <None Remove="Seed\GOART_FORMB_RATE.sql" />
+    <None Remove="Seed\GOART_RANK.sql" />
     <None Remove="Seed\TOMAL_Index_Seed.sql" />
     <None Remove="Seed\TOMAL_Seed.sql" />
     <None Remove="Seed\TOWRE_AGE_EQUI_Seed.sql" />
@@ -32,6 +45,45 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Seed\ART_Seed.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\GOART_FORMA_ACCURACY.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\GOART_FORMA_AGE_EQUI.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\GOART_FORMA_COMPREHENSION.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\GOART_FORMA_FLUENCY.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\GOART_FORMA_GRADE_EQUI.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\GOART_FORMA_RATE.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\GOART_FORMB_ACCURACY.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\GOART_FORMB_AGE_EQUI.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\GOART_FORMB_COMPREHENSION.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\GOART_FORMB_FLUENCY.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\GOART_FORMB_GRADE_EQUI.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\GOART_FORMB_RATE.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seed\GOART_RANK.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Seed\WRAT_Green_CI_Seed.sql">

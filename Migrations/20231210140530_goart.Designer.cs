@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web.Entity.Context;
 
@@ -11,9 +12,10 @@ using Web.Entity.Context;
 namespace Web.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231210140530_goart")]
+    partial class goart
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -170,8 +172,8 @@ namespace Web.Migrations
                     b.Property<int?>("Accuracy_TO")
                         .HasColumnType("int");
 
-                    b.Property<decimal?>("Age_equiv")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int?>("Age_equiv")
+                        .HasColumnType("int");
 
                     b.Property<int?>("Comprehension_FROM")
                         .HasColumnType("int");
@@ -186,9 +188,6 @@ namespace Web.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("Fluency_FROM")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Fluency_TO")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ModifiedDate")
@@ -452,19 +451,20 @@ namespace Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("Accuracy_FROM")
+                    b.Property<int>("Accuracy_FROM")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Accuracy_TO")
+                    b.Property<int>("Accuracy_TO")
                         .HasColumnType("int");
 
                     b.Property<string>("Age_equiv")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Comprehension_FROM")
+                    b.Property<int>("Comprehension_FROM")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Comprehension_TO")
+                    b.Property<int>("Comprehension_TO")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
@@ -473,10 +473,10 @@ namespace Web.Migrations
                     b.Property<Guid>("CreatedUser")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("Fluency_FROM")
+                    b.Property<int>("Fluency_FROM")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Fluency_TO")
+                    b.Property<int>("Fluency_TO")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ModifiedDate")
@@ -485,15 +485,15 @@ namespace Web.Migrations
                     b.Property<Guid>("ModifiedUser")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("Rate_FROM")
+                    b.Property<int>("Rate_FROM")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Rate_TO")
+                    b.Property<int>("Rate_TO")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("GoartFormBAgeEquis");
+                    b.ToTable("GoartFormBAgeEqui");
                 });
 
             modelBuilder.Entity("AIMSService.Entity.GoartFormBComprehension", b =>
@@ -556,12 +556,13 @@ namespace Web.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Fluency")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Fluency_from")
+                    b.Property<int>("Fluency_from")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Fluency_to")
+                    b.Property<int>("Fluency_to")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ModifiedDate")
@@ -570,22 +571,23 @@ namespace Web.Migrations
                     b.Property<Guid>("ModifiedUser")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("age_month_from")
+                    b.Property<int>("age_month_from")
                         .HasColumnType("int");
 
-                    b.Property<int?>("age_month_to")
+                    b.Property<int>("age_month_to")
                         .HasColumnType("int");
 
-                    b.Property<int?>("age_year_from")
+                    b.Property<int>("age_year_from")
                         .HasColumnType("int");
 
-                    b.Property<int?>("age_year_to")
+                    b.Property<int>("age_year_to")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ile_Rank")
-                        .HasColumnType("int");
+                    b.Property<string>("ile_Rank")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("scaled_score")
+                    b.Property<int>("scaled_score")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -661,28 +663,29 @@ namespace Web.Migrations
                     b.Property<Guid>("ModifiedUser")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("age_month_from")
+                    b.Property<int>("age_month_from")
                         .HasColumnType("int");
 
-                    b.Property<int?>("age_month_to")
+                    b.Property<int>("age_month_to")
                         .HasColumnType("int");
 
-                    b.Property<int?>("age_year_from")
+                    b.Property<int>("age_year_from")
                         .HasColumnType("int");
 
-                    b.Property<int?>("age_year_to")
+                    b.Property<int>("age_year_to")
                         .HasColumnType("int");
 
-                    b.Property<int?>("percentile_Rank")
+                    b.Property<string>("percentile_Rank")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("rate_from")
                         .HasColumnType("int");
 
-                    b.Property<int?>("rate_from")
+                    b.Property<int>("rate_to")
                         .HasColumnType("int");
 
-                    b.Property<int?>("rate_to")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("scaled_score")
+                    b.Property<int>("scaled_score")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
