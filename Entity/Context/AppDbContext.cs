@@ -58,7 +58,8 @@ namespace Web.Entity.Context
         public DbSet<GoartFormBGradeEqui> GoartFormBGradeEquis { get; set; }
         public DbSet<GoartFormBRate> GoartFormBRates { get; set; }
         public DbSet<GoartRank> GoartRanks { get; set; }
-
+        public DbSet<ClientARTDetail> ClientARTDetails { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

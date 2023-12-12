@@ -1,11 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Web.Entity;
-using Web.Helper.Enum;
-
-namespace AIMSService.Entity
+﻿namespace AIMSService.Model
 {
-    public class ClientARTDetail : BaseEntity
+    public class ClientARTDetailDto
     {
+        public Guid Id { get; set; }
         public Guid ClientId { get; set; }
 
         public int? Second1 { get; set; }

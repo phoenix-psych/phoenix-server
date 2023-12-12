@@ -4,7 +4,7 @@ SELECT @ID=Id FROM [dbo].[Users] WHERE Username = 'admin'
 IF NOT EXISTS (SELECT 1 FROM TowreSwes)
 BEGIN 
 
-	INSERT INTO TowreSwes(AgeFromYear,AgeToYear,AgeFromMonth,AgeToMonth,Raw_score,Score,
+	INSERT INTO TowreSwes(AgeFromYear,AgeFromMonth,AgeToYear,AgeToMonth,Raw_score,Score,
 			ID,CreatedUser,ModifiedUser,CreatedDate,ModifiedDate)  
 	VALUES 
 	(6,0,6,4,0,74,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
@@ -911,7 +911,7 @@ BEGIN
 	(9,0,9,11,29,59,NEWID(),@ID,@ID,GETDATE(),GETDATE());
 
 	
-	INSERT INTO TowreSwes(AgeFromYear,AgeToYear,AgeFromMonth,AgeToMonth,Raw_score,Score,
+	INSERT INTO TowreSwes(AgeFromYear,AgeFromMonth,AgeToYear,AgeToMonth,Raw_score,Score,
 			ID,CreatedUser,ModifiedUser,CreatedDate,ModifiedDate)  
 	VALUES 
 	(9,0,9,11,30,60,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
@@ -1801,7 +1801,7 @@ BEGIN
 	(17,0,24,11,42,58,NEWID(),@ID,@ID,GETDATE(),GETDATE());
 
 	
-	INSERT INTO TowreSwes(AgeFromYear,AgeToYear,AgeFromMonth,AgeToMonth,Raw_score,Score,
+	INSERT INTO TowreSwes(AgeFromYear,AgeFromMonth,AgeToYear,AgeToMonth,Raw_score,Score,
 			ID,CreatedUser,ModifiedUser,CreatedDate,ModifiedDate)  
 	VALUES 
 	(17,0,24,11,43,59,NEWID(),@ID,@ID,GETDATE(),GETDATE()),

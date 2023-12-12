@@ -937,6 +937,66 @@ namespace Web.Controllers
 
 
 
+        [HttpGet]
+        [Route("assessor/towre")]
+        public async Task<ActionResult<TowreScoreDto>> GetTowreScore([FromQuery] string type, [FromQuery] int score, [FromQuery] int year, [FromQuery] int month)
+        {
+            var result = new TowreScoreDto();
+
+            if (type == "swe")
+            {
+                var data = _dbContext.TowreSwes.FirstOrDefault(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                                                       && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
+                                                       && (score == x.Raw_score));
+                if (data != null)
+                {
+                    result.Scale = data.Score;
+
+                }
+            }
+            if (type == "pde")
+            {
+                var data = _dbContext.TowrePdes.FirstOrDefault(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                                                       && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
+                                                       && (score == x.Raw_score));
+                if (data != null)
+                {
+                    result.Scale = data.Score;
+
+                }
+            }
+
+            return Ok(result);
+        }
+
+
+
+        [HttpGet]
+        [Route("assessor/goart")]
+        public async Task<ActionResult<GoartScoreDto>> GetGoartScore([FromQuery] string color, [FromQuery] string type, [FromQuery] int score, [FromQuery] int year, [FromQuery] int month, [FromQuery] decimal ciType)
+        {
+            var result = new GoartScoreDto();
+
+            {
+                WRAT_Blue? data;
+
+                if (type == "wr")
+                {
+                    data = _dbContext.WRAT_Blues.FirstOrDefault(x => (year >= x.year_from && year <= x.year_to)
+                                                           && (month >= x.month_from && month <= x.month_to)
+                                                           && (score >= x.Word_Reading_FROM && score <= x.Word_Reading_TO));
+                    if (data != null)
+                    {
+                        
+
+                    }
+                }
+            }
+
+            return Ok(result);
+        }
+
+
         // POST
 
         [HttpPost]

@@ -4,7 +4,7 @@ SELECT @ID=Id FROM [dbo].[Users] WHERE Username = 'admin'
 IF NOT EXISTS (SELECT 1 FROM TowrePdes)
 BEGIN 
 
-	INSERT INTO TowrePdes(AgeFromYear,AgeToYear,AgeFromMonth,AgeToMonth,Raw_score,Score,
+	INSERT INTO TowrePdes(AgeFromYear,AgeFromMonth,AgeToYear,AgeToMonth,Raw_score,Score,
 			ID,CreatedUser,ModifiedUser,CreatedDate,ModifiedDate)  
 	VALUES 
 	(6,0,6,4,0,74,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
@@ -908,7 +908,7 @@ BEGIN
 	(14,0,14,11,27,78,NEWID(),@ID,@ID,GETDATE(),GETDATE()),
 	(14,0,14,11,28,79,NEWID(),@ID,@ID,GETDATE(),GETDATE());
 
-	INSERT INTO TowrePdes(AgeFromYear,AgeToYear,AgeFromMonth,AgeToMonth,Raw_score,Score,
+	INSERT INTO TowrePdes(AgeFromYear,AgeFromMonth,AgeToYear,AgeToMonth,Raw_score,Score,
 			ID,CreatedUser,ModifiedUser,CreatedDate,ModifiedDate)  
 	VALUES 
 	(14,0,14,11,29,80,NEWID(),@ID,@ID,GETDATE(),GETDATE()),

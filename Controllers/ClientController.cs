@@ -47,6 +47,20 @@ namespace Web.Controllers
         }
 
         [HttpGet]
+        [Route("client/art/{id}")]
+        public async Task<ActionResult<ClientARTDetailDto>> GetClientArtById(Guid id)
+        {
+            var result = await _dbContext.ClientARTDetails.FirstOrDefaultAsync(x => x.ClientId == id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<ClientARTDetailDto>(result));
+        }
+
+
+        [HttpGet]
         [Route("client/{id}")]
         public async Task<ActionResult<ClientDto>> GetClientById(Guid id)
         {
@@ -58,6 +72,8 @@ namespace Web.Controllers
 
             return Ok(_mapper.Map<ClientDto>(result));
         }
+
+
 
         [HttpPost]
         [Route("client")]
@@ -86,6 +102,25 @@ namespace Web.Controllers
             });
         }
 
+
+        [HttpPost]
+        [Route("client/art")]
+        public async Task<ActionResult> AddClientArt([FromBody] ClientARTDetailDto dto)
+        {
+            if (dto == null)
+            {
+                return BadRequest();
+            }
+
+            var clientArt = _mapper.Map<ClientARTDetail>(dto);
+
+            await _dbContext.ClientARTDetails.AddAsync(clientArt);
+            var result = await _dbContext.SaveChangesAsync();
+            return Ok(new
+            {
+                Data = _mapper.Map<ClientARTDetailDto>(clientArt)
+            });
+        }
 
         [HttpPut]
         [Route("client")]

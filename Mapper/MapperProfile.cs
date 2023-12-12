@@ -17,6 +17,8 @@ namespace Web.Mapper
             CreateMap<AssessorProfile, AssessorProfileDto>().ReverseMap();
             CreateMap<AssessorAnswer, AssessorAnswerDto>().ReverseMap();
             CreateMap<Client, ClientDto>().ReverseMap();
+            CreateMap<ClientARTDetail, ClientARTDetailDto>().ReverseMap();
+
             ;
 
         }
