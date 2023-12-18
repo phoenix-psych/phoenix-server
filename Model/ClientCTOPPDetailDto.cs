@@ -1,13 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Web.Entity;
-using Web.Helper.Enum;
-
-namespace AIMSService.Entity
+﻿namespace AIMSService.Model
 {
-    public class ClientCTOPPDetail : BaseEntity
+    public class ClientCTOPPDetailDto
     {
-        public Guid ClientId { get; set; }
         public Guid Id { get; set; }
+        public Guid ClientId { get; set; }
 
         public int? ElRawScore { get; set; }
         public int? ElScaleScore { get; set; }
@@ -71,5 +67,6 @@ namespace AIMSService.Entity
         public string? APACI { get; set; }
         public string? APADesc { get; set; }
         public string? APARank { get; set; }
+
     }
 }

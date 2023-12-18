@@ -59,6 +59,19 @@ namespace Web.Controllers
             return Ok(_mapper.Map<ClientARTDetailDto>(result));
         }
 
+        [HttpGet]
+        [Route("client/ctopp/{id}")]
+        public async Task<ActionResult<ClientCTOPPDetailDto>> GetClientCTOPPById(Guid id)
+        {
+            var result = await _dbContext.ClientCTOPPDetails.FirstOrDefaultAsync(x => x.ClientId == id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<ClientCTOPPDetailDto>(result));
+        }
+
 
         [HttpGet]
         [Route("client/{id}")]
@@ -119,6 +132,26 @@ namespace Web.Controllers
             return Ok(new
             {
                 Data = _mapper.Map<ClientARTDetailDto>(clientArt)
+            });
+        }
+
+
+        [HttpPost]
+        [Route("client/ctopp")]
+        public async Task<ActionResult> AddClientCTOPP([FromBody] ClientCTOPPDetailDto dto)
+        {
+            if (dto == null)
+            {
+                return BadRequest();
+            }
+
+            var clientArt = _mapper.Map<ClientCTOPPDetail>(dto);
+
+            await _dbContext.ClientCTOPPDetails.AddAsync(clientArt);
+            var result = await _dbContext.SaveChangesAsync();
+            return Ok(new
+            {
+                Data = _mapper.Map<ClientCTOPPDetailDto>(clientArt)
             });
         }
 

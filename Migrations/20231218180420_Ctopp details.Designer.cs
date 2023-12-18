@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web.Entity.Context;
 
@@ -11,9 +12,10 @@ using Web.Entity.Context;
 namespace Web.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231218180420_Ctopp details")]
+    partial class Ctoppdetails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -293,20 +295,20 @@ namespace Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("APACI")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("APACI")
+                        .HasColumnType("int");
 
-                    b.Property<string>("APADesc")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("APADesc")
+                        .HasColumnType("int");
 
-                    b.Property<string>("APARank")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("APARank")
+                        .HasColumnType("int");
 
                     b.Property<int?>("APAScore")
                         .HasColumnType("int");
 
-                    b.Property<string>("BnPercentageRank")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("BnPercentageRank")
+                        .HasColumnType("int");
 
                     b.Property<int?>("BnRawScore")
                         .HasColumnType("int");
@@ -314,8 +316,8 @@ namespace Web.Migrations
                     b.Property<int?>("BnScaleScore")
                         .HasColumnType("int");
 
-                    b.Property<string>("BwPercentageRank")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("BwPercentageRank")
+                        .HasColumnType("int");
 
                     b.Property<int?>("BwRawScore")
                         .HasColumnType("int");
@@ -332,8 +334,8 @@ namespace Web.Migrations
                     b.Property<Guid>("CreatedUser")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ElPercentageRank")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("ElPercentageRank")
+                        .HasColumnType("int");
 
                     b.Property<int?>("ElRawScore")
                         .HasColumnType("int");
@@ -341,8 +343,8 @@ namespace Web.Migrations
                     b.Property<int?>("ElScaleScore")
                         .HasColumnType("int");
 
-                    b.Property<string>("MdPercentageRank")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("MdPercentageRank")
+                        .HasColumnType("int");
 
                     b.Property<int?>("MdRawScore")
                         .HasColumnType("int");
@@ -356,8 +358,8 @@ namespace Web.Migrations
                     b.Property<Guid>("ModifiedUser")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("NrPercentageRank")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("NrPercentageRank")
+                        .HasColumnType("int");
 
                     b.Property<int?>("NrRawScore")
                         .HasColumnType("int");
@@ -365,26 +367,26 @@ namespace Web.Migrations
                     b.Property<int?>("NrScaleScore")
                         .HasColumnType("int");
 
-                    b.Property<string>("PACI")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("PACI")
+                        .HasColumnType("int");
 
-                    b.Property<string>("PADesc")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("PADesc")
+                        .HasColumnType("int");
 
-                    b.Property<string>("PARank")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("PARank")
+                        .HasColumnType("int");
 
                     b.Property<int?>("PAScore")
                         .HasColumnType("int");
 
-                    b.Property<string>("PMCI")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("PMCI")
+                        .HasColumnType("int");
 
-                    b.Property<string>("PMDesc")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("PMDesc")
+                        .HasColumnType("int");
 
-                    b.Property<string>("PMRank")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("PMRank")
+                        .HasColumnType("int");
 
                     b.Property<int?>("PMScore")
                         .HasColumnType("int");
@@ -392,8 +394,8 @@ namespace Web.Migrations
                     b.Property<int?>("PaSum")
                         .HasColumnType("int");
 
-                    b.Property<string>("PlPercentageRank")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("PlPercentageRank")
+                        .HasColumnType("int");
 
                     b.Property<int?>("PlRawScore")
                         .HasColumnType("int");
@@ -404,20 +406,20 @@ namespace Web.Migrations
                     b.Property<int?>("PmSum")
                         .HasColumnType("int");
 
-                    b.Property<string>("RSNCI")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("RSNCI")
+                        .HasColumnType("int");
 
-                    b.Property<string>("RSNDesc")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("RSNDesc")
+                        .HasColumnType("int");
 
-                    b.Property<string>("RSNRank")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("RSNRank")
+                        .HasColumnType("int");
 
                     b.Property<int?>("RSNScore")
                         .HasColumnType("int");
 
-                    b.Property<string>("RdPercentageRank")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("RdPercentageRank")
+                        .HasColumnType("int");
 
                     b.Property<int?>("RdRawScore")
                         .HasColumnType("int");
@@ -425,8 +427,8 @@ namespace Web.Migrations
                     b.Property<int?>("RdScaleScore")
                         .HasColumnType("int");
 
-                    b.Property<string>("RlPercentageRank")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("RlPercentageRank")
+                        .HasColumnType("int");
 
                     b.Property<int?>("RlRawScore")
                         .HasColumnType("int");
@@ -443,8 +445,8 @@ namespace Web.Migrations
                     b.Property<int?>("selected")
                         .HasColumnType("int");
 
-                    b.Property<string>("snPercentageRank")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("snPercentageRank")
+                        .HasColumnType("int");
 
                     b.Property<int?>("snRawScore")
                         .HasColumnType("int");
