@@ -126,9 +126,12 @@ namespace Web.Controllers
             }
 
             var clientArt = _mapper.Map<ClientARTDetail>(dto);
+            _dbContext.ClientARTDetails.RemoveRange(_dbContext.ClientARTDetails.Where(x => x.ClientId == dto.ClientId));
+            var result = await _dbContext.SaveChangesAsync();
+
 
             await _dbContext.ClientARTDetails.AddAsync(clientArt);
-            var result = await _dbContext.SaveChangesAsync();
+            result = await _dbContext.SaveChangesAsync();
             return Ok(new
             {
                 Data = _mapper.Map<ClientARTDetailDto>(clientArt)
@@ -146,9 +149,11 @@ namespace Web.Controllers
             }
 
             var clientArt = _mapper.Map<ClientCTOPPDetail>(dto);
+            _dbContext.ClientCTOPPDetails.RemoveRange(_dbContext.ClientCTOPPDetails.Where(x=>x.ClientId == dto.ClientId));
+            var result = await _dbContext.SaveChangesAsync();
 
             await _dbContext.ClientCTOPPDetails.AddAsync(clientArt);
-            var result = await _dbContext.SaveChangesAsync();
+            result = await _dbContext.SaveChangesAsync();
             return Ok(new
             {
                 Data = _mapper.Map<ClientCTOPPDetailDto>(clientArt)
