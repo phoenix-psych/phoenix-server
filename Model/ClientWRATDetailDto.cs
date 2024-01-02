@@ -1,11 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Web.Entity;
-using Web.Helper.Enum;
-
-namespace AIMSService.Entity
+﻿namespace AIMSService.Model
 {
-    public class ClientWRATDetail : BaseEntity
+    public class ClientWRATDetailDto
     {
+        public Guid Id { get; set; }
         public Guid ClientId { get; set; }
 
         public string? selected { get; set; }
@@ -34,5 +31,6 @@ namespace AIMSService.Entity
         public string? rcCI { get; set; }
         public string? rcPer { get; set; }
         public string? rcGrade { get; set; }
+
     }
 }

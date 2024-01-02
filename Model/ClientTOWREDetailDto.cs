@@ -1,11 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Web.Entity;
-using Web.Helper.Enum;
-
-namespace AIMSService.Entity
+﻿namespace AIMSService.Model
 {
-    public class ClientTOWREDetail : BaseEntity
+    public class ClientTOWREDetailDto
     {
+        public Guid Id { get; set; }
         public Guid ClientId { get; set; }
 
         public string? selected { get; set; }
@@ -23,5 +20,6 @@ namespace AIMSService.Entity
         public string? pdeDesc { get; set; }
         public string? pdeSum { get; set; }
         public string descriptiveTerm { get; set; }
+
     }
 }

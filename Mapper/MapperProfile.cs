@@ -20,6 +20,11 @@ namespace Web.Mapper
             CreateMap<ClientARTDetail, ClientARTDetailDto>().ReverseMap();
             CreateMap<ClientCTOPPDetail, ClientCTOPPDetailDto>().ReverseMap();
 
+            CreateMap<ClientTOMALDetail, ClientTOMALDetailDto>().ReverseMap();
+            CreateMap<ClientTOWREDetail, ClientTOWREDetailDto>().ReverseMap();
+            CreateMap<ClientWRATDetail, ClientWRATDetailDto>().ReverseMap();
+            CreateMap<ClientWRITDetail, ClientWRITDetailDto>().ReverseMap();
+
         }
     }
 }

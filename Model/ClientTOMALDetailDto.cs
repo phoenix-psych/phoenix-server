@@ -1,11 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Web.Entity;
-using Web.Helper.Enum;
-
-namespace AIMSService.Entity
+﻿namespace AIMSService.Model
 {
-    public class ClientTOMALDetail : BaseEntity
+    public class ClientTOMALDetailDto
     {
+        public Guid Id { get; set; }
         public Guid ClientId { get; set; }
 
         public string? selected { get; set; }
@@ -120,5 +117,6 @@ namespace AIMSService.Entity
         public string? perFri { get; set; }
         public string? perAri { get; set; }
         public string? perli { get; set; }
+
     }
 }

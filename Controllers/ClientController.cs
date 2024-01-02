@@ -74,6 +74,72 @@ namespace Web.Controllers
 
 
         [HttpGet]
+        [Route("client/goart/{id}")]
+        public async Task<ActionResult<ClientGOARTDetailDto>> GetClientGOARTById(Guid id)
+        {
+            var result = await _dbContext.ClientGOARTDetails.FirstOrDefaultAsync(x => x.ClientId == id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<ClientGOARTDetailDto>(result));
+        }
+
+        [HttpGet]
+        [Route("client/tomal/{id}")]
+        public async Task<ActionResult<ClientTOMALDetailDto>> GetClientTOMALById(Guid id)
+        {
+            var result = await _dbContext.ClientTOMALDetails.FirstOrDefaultAsync(x => x.ClientId == id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<ClientTOMALDetailDto>(result));
+        }
+
+        [HttpGet]
+        [Route("client/towre/{id}")]
+        public async Task<ActionResult<ClientTOWREDetailDto>> GetClientTOWREById(Guid id)
+        {
+            var result = await _dbContext.ClientTOWREDetails.FirstOrDefaultAsync(x => x.ClientId == id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<ClientTOWREDetailDto>(result));
+        }
+
+        [HttpGet]
+        [Route("client/wrat/{id}")]
+        public async Task<ActionResult<ClientWRATDetailDto>> GetClientWRATById(Guid id)
+        {
+            var result = await _dbContext.ClientWRATDetails.FirstOrDefaultAsync(x => x.ClientId == id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<ClientWRATDetailDto>(result));
+        }
+
+        [HttpGet]
+        [Route("client/writ/{id}")]
+        public async Task<ActionResult<ClientWRITDetailDto>> GetClientWRITById(Guid id)
+        {
+            var result = await _dbContext.ClientWRITDetails.FirstOrDefaultAsync(x => x.ClientId == id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<ClientWRITDetailDto>(result));
+        }
+
+
+        [HttpGet]
         [Route("client/{id}")]
         public async Task<ActionResult<ClientDto>> GetClientById(Guid id)
         {
@@ -159,6 +225,113 @@ namespace Web.Controllers
                 Data = _mapper.Map<ClientCTOPPDetailDto>(clientArt)
             });
         }
+
+        [HttpPost]
+        [Route("client/goart")]
+        public async Task<ActionResult> AddClientGOART([FromBody] ClientGOARTDetailDto dto)
+        {
+            if (dto == null)
+            {
+                return BadRequest();
+            }
+
+            var clientArt = _mapper.Map<ClientGOARTDetail>(dto);
+            _dbContext.ClientGOARTDetails.RemoveRange(_dbContext.ClientGOARTDetails.Where(x => x.ClientId == dto.ClientId));
+            var result = await _dbContext.SaveChangesAsync();
+
+            await _dbContext.ClientGOARTDetails.AddAsync(clientArt);
+            result = await _dbContext.SaveChangesAsync();
+            return Ok(new
+            {
+                Data = _mapper.Map<ClientGOARTDetailDto>(clientArt)
+            });
+        }
+
+        [HttpPost]
+        [Route("client/tomal")]
+        public async Task<ActionResult> AddClientTOMAL([FromBody] ClientTOMALDetailDto dto)
+        {
+            if (dto == null)
+            {
+                return BadRequest();
+            }
+
+            var clientArt = _mapper.Map<ClientTOMALDetail>(dto);
+            _dbContext.ClientTOMALDetails.RemoveRange(_dbContext.ClientTOMALDetails.Where(x => x.ClientId == dto.ClientId));
+            var result = await _dbContext.SaveChangesAsync();
+
+            await _dbContext.ClientTOMALDetails.AddAsync(clientArt);
+            result = await _dbContext.SaveChangesAsync();
+            return Ok(new
+            {
+                Data = _mapper.Map<ClientTOMALDetailDto>(clientArt)
+            });
+        }
+
+        [HttpPost]
+        [Route("client/towre")]
+        public async Task<ActionResult> AddClientTOWRE([FromBody] ClientTOWREDetailDto dto)
+        {
+            if (dto == null)
+            {
+                return BadRequest();
+            }
+
+            var clientArt = _mapper.Map<ClientTOWREDetail>(dto);
+            _dbContext.ClientTOWREDetails.RemoveRange(_dbContext.ClientTOWREDetails.Where(x => x.ClientId == dto.ClientId));
+            var result = await _dbContext.SaveChangesAsync();
+
+            await _dbContext.ClientTOWREDetails.AddAsync(clientArt);
+            result = await _dbContext.SaveChangesAsync();
+            return Ok(new
+            {
+                Data = _mapper.Map<ClientTOWREDetailDto>(clientArt)
+            });
+        }
+
+        [HttpPost]
+        [Route("client/wrat")]
+        public async Task<ActionResult> AddClientWRAT([FromBody] ClientWRATDetailDto dto)
+        {
+            if (dto == null)
+            {
+                return BadRequest();
+            }
+
+            var clientArt = _mapper.Map<ClientWRATDetail>(dto);
+            _dbContext.ClientWRATDetails.RemoveRange(_dbContext.ClientWRATDetails.Where(x => x.ClientId == dto.ClientId));
+            var result = await _dbContext.SaveChangesAsync();
+
+            await _dbContext.ClientWRATDetails.AddAsync(clientArt);
+            result = await _dbContext.SaveChangesAsync();
+            return Ok(new
+            {
+                Data = _mapper.Map<ClientWRATDetailDto>(clientArt)
+            });
+        }
+
+        [HttpPost]
+        [Route("client/writ")]
+        public async Task<ActionResult> AddClientWRIT([FromBody] ClientWRITDetailDto dto)
+        {
+            if (dto == null)
+            {
+                return BadRequest();
+            }
+
+            var clientArt = _mapper.Map<ClientWRITDetail>(dto);
+            _dbContext.ClientWRITDetails.RemoveRange(_dbContext.ClientWRITDetails.Where(x => x.ClientId == dto.ClientId));
+            var result = await _dbContext.SaveChangesAsync();
+
+            await _dbContext.ClientWRITDetails.AddAsync(clientArt);
+            result = await _dbContext.SaveChangesAsync();
+            return Ok(new
+            {
+                Data = _mapper.Map<ClientWRITDetailDto>(clientArt)
+            });
+        }
+
+
 
         [HttpPut]
         [Route("client")]

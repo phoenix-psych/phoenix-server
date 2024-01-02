@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web.Entity.Context;
 
@@ -11,9 +12,10 @@ using Web.Entity.Context;
 namespace Web.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240102110008_Client tests 1")]
+    partial class Clienttests1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -983,8 +985,8 @@ namespace Web.Migrations
                     b.Property<string>("mcRawScore")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("mcStandardScore")
-                        .HasColumnType("int");
+                    b.Property<string>("mcStandardScore")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("rcCI")
                         .HasColumnType("nvarchar(max)");
@@ -998,8 +1000,8 @@ namespace Web.Migrations
                     b.Property<string>("rcRawScore")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("rcStandardScore")
-                        .HasColumnType("int");
+                    b.Property<string>("rcStandardScore")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("scCI")
                         .HasColumnType("nvarchar(max)");
@@ -1013,8 +1015,8 @@ namespace Web.Migrations
                     b.Property<string>("scRawScore")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("scStandardScore")
-                        .HasColumnType("int");
+                    b.Property<string>("scStandardScore")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("selected")
                         .HasColumnType("nvarchar(max)");
@@ -1031,8 +1033,8 @@ namespace Web.Migrations
                     b.Property<string>("spRawScore")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("spStandardScore")
-                        .HasColumnType("int");
+                    b.Property<string>("spStandardScore")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("wrCI")
                         .HasColumnType("nvarchar(max)");
@@ -1046,8 +1048,8 @@ namespace Web.Migrations
                     b.Property<string>("wrRawScore")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("wrStandardScore")
-                        .HasColumnType("int");
+                    b.Property<string>("wrStandardScore")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

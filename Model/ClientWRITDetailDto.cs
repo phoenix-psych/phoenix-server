@@ -1,11 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Web.Entity;
-using Web.Helper.Enum;
-
-namespace AIMSService.Entity
+﻿namespace AIMSService.Model
 {
-    public class ClientWRITDetail : BaseEntity
+    public class ClientWRITDetailDto
     {
+        public Guid Id { get; set; }
         public Guid ClientId { get; set; }
 
         public string? selected { get; set; }
@@ -35,5 +32,6 @@ namespace AIMSService.Entity
         public string? iqIQ { get; set; }
         public string? iqPer { get; set; }
         public string? iqCI { get; set; }
+
     }
 }

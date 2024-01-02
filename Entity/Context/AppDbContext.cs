@@ -60,6 +60,11 @@ namespace Web.Entity.Context
         public DbSet<GoartRank> GoartRanks { get; set; }
         public DbSet<ClientARTDetail> ClientARTDetails { get; set; }
         public DbSet<ClientCTOPPDetail> ClientCTOPPDetails { get; set; }
+        public DbSet<ClientGOARTDetail> ClientGOARTDetails { get; set; }
+        public DbSet<ClientTOMALDetail> ClientTOMALDetails { get; set; }
+        public DbSet<ClientTOWREDetail> ClientTOWREDetails { get; set; }
+        public DbSet<ClientWRATDetail> ClientWRATDetails { get; set; }
+        public DbSet<ClientWRITDetail> ClientWRITDetails { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
