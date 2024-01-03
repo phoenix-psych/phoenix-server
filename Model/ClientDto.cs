@@ -13,6 +13,11 @@ namespace AIMSService.Model
         public int? Service { get; set; }
         public string? ServiceName { get; set; }
 
+        public string? Address { get; set; }
+        public string? University { get; set; }
+        public string? Course { get; set; }
+        public string? CourseYear { get; set; }
+
         public string? UserId { get; set; }
         public string? ReportingTo { get; set; }
 

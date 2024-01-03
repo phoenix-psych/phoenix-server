@@ -39,6 +39,12 @@ namespace Web.Controllers
                 Phone = x.Phone,
                 Service = x.Service,
                 ServiceName = x.Service != null ? ((AssessorServiceEnum)x.Service).ToString().Replace('_', ' ') : string.Empty,
+
+                Address = x.Address,
+                University = x.University,
+                Course = x.Course,
+                CourseYear = x.CourseYear,
+
                 Status = x.Status != null ? x.Status?.ToString().Replace('_', ' ') : string.Empty,
 
             });
@@ -170,6 +176,12 @@ namespace Web.Controllers
                 Email = clientDto.Email,
                 Phone = clientDto.Phone,
                 Service = clientDto.Service,
+
+                Address = clientDto.Address,
+                University = clientDto.University,
+                Course = clientDto.Course,
+                CourseYear = clientDto.CourseYear,
+
                 Status = ClientStatusEnum.In_Progress
             };
 

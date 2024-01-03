@@ -13,6 +13,10 @@ namespace AIMSService.Entity
         public string? Phone { get; set; }
         public int? Service { get; set; }
 
+        public string? Address { get; set; }
+        public string? University { get; set; }
+        public string? Course { get; set; }
+        public string? CourseYear { get; set; }
 
         //public Guid? UserId { get; set; }
         //public Guid? ReportingTo { get; set; }
