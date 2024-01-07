@@ -78,7 +78,6 @@ namespace Web.Controllers
             return Ok(_mapper.Map<ClientCTOPPDetailDto>(result));
         }
 
-
         [HttpGet]
         [Route("client/goart/{id}")]
         public async Task<ActionResult<ClientGOARTDetailDto>> GetClientGOARTById(Guid id)
@@ -144,7 +143,6 @@ namespace Web.Controllers
             return Ok(_mapper.Map<ClientWRITDetailDto>(result));
         }
 
-
         [HttpGet]
         [Route("client/{id}")]
         public async Task<ActionResult<ClientDto>> GetClientById(Guid id)
@@ -159,7 +157,82 @@ namespace Web.Controllers
         }
 
 
+        [HttpGet]
+        [Route("client/tests/{clientId}")]
+        public async Task<ActionResult<ClientReportDto>> GetClientTests(Guid clientId)
+        {
+            ClientReportDto clientReport = new ClientReportDto();
+            var client = await _dbContext.Clients.FirstOrDefaultAsync(x => x.Id == clientId);
+            if (client == null)
+            {
+                return NotFound();
+            }
 
+            var writ = await _dbContext.ClientWRITDetails.FirstOrDefaultAsync(x => x.ClientId == clientId);
+            if (writ != null)
+            {
+                clientReport.WRITVA = writ.vaStandardScore;
+                clientReport.WRITVC = writ.vcStandardScore;
+                clientReport.WRITMAT = writ.maStandardScore;
+                clientReport.WRITVB = writ.diStandardScore;
+            }
+
+            var tomal = await _dbContext.ClientTOMALDetails.FirstOrDefaultAsync(x => x.ClientId == clientId);
+            if (tomal != null)
+            {
+                clientReport.TOMAL2DF = (tomal.ofVerbalScaleScore * 5 + 50).ToString();
+                clientReport.TOMAL2LF = (tomal.lfVerbalScaleScore * 5 + 50).ToString();
+                clientReport.TOMAL2DB = (tomal.dbVerbalScaleScore * 5 + 50).ToString();
+                clientReport.TOMAL2LB = (tomal.lbVerbalScaleScore * 5 + 50).ToString();
+                clientReport.TOMAL2ACI = tomal.indAci.ToString();
+            }
+
+            var ctopp = await _dbContext.ClientCTOPPDetails.FirstOrDefaultAsync(x => x.ClientId == clientId);
+            if (ctopp != null)
+            {
+                clientReport.CTOPP2MD = (ctopp.MdScaleScore * 5 + 50).ToString();
+                clientReport.CTOPP2NWR = (ctopp.NrScaleScore * 5 + 50).ToString();
+                clientReport.CTOPP2PM = ctopp.PMScore.ToString();
+
+                clientReport.CTOPP2EL = (ctopp.ElScaleScore * 5 + 50).ToString();
+                clientReport.CTOPP2BW = (ctopp.BwScaleScore * 5 + 50).ToString();
+                clientReport.CTOPP2PI = (ctopp.PlScaleScore * 5 + 50).ToString();
+                clientReport.CTOPP2PAC = ctopp.PAScore.ToString();
+
+                clientReport.CTOPP2RDN = (ctopp.RdScaleScore * 5 + 50).ToString();
+                clientReport.CTOPP2RLN = (ctopp.RlRawScore * 5 + 50).ToString();
+                clientReport.CTOPP2RSN = ctopp.RSNScore.ToString();
+            }
+
+            var wrat = await _dbContext.ClientWRATDetails.FirstOrDefaultAsync(x => x.ClientId == clientId);
+            if (wrat != null)
+            {
+                clientReport.WRAT5WR = wrat.wrStandardScore.ToString();
+                clientReport.WRAT5SP = wrat.spStandardScore.ToString();
+            }
+
+            var towre = await _dbContext.ClientTOWREDetails.FirstOrDefaultAsync(x => x.ClientId == clientId);
+            if (towre != null)
+            {
+                clientReport.TOWRE2SWE = towre.sweScale;
+                clientReport.TOWRE2PDE = towre.pdeScale;
+                clientReport.TOWRE2IND = "79";
+            }
+
+            var art = await _dbContext.ClientARTDetails.FirstOrDefaultAsync(x => x.ClientId == clientId);
+            if (art != null)
+            {
+                clientReport.ART2SC = art.SmCompreSilentStd;
+                clientReport.ART2RA = art.SmSpeedAloud;
+                clientReport.ART2SR = art.SmSpeedSilent;
+                clientReport.HandWriting = art.SmWritingSpeed;
+                clientReport.Typing = "25";
+            }
+
+            return Ok(clientReport);
+        }
+
+        // POST
         [HttpPost]
         [Route("client")]
         public async Task<ActionResult> AddClient([FromBody] ClientDto clientDto)
@@ -193,7 +266,6 @@ namespace Web.Controllers
             });
         }
 
-
         [HttpPost]
         [Route("client/art")]
         public async Task<ActionResult> AddClientArt([FromBody] ClientARTDetailDto dto)
@@ -215,7 +287,6 @@ namespace Web.Controllers
                 Data = _mapper.Map<ClientARTDetailDto>(clientArt)
             });
         }
-
 
         [HttpPost]
         [Route("client/ctopp")]
