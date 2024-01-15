@@ -2,9 +2,9 @@
 {
     public enum ClientStatusEnum : byte
     {
-        In_Progress = 0,
-        Pending = 1,
-        Suspended = 2,
+        Created = 0,
+        On_Boarded = 1,
+        In_Progress = 2,
         Completed = 3,
     }
 }

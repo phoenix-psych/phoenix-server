@@ -18,6 +18,9 @@ namespace AIMSService.Entity
         public string? Course { get; set; }
         public string? CourseYear { get; set; }
 
+        public string? UserName { get; set; }
+        public string? Passwod { get; set; }
+
         //public Guid? UserId { get; set; }
         //public Guid? ReportingTo { get; set; }
 

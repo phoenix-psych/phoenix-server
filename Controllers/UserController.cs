@@ -77,9 +77,9 @@ namespace Web.Controllers
             string subject = $"Register : {loggedInUser}";
             string message = $"{loggedInUser} - Register Successfully @{DateTime.Now.ToLocalTime()}";
             var email = new EmailManager();
-            //if (false)
+            if (false)
             {
-                await email.sendMail2(recipients, subject, message);
+                email.SendGmailMail(recipients, subject, message);
             }
         }
 

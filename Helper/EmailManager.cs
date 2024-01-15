@@ -5,8 +5,8 @@ namespace Web.Helper
 {
     public class EmailManager
     {
-        string _sender = "phoenix-aims@outlook.com";
-        string _password = "14oya12@LN";
+        //string _sender = "phoenix-aims@outlook.com";
+        //string _password = "14oya12@LN";
         public EmailManager()
         {
         }
@@ -30,67 +30,73 @@ namespace Web.Helper
         //    });
         //}
 
-        public async Task sendMail2(string recipient, string subject, string message)
-        {
-            try
-            {
-                var rec = _sender;
-                
-                // Send the email message.
-                await Task.Run(() =>
-                {
-                    using (SmtpClient smtpClient = new SmtpClient("smtp-mail.outlook.com"))
-                    {
-                        smtpClient.Port = 587; // Set the SMTP server port
-                        smtpClient.Credentials = new NetworkCredential(_sender, _password); // Set your email and password
-                        smtpClient.EnableSsl = true; // Use SSL encryption
-
-                        using (MailMessage mailMessage = new MailMessage())
-                        {
-                            mailMessage.From = new MailAddress(rec);
-                            mailMessage.Subject = subject;
-                            mailMessage.Body = message;
-                            mailMessage.To.Add(recipient);
-
-                            // Add attachments if needed
-                            // mailMessage.Attachments.Add(new Attachment("C:\\Path\\to\\attachment.pdf"));
-
-                            //smtpClient.Send(mailMessage);
-                        }
-                    }
-                });
-
-            }
-            catch (Exception ex)
-            {
-                var m = "Error sending email: " + ex.Message;
-            }
-        }
-
-        //public void SendMail(string recipient, string subject, string message)
+        //public async Task sendOutlookMail(string recipient, string subject, string message)
         //{
-        //    SmtpClient client = new SmtpClient("smtp-mail.outlook.com");
-
-        //    client.Port = 587;
-        //    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-        //    client.UseDefaultCredentials = false;
-        //    System.Net.NetworkCredential credentials =
-        //        new System.Net.NetworkCredential(_sender, _password);
-        //    client.EnableSsl = true;
-        //    client.Credentials = credentials;
-
         //    try
         //    {
-        //        var mail = new MailMessage(_sender.Trim(), recipient.Trim());
-        //        mail.Subject = subject;
-        //        mail.Body = message;
-        //        client.Send(mail);
+        //        var rec = _sender;
+                
+        //        // Send the email message.
+        //        await Task.Run(() =>
+        //        {
+        //            using (SmtpClient smtpClient = new SmtpClient("smtp-mail.outlook.com"))
+        //            {
+        //                smtpClient.Port = 587; // Set the SMTP server port
+        //                smtpClient.Credentials = new NetworkCredential(_sender, _password); // Set your email and password
+        //                smtpClient.EnableSsl = true; // Use SSL encryption
+
+        //                using (MailMessage mailMessage = new MailMessage())
+        //                {
+        //                    mailMessage.From = new MailAddress(rec);
+        //                    mailMessage.Subject = subject;
+        //                    mailMessage.Body = message;
+        //                    mailMessage.To.Add(recipient);
+
+        //                    // Add attachments if needed
+        //                    // mailMessage.Attachments.Add(new Attachment("C:\\Path\\to\\attachment.pdf"));
+
+        //                    //smtpClient.Send(mailMessage);
+        //                }
+        //            }
+        //        });
+
         //    }
         //    catch (Exception ex)
         //    {
-        //        Console.WriteLine(ex.Message);
-        //        throw ex;
+        //        var m = "Error sending email: " + ex.Message;
         //    }
         //}
+
+        public void SendGmailMail(string recipient, string subject, string message)
+        {
+            string senderEmail = "phoenix.aims.office@gmail.com";
+            string senderPassword = "14oya12@LN";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(senderEmail, senderPassword)
+            };
+
+
+            MailMessage mailMessage = new MailMessage();
+            mailMessage.From = new MailAddress(senderEmail);
+            mailMessage.To.Add(recipient);
+            mailMessage.Subject = subject;
+            mailMessage.Body = message;
+
+            try
+            {
+                //smtp.Send(mailMessage);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
     }
 }
