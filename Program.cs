@@ -41,47 +41,109 @@ builder.Services.AddCors(opt =>
     });
 });
 
-builder.Services.AddDbContext<AppDbContext>(option =>
+//builder.Services.AddDbContext<AppDbContext>(option =>
+//{
+//    option.UseSqlServer(builder.Configuration.GetConnectionString("DBConnStr"));
+//});
+
+builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    option.UseSqlServer(builder.Configuration.GetConnectionString("DBConnStr"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnStr"),
+        sqlServerOptions => sqlServerOptions.EnableRetryOnFailure());
 });
 
-
-
 var app = builder.Build();
+
+
 
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<AppDbContext>();
-    context.Database.Migrate();
-    
+
+    // Retry loop for database migration
+    const int maxRetries = 3;
+    for (int i = 0; i < maxRetries; i++)
     {
-        context.Database.EnsureCreated();
-
-        // admin user
-        var admin = context.Users.FirstOrDefault(b => b.Username == "admin");
-        if (admin == null)
+        try
         {
-            context.Users.Add(new Web.Entity.User {
-                FirstName = "admin",
-                Username = "admin",
-                Password = "aims@123",
-                UserType = 0,
+            context.Database.Migrate();
 
-                Dob = new DateTime(),
-                Email = "",
-                LastName = "",
-                Name = "",
+            context.Database.EnsureCreated();
 
-            });
+            // admin user
+            var admin = context.Users.FirstOrDefault(b => b.Username == "admin");
+            if (admin == null)
+            {
+                context.Users.Add(new Web.Entity.User
+                {
+                    FirstName = "admin",
+                    Username = "admin",
+                    Password = "aims@123",
+                    UserType = 0,
 
+                    Dob = new DateTime(),
+                    Email = "",
+                    LastName = "",
+                    Name = "",
+
+                });
+
+                await context.SaveChangesAsync();
+            }
+
+            SeedEmployeesData(context);
             await context.SaveChangesAsync();
+            break; // Success, exit the loop
         }
+        catch (Exception ex)
+        {
+            // Log the exception or take other actions as needed
+            Console.WriteLine($"Failed to migrate database (attempt {i + 1}): {ex.Message}");
 
-        SeedEmployeesData(context);
-        await context.SaveChangesAsync();
+            if (i < maxRetries - 1)
+            {
+                // Retry after a delay (adjust as needed)
+                Thread.Sleep(5000); // 5 seconds delay
+            }
+            else
+            {
+                // If all retries fail, rethrow the exception
+                throw;
+            }
+        }
     }
+
+    //var services = scope.ServiceProvider;
+    //var context = services.GetRequiredService<AppDbContext>();
+    //context.Database.Migrate();
+    
+    //{
+    //    context.Database.EnsureCreated();
+
+    //    // admin user
+    //    var admin = context.Users.FirstOrDefault(b => b.Username == "admin");
+    //    if (admin == null)
+    //    {
+    //        context.Users.Add(new Web.Entity.User {
+    //            FirstName = "admin",
+    //            Username = "admin",
+    //            Password = "aims@123",
+    //            UserType = 0,
+
+    //            Dob = new DateTime(),
+    //            Email = "",
+    //            LastName = "",
+    //            Name = "",
+
+    //        });
+
+    //        await context.SaveChangesAsync();
+    //    }
+
+    //    SeedEmployeesData(context);
+    //    await context.SaveChangesAsync();
+    //}
 }
 
 app.UseSwagger();
@@ -118,20 +180,39 @@ static void SeedEmployeesData(AppDbContext context)
             if (String.IsNullOrWhiteSpace(command))
                 continue;
 
-            using (var transaction = context.Database.BeginTransaction())
+            var executionStrategy = context.Database.CreateExecutionStrategy();
+
+            executionStrategy.Execute(() =>
             {
+                using var transaction = context.Database.BeginTransaction();
+
                 try
                 {
                     context.Database.ExecuteSqlRaw(command);
                     context.SaveChanges();
                     transaction.Commit();
                 }
-                catch
+                catch (Exception ex)
                 {
+                    Console.WriteLine($"Error during transaction: {ex.Message}");
                     transaction.Rollback();
-                    throw;
                 }
-            }
+            });
+
+            //using (var transaction = context.Database.BeginTransaction())
+            //{
+            //    try
+            //    {
+            //        context.Database.ExecuteSqlRaw(command);
+            //        context.SaveChanges();
+            //        transaction.Commit();
+            //    }
+            //    catch
+            //    {
+            //        transaction.Rollback();
+            //        throw;
+            //    }
+            //}
 
         }
     }
