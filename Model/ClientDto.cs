@@ -24,7 +24,7 @@ namespace AIMSService.Model
 
 
         public string? UserId { get; set; }
-        public string? ReportingTo { get; set; }
+        public string? AsssessorId { get; set; }
 
     }
 }

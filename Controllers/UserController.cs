@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using AIMSService.Entity;
+using AIMSService.Model;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -55,6 +57,28 @@ namespace Web.Controllers
             userDto.UserType = GetUserType(userDto.Type);
             var user = _mapper.Map<User>(userDto);
             await _dbContext.Users.AddAsync(user);
+            await _dbContext.SaveChangesAsync();
+
+            var client = new Client()
+            {
+                Name = $"{user.FirstName} {user.LastName}",
+                Dob = user.Dob,
+                Email = user.Email,
+                Phone = "NIL",
+                Service = 1,
+                Address = "NIL",
+                University = "NIL",
+                Course = "NIL",
+                CourseYear = "NIL",
+                UserName = user.Username,
+                Passwod = user.Password,
+                UserId = user.Id,
+
+                Status = ClientStatusEnum.Created
+            };
+
+            await _dbContext.Clients.AddAsync(client);
+
             var result = await _dbContext.SaveChangesAsync();
             if (result > 0)
             {

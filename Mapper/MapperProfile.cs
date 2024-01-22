@@ -25,6 +25,11 @@ namespace Web.Mapper
             CreateMap<ClientWRATDetail, ClientWRATDetailDto>().ReverseMap();
             CreateMap<ClientWRITDetail, ClientWRITDetailDto>().ReverseMap();
 
+            CreateMap<StudentDocumentDto, StudentDocument>()
+                .ForMember(x => x.Id, y => y.MapFrom(z => Guid.Parse(z.Id))); ;
+            CreateMap<StudentDocument, StudentDocumentDto>()
+                .ForMember(x => x.Id, y => y.MapFrom(z => z.Id.ToString())); ;
+
         }
     }
 }

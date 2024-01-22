@@ -259,52 +259,55 @@ namespace Web.Controllers
                 clientDto.Password = $"{pwdGen.Next()}";
             }
 
-            var client = new Client()
-            {
-                Name = clientDto.Name,
-                Dob = clientDto.Dob.Value,
-                Email = clientDto.Email,
-                Phone = clientDto.Phone,
-                Service = clientDto.Service,
-
-                Address = clientDto.Address,
-                University = clientDto.University,
-                Course = clientDto.Course,
-                CourseYear = clientDto.CourseYear,
-                UserName = clientDto.UserName,
-                Passwod = clientDto.Password,
-
-                Status = ClientStatusEnum.Created
-            };
-
-            await _dbContext.Clients.AddAsync(client);
-
             var userDto = new User
             {
-                FirstName = client.Name,
-                Username = client.UserName,
+                FirstName = clientDto.Name,
+                Username = clientDto.UserName,
                 Password = clientDto.Password,
                 UserType = UserTypeEnum.Private_Individual,
 
-                Dob = client.Dob,
-                Email = client.Email,
+                Dob = clientDto.Dob.Value,
+                Email = clientDto.Email,
                 LastName = "",
-                Name = client.Name,
+                Name = clientDto.Name,
 
             };
             var user = _dbContext.Users.FirstOrDefault(b => b.Username == userDto.Username);
             if (user == null)
             {
-                _dbContext.Users.Add(userDto);
+                var usr = _dbContext.Users.Add(userDto);
+                await _dbContext.SaveChangesAsync();
+
+                var client = new Client()
+                {
+                    Name = clientDto.Name,
+                    Dob = clientDto.Dob.Value,
+                    Email = clientDto.Email,
+                    Phone = clientDto.Phone,
+                    Service = clientDto.Service,
+
+                    Address = clientDto.Address,
+                    University = clientDto.University,
+                    Course = clientDto.Course,
+                    CourseYear = clientDto.CourseYear,
+                    UserName = clientDto.UserName,
+                    Passwod = clientDto.Password,
+                    UserId = userDto.Id,
+                    Status = ClientStatusEnum.Created
+                };
+
+                await _dbContext.Clients.AddAsync(client);
+
+                await SendUserNotification(client);
+
+                var result = await _dbContext.SaveChangesAsync();
+                return Ok(new
+                {
+                    Data = _mapper.Map<ClientDto>(client)
+                });
             }
 
-            await SendUserNotification(client);
-
-            var result = await _dbContext.SaveChangesAsync();
-            return Ok(new
-            {
-                Data = _mapper.Map<ClientDto>(client)
-            });
+            return BadRequest();
         }
 
         [HttpPost]

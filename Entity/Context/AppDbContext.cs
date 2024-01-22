@@ -65,6 +65,7 @@ namespace Web.Entity.Context
         public DbSet<ClientTOWREDetail> ClientTOWREDetails { get; set; }
         public DbSet<ClientWRATDetail> ClientWRATDetails { get; set; }
         public DbSet<ClientWRITDetail> ClientWRITDetails { get; set; }
+        public DbSet<StudentDocument> StudentDocuments { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
