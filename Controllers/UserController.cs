@@ -59,25 +59,34 @@ namespace Web.Controllers
             await _dbContext.Users.AddAsync(user);
             await _dbContext.SaveChangesAsync();
 
-            var client = new Client()
+            if (userDto.UserType == UserTypeEnum.School_Student 
+                || userDto.UserType == UserTypeEnum.Graduate_Student
+                || userDto.UserType == UserTypeEnum.Private_Individual
+                || userDto.UserType == UserTypeEnum.Post_Graduate
+                || userDto.UserType == UserTypeEnum.ParentOrGuardian
+                )
             {
-                Name = $"{user.FirstName} {user.LastName}",
-                Dob = user.Dob,
-                Email = user.Email,
-                Phone = "NIL",
-                Service = 1,
-                Address = "NIL",
-                University = "NIL",
-                Course = "NIL",
-                CourseYear = "NIL",
-                UserName = user.Username,
-                Passwod = user.Password,
-                UserId = user.Id,
+                var client = new Client()
+                {
+                    Name = $"{user.FirstName} {user.LastName}",
+                    Dob = user.Dob,
+                    Email = user.Email,
+                    Phone = "NIL",
+                    Service = 1,
+                    Address = "NIL",
+                    University = "NIL",
+                    Course = "NIL",
+                    CourseYear = "NIL",
+                    UserName = user.Username,
+                    Passwod = user.Password,
+                    UserId = user.Id,
 
-                Status = ClientStatusEnum.Created
-            };
+                    Status = ClientStatusEnum.Created
+                };
 
-            await _dbContext.Clients.AddAsync(client);
+                await _dbContext.Clients.AddAsync(client);
+
+            }
 
             var result = await _dbContext.SaveChangesAsync();
             if (result > 0)

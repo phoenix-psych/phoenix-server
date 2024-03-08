@@ -198,22 +198,6 @@ static void SeedEmployeesData(AppDbContext context)
                     transaction.Rollback();
                 }
             });
-
-            //using (var transaction = context.Database.BeginTransaction())
-            //{
-            //    try
-            //    {
-            //        context.Database.ExecuteSqlRaw(command);
-            //        context.SaveChanges();
-            //        transaction.Commit();
-            //    }
-            //    catch
-            //    {
-            //        transaction.Rollback();
-            //        throw;
-            //    }
-            //}
-
         }
     }
 }
