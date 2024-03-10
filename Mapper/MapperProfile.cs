@@ -30,6 +30,12 @@ namespace Web.Mapper
             CreateMap<StudentDocument, StudentDocumentDto>()
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id.ToString())); ;
 
+            CreateMap<StudentPage1, StudentPage1Dto>().ReverseMap();
+            CreateMap<StudentPage2, StudentPage2Dto>().ReverseMap();
+            CreateMap<StudentPage3, StudentPage3Dto>().ReverseMap();
+            CreateMap<StudentPage4, StudentPage4Dto>().ReverseMap();
+
+
         }
     }
 }
