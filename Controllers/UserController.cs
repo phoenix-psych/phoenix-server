@@ -54,6 +54,12 @@ namespace Web.Controllers
                 return BadRequest();
             }
 
+            var currentUser = _dbContext.Users.FirstOrDefault(x => x.Username == userDto.Name);
+            if (currentUser != null)
+            {
+                return BadRequest("Username exist");
+            }
+
             userDto.UserType = GetUserType(userDto.Type);
             var user = _mapper.Map<User>(userDto);
             await _dbContext.Users.AddAsync(user);

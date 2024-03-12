@@ -103,7 +103,7 @@ namespace Web.Controllers
             switch (type)
             {
                 case "EL":
-                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
+                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0)) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (x.ElisionTo >= score && x.ElisionFrom <= score)).ToList();
                     if (data.Any())
                     {
@@ -113,7 +113,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "BW":
-                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
+                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0)) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (x.BlendingWordsTo >= score && x.BlendingWordsFrom <= score)).ToList();
                     if (data.Any())
                     {
@@ -122,7 +122,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "PI":
-                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
+                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0)) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (x.PhonemeIsolationTo >= score && x.PhonemeIsolationFrom <= score)).ToList();
                     if (data.Any())
                     {
@@ -131,7 +131,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "MD":
-                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
+                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0)) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (x.MemoryForDigitsTo >= score && x.MemoryForDigitsFrom <= score)).ToList();
                     if (data.Any())
                     {
@@ -141,7 +141,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "NR":
-                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
+                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0)) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (x.NonwordRepetitionTo >= score && x.NonwordRepetitionFrom <= score)).ToList();
                     if (data.Any())
                     {
@@ -151,7 +151,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "RD":
-                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
+                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0)) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (x.RapidDigitNamingTo >= score && x.RapidDigitNamingFrom <= score)).ToList();
                     if (data.Any())
                     {
@@ -161,7 +161,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "RL":
-                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
+                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0)) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (x.RapidLetterNamingTo >= score && x.RapidLetterNamingFrom <= score)).ToList();
                     if (data.Any())
                     {
@@ -171,7 +171,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "BN":
-                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
+                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0)) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (x.BlendingNonwordsTo >= score && x.BlendingNonwordsFrom <= score)).ToList();
                     if (data.Any())
                     {
@@ -181,7 +181,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "SN":
-                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
+                    data = _dbContext.CTOPPMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0)) && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (x.SegmentingNonwordsTo >= score && x.SegmentingNonwordsFrom <= score)).ToList();
                     if (data.Any())
                     {
@@ -276,7 +276,7 @@ namespace Web.Controllers
             switch (type)
             {
                 case "mfs":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.MFS_FROM && score <= x.MFS_TO)).ToList();
                     if (data.Any())
@@ -287,7 +287,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "fm":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.FM_FROM && score <= x.FM_TO)).ToList();
                     if (data.Any())
@@ -298,7 +298,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "wsr":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.WSR_FROM && score <= x.WSR_TO)).ToList();
                     if (data.Any())
@@ -309,7 +309,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "avm":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.AVM_FROM && score <= x.AVM_TO)).ToList();
                     if (data.Any())
@@ -320,7 +320,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "or":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.OR_FROM && score <= x.OR_TO)).ToList();
                     if (data.Any())
@@ -331,7 +331,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "vsm":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.VSM_FROM && score <= x.VSM_TO)).ToList();
                     if (data.Any())
@@ -342,7 +342,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "pr":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.PR_FROM && score <= x.PR_TO)).ToList();
                     if (data.Any())
@@ -353,7 +353,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "mfl":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.MFL_FROM && score <= x.MFLTO)).ToList();
                     if (data.Any())
@@ -364,7 +364,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "of":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.DF_FROM && score <= x.DF_TO)).ToList();
                     if (data.Any())
@@ -375,7 +375,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "vsr":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.VSR_FROM && score <= x.VSR_TO)).ToList();
                     if (data.Any())
@@ -386,7 +386,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "lf":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.LF_FROM && score <= x.LF_TO)).ToList();
                     if (data.Any())
@@ -397,7 +397,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "ml":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.MI_FROM && score <= x.MI_TO)).ToList();
                     if (data.Any())
@@ -408,7 +408,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "db":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.DB_FROM && score <= x.DB_TO)).ToList();
                     if (data.Any())
@@ -419,7 +419,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "lb":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.LB_FROM && score <= x.LB_TO)).ToList();
                     if (data.Any())
@@ -430,7 +430,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "mfsd":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.MFSD_FROM && score <= x.MFSD_TO)).ToList();
                     if (data.Any())
@@ -441,7 +441,7 @@ namespace Web.Controllers
                     }
                     break;
                 case "wsrd":
-                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                    data = _dbContext.TOMALMasters.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                             && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                             && (score >= x.WSRD && score <= x.WSRD)).ToList();
                     if (data.Any())
@@ -753,7 +753,7 @@ namespace Web.Controllers
                     if (data != null)
                     {
                         result.StandardScore = Convert.ToInt32(data.Standard_score);
-                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                            && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
                                                            ciType == Convert.ToDecimal(x.CI));
                         if (ci != null)
@@ -771,7 +771,7 @@ namespace Web.Controllers
                     if (data != null)
                     {
                         result.StandardScore = Convert.ToInt32(data.Standard_score);
-                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                            && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
                                                            ciType == Convert.ToDecimal(x.CI));
                         if (ci != null)
@@ -789,7 +789,7 @@ namespace Web.Controllers
                     if (data != null)
                     {
                         result.StandardScore = Convert.ToInt32(data.Standard_score);
-                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                            && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
                                                            ciType == Convert.ToDecimal(x.CI));
                         if (ci != null)
@@ -807,7 +807,7 @@ namespace Web.Controllers
                     if (data != null)
                     {
                         result.StandardScore = Convert.ToInt32(data.Standard_score);
-                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                            && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
                                                            ciType == Convert.ToDecimal(x.CI));
                         if (ci != null)
@@ -825,7 +825,7 @@ namespace Web.Controllers
                     if (data != null)
                     {
                         result.StandardScore = Convert.ToInt32(data.Standard_score);
-                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                        var ci = _dbContext.WRAT_CI_Blues.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                            && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
                                                            ciType == Convert.ToDecimal(x.CI));
                         if (ci != null)
@@ -847,7 +847,7 @@ namespace Web.Controllers
                     if (data != null)
                     {
                         result.StandardScore = Convert.ToInt32(data.Standard_score);
-                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                            && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
                                                            ciType == Convert.ToDecimal(x.CI));
                         if (ci != null)
@@ -865,7 +865,7 @@ namespace Web.Controllers
                     if (data != null)
                     {
                         result.StandardScore = Convert.ToInt32(data.Standard_score);
-                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                            && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
                                                            ciType == Convert.ToDecimal(x.CI));
                         if (ci != null)
@@ -883,7 +883,7 @@ namespace Web.Controllers
                     if (data != null)
                     {
                         result.StandardScore = Convert.ToInt32(data.Standard_score);
-                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                            && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
                                                            ciType == Convert.ToDecimal(x.CI));
                         if (ci != null)
@@ -901,7 +901,7 @@ namespace Web.Controllers
                     if (data != null)
                     {
                         result.StandardScore = Convert.ToInt32(data.Standard_score);
-                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                            && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
                                                            ciType == Convert.ToDecimal(x.CI));
                         if (ci != null)
@@ -919,7 +919,7 @@ namespace Web.Controllers
                     if (data != null)
                     {
                         result.StandardScore = Convert.ToInt32(data.Standard_score);
-                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                        var ci = _dbContext.WRAT_CI_Greens.Where(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                            && (month >= x.AgeFromMonth && month <= x.AgeToMonth)).ToList().FirstOrDefault(x =>
                                                            ciType == Convert.ToDecimal(x.CI));
                         if (ci != null)
@@ -945,7 +945,7 @@ namespace Web.Controllers
 
             if (type == "swe")
             {
-                var data = _dbContext.TowreSwes.FirstOrDefault(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                var data = _dbContext.TowreSwes.FirstOrDefault(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0) )
                                                        && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                        && (score == x.Raw_score));
                 if (data != null)
@@ -956,7 +956,7 @@ namespace Web.Controllers
             }
             if (type == "pde")
             {
-                var data = _dbContext.TowrePdes.FirstOrDefault(x => (year >= x.AgeFromYear && year <= x.AgeToYear)
+                var data = _dbContext.TowrePdes.FirstOrDefault(x => (year >= x.AgeFromYear && (year <= x.AgeToYear || x.AgeToYear == 0))
                                                        && (month >= x.AgeFromMonth && month <= x.AgeToMonth)
                                                        && (score == x.Raw_score));
                 if (data != null)

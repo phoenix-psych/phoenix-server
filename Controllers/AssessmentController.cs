@@ -159,14 +159,8 @@ namespace AIMSService.Controllers
                 return BadRequest();
             }
 
-            var userId = _dbContext.Clients.FirstOrDefault(x => x.Id == Guid.Parse(studentId))?.UserId;
-            if (userId == null)
-            {
-                return BadRequest();
-            }
-
-            var docs = _dbContext.StudentPage2.Where(x => x.StudentId == userId);
-            List<StudentPage2Dto> StudentPage2 = _mapper.Map<List<StudentPage2Dto>>(docs);
+            var page2 = _dbContext.StudentPage2.FirstOrDefault(x => x.StudentId == Guid.Parse(studentId));
+            StudentPage2Dto StudentPage2 = _mapper.Map<StudentPage2Dto>(page2);
             return Ok(StudentPage2);
         }
 
@@ -201,14 +195,8 @@ namespace AIMSService.Controllers
                 return BadRequest();
             }
 
-            var userId = _dbContext.Clients.FirstOrDefault(x => x.Id == Guid.Parse(studentId))?.UserId;
-            if (userId == null)
-            {
-                return BadRequest();
-            }
-
-            var docs = _dbContext.StudentPage3.Where(x => x.StudentId == userId);
-            List<StudentPage3Dto> StudentPage3 = _mapper.Map<List<StudentPage3Dto>>(docs);
+            var page3 = _dbContext.StudentPage3.FirstOrDefault(x => x.StudentId == Guid.Parse(studentId));
+            StudentPage3Dto StudentPage3 = _mapper.Map<StudentPage3Dto>(page3);
             return Ok(StudentPage3);
         }
 
@@ -244,14 +232,8 @@ namespace AIMSService.Controllers
                 return BadRequest();
             }
 
-            var userId = _dbContext.Clients.FirstOrDefault(x => x.Id == Guid.Parse(studentId))?.UserId;
-            if (userId == null)
-            {
-                return BadRequest();
-            }
-
-            var docs = _dbContext.StudentPage4.Where(x => x.StudentId == userId);
-            List<StudentPage4Dto> StudentPage4 = _mapper.Map<List<StudentPage4Dto>>(docs);
+            var page4 = _dbContext.StudentPage4.FirstOrDefault(x => x.StudentId == Guid.Parse(studentId));
+            StudentPage4Dto StudentPage4 = _mapper.Map<StudentPage4Dto>(page4);
             return Ok(StudentPage4);
         }
 

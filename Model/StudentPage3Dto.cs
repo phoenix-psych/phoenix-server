@@ -2,8 +2,7 @@
 {
     public class StudentPage3Dto
     {
-        public string Id { get; set; }
-        public Guid StudentId { get; set; }
+        public string? Id { get; set; }
         public string? Q1 { get; set; }
         public string? Q2 { get; set; }
         public string? Q3 { get; set; }
