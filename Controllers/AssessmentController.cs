@@ -3,9 +3,12 @@ using AIMSService.Model;
 using AutoMapper;
 using Azure;
 using Azure.Storage.Blobs;
+using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Packaging;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Reflection.Metadata;
+using System.Text;
 using Web.Entity.Context;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -57,7 +60,7 @@ namespace AIMSService.Controllers
             var file = _dbContext.StudentDocuments.FirstOrDefault(x => x.Id == Guid.Parse(id));
             if (file != null)
             {
-                var fileName = Path.GetFileName(file.Url);
+                var fileName = System.IO.Path.GetFileName(file.Url);
                 var blobClient = blobContainerClient.GetBlobClient(fileName);
                 var response = await blobClient.OpenReadAsync();
                 return File(response, "application/octet-stream", file.Name);
@@ -72,21 +75,53 @@ namespace AIMSService.Controllers
         {
 
             // Replace "template.docx" with the path to your actual template
-            string templatePath = "template.docx";
-            string outputPath = "edited_document.docx";
+            string templatePath = "samples\\Report Format NOv 2023_Functional Version.docx";
+            string outputPath = "samples\\edited_document.docx";
 
-            // Load the template document
-            Document document = new Document(templatePath);
+            // Define placeholders and their replacement values
+            Dictionary<string, string> placeholders = new Dictionary<string, string>()
+            {
+                { "[NAME]", "John Doe" },
+                { "[DATE]", DateTime.Now.ToString("yyyy-MM-dd") }
+            };
 
-            // Define the placeholder text and its replacement value
-            string placeholderText = "#date#";
-            string replacementValue = DateTime.Now.ToString("yyyy-MM-dd");
+            // Open the template document
+            using (WordprocessingDocument document = WordprocessingDocument.Open(templatePath, true))
+            {
+                // Access the main document part
+                MainDocumentPart mainPart = document.MainDocumentPart;
 
-            // Find and replace the placeholder with current date
-            document.ReplaceText(placeholderText, replacementValue, false, true);
+                // Iterate through all paragraphs in the document
+                foreach (var paragraph in mainPart.Document.Body.Elements<Paragraph>())
+                {
+                    // Process each run within the paragraph 
+                    foreach (var run in paragraph.Elements<Run>())
+                    {
+                        // Check if the run contains text
+                        if (run.HasChildren)
+                        {
+                            var text = run.GetFirstChild<DocumentFormat.OpenXml.Drawing.Text>().Text;
 
-            // Save the edited document
-            document.SaveToFile(outputPath, FileFormat.Docx);
+                            // Replace placeholders with corresponding values
+                            foreach (var placeholder in placeholders.Keys)
+                            {
+                                if (text.Contains(placeholder))
+                                {
+                                    text = text.Replace(placeholder, placeholders[placeholder]);
+                                    run.GetFirstChild<DocumentFormat.OpenXml.Drawing.Text>().Text = text;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                using (WordprocessingDocument destinationDocument = (WordprocessingDocument)document.Clone(outputPath))
+                {
+                    var s = destinationDocument.MainDocumentPart.GetStream();
+                    return File(s, "application/octet-stream", "1.docx");
+                }
+               
+            }
 
             //if (file != null)
             //{
@@ -121,7 +156,7 @@ namespace AIMSService.Controllers
             Stream myBlob = new MemoryStream();
             myBlob = image.OpenReadStream();
             var blobClient = new BlobContainerClient(Connection, containerName);
-            var blobname = $"{Guid.NewGuid().ToString()}{Path.GetExtension(image.FileName)}";
+            var blobname = $"{Guid.NewGuid().ToString()}{System.IO.Path.GetExtension(image.FileName)}";
             var blob = blobClient.GetBlobClient(blobname);
             await blob.UploadAsync(myBlob);
             return Ok(blob.Uri);

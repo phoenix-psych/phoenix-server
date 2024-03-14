@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="samples\Report Format NOv 2023_Functional Version.docx" />
     <None Remove="Seed\ART_Seed.sql" />
     <None Remove="Seed\CTOPP_Comp_Seed.sql" />
     <None Remove="Seed\CTOPP_Desc_Term.sql" />
@@ -45,9 +44,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="samples\Report Format NOv 2023_Functional Version.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="Seed\ART_Seed.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -152,6 +148,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Azure.Storage.Blobs" Version="12.18.0" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.1" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="6.0.10" />
@@ -169,6 +166,7 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="samples\" />
     <Folder Include="Service\" />
   </ItemGroup>
 
