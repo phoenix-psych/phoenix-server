@@ -133,6 +133,13 @@ namespace AIMSService.Controllers
                     doc.Save();
                 }
 
+                if (System.IO.File.Exists(outputPath))
+                {
+                    var fileName = System.IO.Path.GetFileName(outputPath);
+                    var response = System.IO.File.ReadAllBytes(outputPath);
+                    return File(response, "application/octet-stream", fileName);
+                }
+
             }
 
             // Replace "template.docx" with the path to your actual template
