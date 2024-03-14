@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="samples\Report Format NOv 2023_Functional Version.docx" />
     <None Remove="Seed\ART_Seed.sql" />
     <None Remove="Seed\CTOPP_Comp_Seed.sql" />
     <None Remove="Seed\CTOPP_Desc_Term.sql" />
@@ -44,6 +45,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="samples\Report Format NOv 2023_Functional Version.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Seed\ART_Seed.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

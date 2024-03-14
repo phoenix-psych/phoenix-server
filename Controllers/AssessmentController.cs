@@ -5,6 +5,7 @@ using Azure;
 using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
+using System.Reflection.Metadata;
 using Web.Entity.Context;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -65,6 +66,41 @@ namespace AIMSService.Controllers
             return BadRequest();
         }
 
+
+        [HttpGet("individual/{studentId}/word")]
+        public async Task<IActionResult> DownloadDocx([FromRoute] string studentId)
+        {
+
+            // Replace "template.docx" with the path to your actual template
+            string templatePath = "template.docx";
+            string outputPath = "edited_document.docx";
+
+            // Load the template document
+            Document document = new Document(templatePath);
+
+            // Define the placeholder text and its replacement value
+            string placeholderText = "#date#";
+            string replacementValue = DateTime.Now.ToString("yyyy-MM-dd");
+
+            // Find and replace the placeholder with current date
+            document.ReplaceText(placeholderText, replacementValue, false, true);
+
+            // Save the edited document
+            document.SaveToFile(outputPath, FileFormat.Docx);
+
+            //if (file != null)
+            //{
+            //    var fileName = Path.GetFileName(file.Url);
+            //    var blobClient = blobContainerClient.GetBlobClient(fileName);
+            //    var response = await blobClient.OpenReadAsync();
+            //    return File(response, "application/octet-stream", file.Name);
+            //}
+
+            return BadRequest();
+        }
+
+
+
         [HttpPost]
         [Route("individual/doc/upload")]
         public async Task<ActionResult> Upload()
@@ -124,7 +160,14 @@ namespace AIMSService.Controllers
                 return BadRequest();
             }
 
-            var page1 = _dbContext.StudentPage1.FirstOrDefault(x => x.StudentId == Guid.Parse(studentId));
+            Guid? id = Guid.Parse(studentId);
+            var user = _dbContext.Users.FirstOrDefault(x => x.Id == Guid.Parse(studentId));
+            if (user == null)
+            {
+                id = _dbContext.Clients.FirstOrDefault(x => x.Id == Guid.Parse(studentId))?.UserId;
+            }
+
+            var page1 = _dbContext.StudentPage1.FirstOrDefault(x => x.StudentId == id);
             StudentPage1Dto StudentPage1 = _mapper.Map<StudentPage1Dto>(page1);
             return Ok(StudentPage1);
         }
@@ -158,8 +201,14 @@ namespace AIMSService.Controllers
             {
                 return BadRequest();
             }
+            Guid? id = Guid.Parse(studentId);
+            var user = _dbContext.Users.FirstOrDefault(x => x.Id == Guid.Parse(studentId));
+            if (user == null)
+            {
+                id = _dbContext.Clients.FirstOrDefault(x => x.Id == Guid.Parse(studentId))?.UserId;
+            }
 
-            var page2 = _dbContext.StudentPage2.FirstOrDefault(x => x.StudentId == Guid.Parse(studentId));
+            var page2 = _dbContext.StudentPage2.FirstOrDefault(x => x.StudentId == id);
             StudentPage2Dto StudentPage2 = _mapper.Map<StudentPage2Dto>(page2);
             return Ok(StudentPage2);
         }
@@ -195,7 +244,14 @@ namespace AIMSService.Controllers
                 return BadRequest();
             }
 
-            var page3 = _dbContext.StudentPage3.FirstOrDefault(x => x.StudentId == Guid.Parse(studentId));
+            Guid? id = Guid.Parse(studentId);
+            var user = _dbContext.Users.FirstOrDefault(x => x.Id == Guid.Parse(studentId));
+            if (user == null)
+            {
+                id = _dbContext.Clients.FirstOrDefault(x => x.Id == Guid.Parse(studentId))?.UserId;
+            }
+
+            var page3 = _dbContext.StudentPage3.FirstOrDefault(x => x.StudentId == id);
             StudentPage3Dto StudentPage3 = _mapper.Map<StudentPage3Dto>(page3);
             return Ok(StudentPage3);
         }
@@ -232,7 +288,14 @@ namespace AIMSService.Controllers
                 return BadRequest();
             }
 
-            var page4 = _dbContext.StudentPage4.FirstOrDefault(x => x.StudentId == Guid.Parse(studentId));
+            Guid? id = Guid.Parse(studentId);
+            var user = _dbContext.Users.FirstOrDefault(x => x.Id == Guid.Parse(studentId));
+            if (user == null)
+            {
+                id = _dbContext.Clients.FirstOrDefault(x => x.Id == Guid.Parse(studentId))?.UserId;
+            }
+
+            var page4 = _dbContext.StudentPage4.FirstOrDefault(x => x.StudentId == id);
             StudentPage4Dto StudentPage4 = _mapper.Map<StudentPage4Dto>(page4);
             return Ok(StudentPage4);
         }
