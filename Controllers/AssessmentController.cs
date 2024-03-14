@@ -4,11 +4,15 @@ using AutoMapper;
 using Azure;
 using Azure.Storage.Blobs;
 using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Reflection.Metadata;
 using System.Text;
+using System.Text.RegularExpressions;
 using Web.Entity.Context;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -73,55 +77,148 @@ namespace AIMSService.Controllers
         [HttpGet("individual/{studentId}/word")]
         public async Task<IActionResult> DownloadDocx([FromRoute] string studentId)
         {
-
-            // Replace "template.docx" with the path to your actual template
-            string templatePath = "samples\\Report Format NOv 2023_Functional Version.docx";
-            string outputPath = "samples\\edited_document.docx";
-
-            // Define placeholders and their replacement values
-            Dictionary<string, string> placeholders = new Dictionary<string, string>()
+            var client = _dbContext.Clients.FirstOrDefault(x => x.Id == Guid.Parse(studentId));
+            if (client != null)
             {
-                { "[NAME]", "John Doe" },
-                { "[DATE]", DateTime.Now.ToString("yyyy-MM-dd") }
-            };
+                var today = DateTime.Today;
+                var age = today.Year - client.Dob.Year;
+                if (client.Dob.Date > today.AddYears(-age)) age--;
 
-            // Open the template document
-            using (WordprocessingDocument document = WordprocessingDocument.Open(templatePath, true))
-            {
-                // Access the main document part
-                MainDocumentPart mainPart = document.MainDocumentPart;
+                string templatePath = $"samples\\Report Format NOv 2023_Functional Version.docx";
+                string outputPath = $"samples\\{client.Name}_edited.docx";
 
-                // Iterate through all paragraphs in the document
-                foreach (var paragraph in mainPart.Document.Body.Elements<Paragraph>())
+                if (System.IO.File.Exists(outputPath))
                 {
-                    // Process each run within the paragraph 
-                    foreach (var run in paragraph.Elements<Run>())
-                    {
-                        // Check if the run contains text
-                        if (run.HasChildren)
-                        {
-                            var text = run.GetFirstChild<DocumentFormat.OpenXml.Drawing.Text>().Text;
+                    System.IO.File.Delete(outputPath);
+                }
 
-                            // Replace placeholders with corresponding values
-                            foreach (var placeholder in placeholders.Keys)
+                System.IO.File.Copy(templatePath, outputPath);
+
+                Dictionary<string, string> placeholders = new Dictionary<string, string>()
+                {
+                    { "[NAME]", client.Name },
+                    { "[DATE]", DateTime.Now.ToString("yyyy-MM-dd") },
+                    { "[DOB]", client.Dob.ToString("yyyy-MM-dd") },
+                    { "[ASDATE]",DateTime.Now.ToString("yyyy-MM-dd") },
+                    { "[AGE]", age.ToString() },
+                    { "[ADDRESS]", client.Address },
+                    { "[UNIVERSITY]", client.University },
+                    { "[COURSE]", client.Course },
+                    { "[CYEAR]", client.CourseYear },
+
+                };
+
+                using (WordprocessingDocument doc = WordprocessingDocument.Open(outputPath, true))
+                {
+
+                    MainDocumentPart mainPart = doc.MainDocumentPart;
+
+                    foreach (DocumentFormat.OpenXml.Wordprocessing.Text text in mainPart.Document.Body.Descendants<DocumentFormat.OpenXml.Wordprocessing.Text>())
+                    {
+
+                        foreach (var placeholder in placeholders.Keys)
+                        {
+                            if (text.Text.Contains(placeholder))
                             {
-                                if (text.Contains(placeholder))
-                                {
-                                    text = text.Replace(placeholder, placeholders[placeholder]);
-                                    run.GetFirstChild<DocumentFormat.OpenXml.Drawing.Text>().Text = text;
-                                }
+                                text.Text = text.Text.Replace(placeholder, placeholders[placeholder]);
                             }
                         }
+
+                        //if (text.Text.Contains("{{Placeholder}}"))
+                        //{
+                        //    text.Text = text.Text.Replace("{{Placeholder}}", "JJJJJ");
+                        //}
                     }
+
+                    doc.Save();
                 }
 
-                using (WordprocessingDocument destinationDocument = (WordprocessingDocument)document.Clone(outputPath))
-                {
-                    var s = destinationDocument.MainDocumentPart.GetStream();
-                    return File(s, "application/octet-stream", "1.docx");
-                }
-               
             }
+
+            // Replace "template.docx" with the path to your actual template
+
+            return BadRequest();
+        }
+
+        
+            //using (WordprocessingDocument wordDocument = WordprocessingDocument.Open(templatePath, true))
+            //{
+            //    // Access the main document part.
+            //    MainDocumentPart mainPart = wordDocument.MainDocumentPart;
+
+            //    // Get the body of the document.
+            //    Body body = mainPart.Document.Body;
+
+
+            //    // Iterate through the paragraphs in the body.
+            //    foreach (DocumentFormat.OpenXml.Drawing.Paragraph paragraph in body.Elements<DocumentFormat.OpenXml.Drawing.Paragraph>())
+            //    {
+            //        // Iterate through the runs in each paragraph.
+            //        foreach (DocumentFormat.OpenXml.Drawing.Run run in paragraph.Elements<DocumentFormat.OpenXml.Drawing.Run>())
+            //        {
+            //            // Get the text of the run.
+            //            string text = run.InnerText;
+
+            //            // Check if the text contains the placeholder.
+            //            if (text.Contains("{{Placeholder}}"))
+            //            {
+            //                // Replace the placeholder with actual data.
+            //                run.GetFirstChild<DocumentFormat.OpenXml.Drawing.Text>().Text = text.Replace("{{Placeholder}}", "Actual Data");
+            //            }
+            //        }
+            //    }
+
+            //    // Save the changes.
+            //    mainPart.Document.Save();
+            //}
+
+            // Console.WriteLine("Placeholders replaced with actual data.");
+
+
+            // Define placeholders and their replacement values
+            //Dictionary<string, string> placeholders = new Dictionary<string, string>()
+            //{
+            //    { "[NAME]", "John Doe" },
+            //    { "[DATE]", DateTime.Now.ToString("yyyy-MM-dd") }
+            //};
+
+            //// Open the template document
+            //using (WordprocessingDocument document = WordprocessingDocument.Open(templatePath, true))
+            //{
+            //    // Access the main document part
+            //    MainDocumentPart mainPart = document.MainDocumentPart;
+
+            //    // Iterate through all paragraphs in the document
+            //    foreach (var paragraph in mainPart.Document.Body.Elements<Paragraph>())
+            //    {
+            //        // Process each run within the paragraph 
+            //        foreach (var run in paragraph.Elements<Run>())
+            //        {
+            //            // Check if the run contains text
+            //            if (run.HasChildren)
+            //            {
+            //                var text = run.GetFirstChild<DocumentFormat.OpenXml.Drawing.Text>().Text;
+
+            //                // Replace placeholders with corresponding values
+            //                foreach (var placeholder in placeholders.Keys)
+            //                {
+            //                    if (text.Contains(placeholder))
+            //                    {
+            //                        text = text.Replace(placeholder, placeholders[placeholder]);
+            //                        run.GetFirstChild<DocumentFormat.OpenXml.Drawing.Text>().Text = text;
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+
+            //    using (WordprocessingDocument destinationDocument = (WordprocessingDocument)document.Clone(outputPath))
+            //    {
+            //        //var s = destinationDocument.MainDocumentPart.GetStream();
+            //        //return File(s, "application/octet-stream", "1.docx");
+            //    }
+               
+            //}
 
             //if (file != null)
             //{
@@ -131,8 +228,6 @@ namespace AIMSService.Controllers
             //    return File(response, "application/octet-stream", file.Name);
             //}
 
-            return BadRequest();
-        }
 
 
 
