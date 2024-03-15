@@ -390,7 +390,7 @@ namespace AIMSService.Controllers
 
         #endregion
 
-        var client = _dbContext.Clients.FirstOrDefault(x => x.Id == Guid.Parse(studentId));
+            var client = _dbContext.Clients.FirstOrDefault(x => x.Id == Guid.Parse(studentId));
             if (client != null)
             {
                 var today = DateTime.Today;
@@ -1683,9 +1683,6 @@ namespace AIMSService.Controllers
                 VRVAChartVal = testResult.WRITVA;
 
 
-
-
-
                 #endregion
 
 
@@ -1994,11 +1991,51 @@ namespace AIMSService.Controllers
                                 text.Text = text.Text.Replace(placeholder, placeholders[placeholder]);
                             }
                         }
+                    }
 
-                        //if (text.Text.Contains("{{Placeholder}}"))
-                        //{
-                        //    text.Text = text.Text.Replace("{{Placeholder}}", "JJJJJ");
-                        //}
+                    // ss
+                    var chartParts = mainPart.ChartParts;
+                    int i=0, j=85;
+
+                    int[] chartData = new int[] { 
+                        Convert.ToInt32(Art2ChartVal) ,
+                        Convert.ToInt32(Towre2ChartVal) ,
+                        Convert.ToInt32(Wrat5SChartVal) ,
+                        Convert.ToInt32(Wrat5RChartVal) ,
+                        Convert.ToInt32(Ctopp2RSNChartVal) ,
+                        Convert.ToInt32(Ctopp2PAChartVal) ,
+                        Convert.ToInt32(Ctopp2PMChartVal) ,
+                        Convert.ToInt32(WMChartVal) ,
+                        Convert.ToInt32(NVRChartVal) ,
+                        Convert.ToInt32(VRVChartVal) ,
+                        Convert.ToInt32(VRVAChartVal) ,
+
+                    };
+                    
+
+                    foreach (var chartPart in chartParts)
+                    {
+                        var chart = chartPart.ChartSpace.Elements<DocumentFormat.OpenXml.Drawing.Charts.Chart>().FirstOrDefault();
+                        if (chart != null)
+                        {
+                            var plotArea = chart.Descendants<DocumentFormat.OpenXml.Drawing.Charts.PlotArea>().FirstOrDefault();
+                            if (plotArea != null)
+                            {
+                                var seriesDatas = plotArea.Descendants<DocumentFormat.OpenXml.Drawing.Charts.Values>();
+                                foreach (var seriesData in seriesDatas)
+                                {
+                                    if (seriesData != null)
+                                    {
+                                        var chartComp = seriesData.Descendants<DocumentFormat.OpenXml.Drawing.Charts.NumericPoint>().ToList();
+                                        foreach (var item in chartComp)
+                                        {
+                                            item.NumericValue = new DocumentFormat.OpenXml.Drawing.Charts.NumericValue($"{chartData[i]}");
+                                            i++;
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     doc.Save();
