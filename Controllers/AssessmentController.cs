@@ -239,6 +239,7 @@ namespace AIMSService.Controllers
             string CTOPP2PAC121to130 = " ";
             string CTOPP2PAC130 = " ";
             string CTOPP2PAC95CI = " ";
+
             string CTOPP2BNW69 = " ";
             string CTOPP2BNW70to79 = " ";
             string CTOPP2BNW80to84 = " ";
@@ -269,6 +270,7 @@ namespace AIMSService.Controllers
             string CTOPP2APC121to130 = " ";
             string CTOPP2APC130 = " ";
             string CTOPP2APC95CI = " ";
+
             string CTOPP2RDN69 = " ";
             string CTOPP2RDN70to79 = " ";
             string CTOPP2RDN80to84 = " ";
@@ -534,7 +536,6 @@ namespace AIMSService.Controllers
                     WRITVB116to120 = " ";
                     WRITVB121to130 = " ";
                     WRITVB130 = " ";
-                    WRITVB95CI = " ";
                     if (Convert.ToInt32(testResult.WRITVB) < 70)
                     {
                         WRITVB69 = testResult.WRITVB;
@@ -571,6 +572,18 @@ namespace AIMSService.Controllers
                     {
                         WRITVB130 = testResult.WRITVB;
                     }
+
+                    var writVB = Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB69) ? "0" : WRITVB69) +
+                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB70to79) ? "0" : WRITVB70to79) +
+                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB80to84) ? "0" : WRITVB80to84) +
+                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB85to89) ? "0" : WRITVB85to89) +
+                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB90to109) ? "0" : WRITVB90to109) +
+                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB110to115) ? "0" : WRITVB110to115) +
+                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB116to120) ? "0" : WRITVB116to120) +
+                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB121to130) ? "0" : WRITVB121to130) +
+                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB130) ? "0" : WRITVB130);
+
+                    WRITVB95CI = $"{writVB - 5} - {writVB + 5}";
                 }
 
                 if (!string.IsNullOrEmpty(testResult.WRITMAT))
@@ -830,7 +843,6 @@ namespace AIMSService.Controllers
                     TOMAL2ACI116to120 = " ";
                     TOMAL2ACI121to130 = " ";
                     TOMAL2ACI130 = " ";
-                    TOMAL2ACI95CI = " ";
                     if (Convert.ToInt32(testResult.TOMAL2ACI) < 70)
                     {
                         TOMAL2ACI69 = testResult.TOMAL2ACI;
@@ -867,6 +879,18 @@ namespace AIMSService.Controllers
                     {
                         TOMAL2ACI130 = testResult.TOMAL2ACI;
                     }
+
+                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI69) ? "0" : TOMAL2ACI69) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI70to79) ? "0" : TOMAL2ACI70to79) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI80to84) ? "0" : TOMAL2ACI80to84) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI85to89) ? "0" : TOMAL2ACI85to89) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI90to109) ? "0" : TOMAL2ACI90to109) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI110to115) ? "0" : TOMAL2ACI110to115) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI116to120) ? "0" : TOMAL2ACI116to120) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI121to130) ? "0" : TOMAL2ACI121to130) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI130) ? "0" : TOMAL2ACI130);
+
+                    TOMAL2ACI95CI = $"{ciVal - 5} - {ciVal + 5}";
                 }
 
                 if (!string.IsNullOrEmpty(testResult.CTOPP2MD))
@@ -978,7 +1002,6 @@ namespace AIMSService.Controllers
                     CTOPP2PM116to120 = " ";
                     CTOPP2PM121to130 = " ";
                     CTOPP2PM130 = " ";
-                    CTOPP2PM95CI = " ";
                     if (Convert.ToInt32(testResult.CTOPP2PM) < 70)
                     {
                         CTOPP2PM69 = testResult.CTOPP2PM;
@@ -1015,6 +1038,18 @@ namespace AIMSService.Controllers
                     {
                         CTOPP2PM130 = testResult.CTOPP2PM;
                     }
+
+                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM69) ? "0" : CTOPP2PM69) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM70to79) ? "0" : CTOPP2PM70to79) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM80to84) ? "0" : CTOPP2PM80to84) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM85to89) ? "0" : CTOPP2PM85to89) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM90to109) ? "0" : CTOPP2PM90to109) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM110to115) ? "0" : CTOPP2PM110to115) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM116to120) ? "0" : CTOPP2PM116to120) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM121to130) ? "0" : CTOPP2PM121to130) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM130) ? "0" : CTOPP2PM130);
+
+                    CTOPP2PM95CI = $"{ciVal - 5} - {ciVal + 5}";
                 }
 
                 if (!string.IsNullOrEmpty(testResult.CTOPP2EL))
@@ -1175,7 +1210,7 @@ namespace AIMSService.Controllers
                     CTOPP2PAC116to120 = " ";
                     CTOPP2PAC121to130 = " ";
                     CTOPP2PAC130 = " ";
-                    CTOPP2PAC95CI = " ";
+                    
                     if (Convert.ToInt32(testResult.CTOPP2PAC) < 70)
                     {
                         CTOPP2PAC69 = testResult.CTOPP2PAC;
@@ -1212,7 +1247,230 @@ namespace AIMSService.Controllers
                     {
                         CTOPP2PAC130 = testResult.CTOPP2PAC;
                     }
+
+                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC69) ? "0" : CTOPP2PAC69) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC70to79) ? "0" : CTOPP2PAC70to79) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC80to84) ? "0" : CTOPP2PAC80to84) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC85to89) ? "0" : CTOPP2PAC85to89) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC90to109) ? "0" : CTOPP2PAC90to109) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC110to115) ? "0" : CTOPP2PAC110to115) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC116to120) ? "0" : CTOPP2PAC116to120) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
+
+                    CTOPP2PAC95CI = $"{ciVal - 5} - {ciVal + 5}";
                 }
+
+
+                
+                //if (!string.IsNullOrEmpty(testResult.CTOPP2))
+                //{
+                //    CTOPP2BNW69 = " ";
+                //    CTOPP2BNW70to79 = " ";
+                //    CTOPP2BNW80to84 = " ";
+                //    CTOPP2BNW85to89 = " ";
+                //    CTOPP2BNW90to109 = " ";
+                //    CTOPP2BNW110to115 = " ";
+                //    CTOPP2BNW116to120 = " ";
+                //    CTOPP2BNW121to130 = " ";
+                //    CTOPP2BNW130 = " ";
+
+                //    if (Convert.ToInt32(testResult.CTOPP2PAC) < 70)
+                //    {
+                //        CTOPP2PAC69 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 70 && Convert.ToInt32(testResult.CTOPP2PAC) <= 79)
+                //    {
+                //        CTOPP2PAC70to79 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 80 && Convert.ToInt32(testResult.CTOPP2PAC) <= 84)
+                //    {
+                //        CTOPP2PAC80to84 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 85 && Convert.ToInt32(testResult.CTOPP2PAC) <= 89)
+                //    {
+                //        CTOPP2PAC85to89 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 90 && Convert.ToInt32(testResult.CTOPP2PAC) <= 109)
+                //    {
+                //        CTOPP2PAC90to109 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 110 && Convert.ToInt32(testResult.CTOPP2PAC) <= 115)
+                //    {
+                //        CTOPP2PAC110to115 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 116 && Convert.ToInt32(testResult.CTOPP2PAC) <= 120)
+                //    {
+                //        CTOPP2PAC116to120 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 121 && Convert.ToInt32(testResult.CTOPP2PAC) <= 130)
+                //    {
+                //        CTOPP2PAC121to130 = testResult.CTOPP2PAC;
+                //    }
+                //    if (Convert.ToInt32(testResult.CTOPP2PAC) > 130)
+                //    {
+                //        CTOPP2PAC130 = testResult.CTOPP2PAC;
+                //    }
+
+                //    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC69) ? "0" : CTOPP2PAC69) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC70to79) ? "0" : CTOPP2PAC70to79) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC80to84) ? "0" : CTOPP2PAC80to84) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC85to89) ? "0" : CTOPP2PAC85to89) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC90to109) ? "0" : CTOPP2PAC90to109) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC110to115) ? "0" : CTOPP2PAC110to115) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC116to120) ? "0" : CTOPP2PAC116to120) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
+
+                //    CTOPP2PAC95CI = $"{ciVal - 5} - {ciVal + 5}";
+                //}
+
+                //// string CTOPP2BNW95CI = " ";
+                //string CTOPP2SNW69 = " ";
+                //string CTOPP2SNW70to79 = " ";
+                //string CTOPP2SNW80to84 = " ";
+                //string CTOPP2SNW85to89 = " ";
+                //string CTOPP2SNW90to109 = " ";
+                //string CTOPP2SNW110to115 = " ";
+                //string CTOPP2SNW116to120 = " ";
+                //string CTOPP2SNW121to130 = " ";
+                //string CTOPP2SNW130 = " ";
+                //if (!string.IsNullOrEmpty(testResult.CTOPP2PAC))
+                //{
+                //    CTOPP2PAC69 = " ";
+                //    CTOPP2PAC70to79 = " ";
+                //    CTOPP2PAC80to84 = " ";
+                //    CTOPP2PAC85to89 = " ";
+                //    CTOPP2PAC90to109 = " ";
+                //    CTOPP2PAC110to115 = " ";
+                //    CTOPP2PAC116to120 = " ";
+                //    CTOPP2PAC121to130 = " ";
+                //    CTOPP2PAC130 = " ";
+
+                //    if (Convert.ToInt32(testResult.CTOPP2PAC) < 70)
+                //    {
+                //        CTOPP2PAC69 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 70 && Convert.ToInt32(testResult.CTOPP2PAC) <= 79)
+                //    {
+                //        CTOPP2PAC70to79 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 80 && Convert.ToInt32(testResult.CTOPP2PAC) <= 84)
+                //    {
+                //        CTOPP2PAC80to84 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 85 && Convert.ToInt32(testResult.CTOPP2PAC) <= 89)
+                //    {
+                //        CTOPP2PAC85to89 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 90 && Convert.ToInt32(testResult.CTOPP2PAC) <= 109)
+                //    {
+                //        CTOPP2PAC90to109 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 110 && Convert.ToInt32(testResult.CTOPP2PAC) <= 115)
+                //    {
+                //        CTOPP2PAC110to115 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 116 && Convert.ToInt32(testResult.CTOPP2PAC) <= 120)
+                //    {
+                //        CTOPP2PAC116to120 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 121 && Convert.ToInt32(testResult.CTOPP2PAC) <= 130)
+                //    {
+                //        CTOPP2PAC121to130 = testResult.CTOPP2PAC;
+                //    }
+                //    if (Convert.ToInt32(testResult.CTOPP2PAC) > 130)
+                //    {
+                //        CTOPP2PAC130 = testResult.CTOPP2PAC;
+                //    }
+
+                //    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC69) ? "0" : CTOPP2PAC69) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC70to79) ? "0" : CTOPP2PAC70to79) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC80to84) ? "0" : CTOPP2PAC80to84) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC85to89) ? "0" : CTOPP2PAC85to89) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC90to109) ? "0" : CTOPP2PAC90to109) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC110to115) ? "0" : CTOPP2PAC110to115) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC116to120) ? "0" : CTOPP2PAC116to120) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
+
+                //    CTOPP2PAC95CI = $"{ciVal - 5} - {ciVal + 5}";
+                //}
+
+                //// string CTOPP2SNW95CI = " ";
+                //string CTOPP2APC69 = " ";
+                //string CTOPP2APC70to79 = " ";
+                //string CTOPP2APC80to84 = " ";
+                //string CTOPP2APC85to89 = " ";
+                //string CTOPP2APC90to109 = " ";
+                //string CTOPP2APC110to115 = " ";
+                //string CTOPP2APC116to120 = " ";
+                //string CTOPP2APC121to130 = " ";
+                //string CTOPP2APC130 = " ";
+                //string CTOPP2APC95CI = " ";
+                //if (!string.IsNullOrEmpty(testResult.CTOPP2PAC))
+                //{
+                //    CTOPP2PAC69 = " ";
+                //    CTOPP2PAC70to79 = " ";
+                //    CTOPP2PAC80to84 = " ";
+                //    CTOPP2PAC85to89 = " ";
+                //    CTOPP2PAC90to109 = " ";
+                //    CTOPP2PAC110to115 = " ";
+                //    CTOPP2PAC116to120 = " ";
+                //    CTOPP2PAC121to130 = " ";
+                //    CTOPP2PAC130 = " ";
+
+                //    if (Convert.ToInt32(testResult.CTOPP2PAC) < 70)
+                //    {
+                //        CTOPP2PAC69 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 70 && Convert.ToInt32(testResult.CTOPP2PAC) <= 79)
+                //    {
+                //        CTOPP2PAC70to79 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 80 && Convert.ToInt32(testResult.CTOPP2PAC) <= 84)
+                //    {
+                //        CTOPP2PAC80to84 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 85 && Convert.ToInt32(testResult.CTOPP2PAC) <= 89)
+                //    {
+                //        CTOPP2PAC85to89 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 90 && Convert.ToInt32(testResult.CTOPP2PAC) <= 109)
+                //    {
+                //        CTOPP2PAC90to109 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 110 && Convert.ToInt32(testResult.CTOPP2PAC) <= 115)
+                //    {
+                //        CTOPP2PAC110to115 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 116 && Convert.ToInt32(testResult.CTOPP2PAC) <= 120)
+                //    {
+                //        CTOPP2PAC116to120 = testResult.CTOPP2PAC;
+                //    }
+                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 121 && Convert.ToInt32(testResult.CTOPP2PAC) <= 130)
+                //    {
+                //        CTOPP2PAC121to130 = testResult.CTOPP2PAC;
+                //    }
+                //    if (Convert.ToInt32(testResult.CTOPP2PAC) > 130)
+                //    {
+                //        CTOPP2PAC130 = testResult.CTOPP2PAC;
+                //    }
+
+                //    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC69) ? "0" : CTOPP2PAC69) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC70to79) ? "0" : CTOPP2PAC70to79) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC80to84) ? "0" : CTOPP2PAC80to84) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC85to89) ? "0" : CTOPP2PAC85to89) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC90to109) ? "0" : CTOPP2PAC90to109) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC110to115) ? "0" : CTOPP2PAC110to115) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC116to120) ? "0" : CTOPP2PAC116to120) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
+                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
+
+                //    CTOPP2PAC95CI = $"{ciVal - 5} - {ciVal + 5}";
+                //}
+
+
 
                 if (!string.IsNullOrEmpty(testResult.CTOPP2RDN))
                 {
@@ -1323,7 +1581,7 @@ namespace AIMSService.Controllers
                     CTOPP2RSN116to120 = " ";
                     CTOPP2RSN121to130 = " ";
                     CTOPP2RSN130 = " ";
-                    CTOPP2RSN95CI = " ";
+                    
                     if (Convert.ToInt32(testResult.CTOPP2RSN) < 70)
                     {
                         CTOPP2RSN69 = testResult.CTOPP2RSN;
@@ -1360,6 +1618,18 @@ namespace AIMSService.Controllers
                     {
                         CTOPP2RSN130 = testResult.CTOPP2RSN;
                     }
+
+                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN69) ? "0" : CTOPP2RSN69) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN70to79) ? "0" : CTOPP2RSN70to79) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN80to84) ? "0" : CTOPP2RSN80to84) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN85to89) ? "0" : CTOPP2RSN85to89) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN90to109) ? "0" : CTOPP2RSN90to109) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN110to115) ? "0" : CTOPP2RSN110to115) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN116to120) ? "0" : CTOPP2RSN116to120) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN121to130) ? "0" : CTOPP2RSN121to130) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN130) ? "0" : CTOPP2RSN130);
+
+                    CTOPP2RSN95CI = $"{ciVal - 5} - {ciVal + 5}";
                 }
 
 
@@ -1374,7 +1644,7 @@ namespace AIMSService.Controllers
                     WRAT5WR116to120 = " ";
                     WRAT5WR121to130 = " ";
                     WRAT5WR130 = " ";
-                    WRAT5WR95CI = " ";
+                    
                     if (Convert.ToInt32(testResult.WRAT5WR) < 70)
                     {
                         WRAT5WR69 = testResult.WRAT5WR;
@@ -1411,7 +1681,20 @@ namespace AIMSService.Controllers
                     {
                         WRAT5WR130 = testResult.WRAT5WR;
                     }
+
+                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR69) ? "0" : WRAT5WR69) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR70to79) ? "0" : WRAT5WR70to79) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR80to84) ? "0" : WRAT5WR80to84) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR85to89) ? "0" : WRAT5WR85to89) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR90to109) ? "0" : WRAT5WR90to109) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR110to115) ? "0" : WRAT5WR110to115) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR116to120) ? "0" : WRAT5WR116to120) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR121to130) ? "0" : WRAT5WR121to130) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR130) ? "0" : WRAT5WR130);
+
+                    WRAT5WR95CI = $"{ciVal - 5} - {ciVal + 5}";
                 }
+
                 if (testResult.WRAT5SP != "")
                 {
                     WRAT5SP69 = " ";
@@ -1423,7 +1706,7 @@ namespace AIMSService.Controllers
                     WRAT5SP116to120 = " ";
                     WRAT5SP121to130 = " ";
                     WRAT5SP130 = " ";
-                    WRAT5SP95CI = " ";
+                    
                     if (Convert.ToInt32(testResult.WRAT5SP) < 70)
                     {
                         WRAT5SP69 = testResult.WRAT5SP;
@@ -1460,6 +1743,18 @@ namespace AIMSService.Controllers
                     {
                         WRAT5SP130 = testResult.WRAT5SP;
                     }
+
+                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP69) ? "0" : WRAT5SP69) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP70to79) ? "0" : WRAT5SP70to79) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP80to84) ? "0" : WRAT5SP80to84) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP85to89) ? "0" : WRAT5SP85to89) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP90to109) ? "0" : WRAT5SP90to109) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP110to115) ? "0" : WRAT5SP110to115) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP116to120) ? "0" : WRAT5SP116to120) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP121to130) ? "0" : WRAT5SP121to130) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP130) ? "0" : WRAT5SP130);
+
+                    WRAT5SP95CI = $"{ciVal - 5} - {ciVal + 5}";
                 }
                 if (testResult.TOWRE2SWE != "")
                 {
@@ -1509,6 +1804,7 @@ namespace AIMSService.Controllers
                         TOWRE2SWE130 = testResult.TOWRE2SWE;
                     }
                 }
+                
                 if (testResult.TOWRE2PDE != "")
                 {
                     TOWRE2PDE69 = " ";
@@ -1557,6 +1853,7 @@ namespace AIMSService.Controllers
                         TOWRE2PDE130 = testResult.TOWRE2PDE;
                     }
                 }
+                
                 if (testResult.TOWRE2IND != "")
                 {
                     TOWRE2IND69 = " ";
@@ -1568,7 +1865,7 @@ namespace AIMSService.Controllers
                     TOWRE2IND116to120 = " ";
                     TOWRE2IND121to130 = " ";
                     TOWRE2IND130 = " ";
-                    TOWRE2IND95CI = " ";
+                    
                     if (Convert.ToInt32(testResult.TOWRE2IND) < 70)
                     {
                         TOWRE2IND69 = testResult.TOWRE2IND;
@@ -1605,7 +1902,20 @@ namespace AIMSService.Controllers
                     {
                         TOWRE2IND130 = testResult.TOWRE2IND;
                     }
+
+                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND69) ? "0" : TOWRE2IND69) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND70to79) ? "0" : TOWRE2IND70to79) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND80to84) ? "0" : TOWRE2IND80to84) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND85to89) ? "0" : TOWRE2IND85to89) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND90to109) ? "0" : TOWRE2IND90to109) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND110to115) ? "0" : TOWRE2IND110to115) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND116to120) ? "0" : TOWRE2IND116to120) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND121to130) ? "0" : TOWRE2IND121to130) +
+                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND130) ? "0" : TOWRE2IND130);
+
+                    TOWRE2IND95CI = $"{ciVal - 5} - {ciVal + 5}";
                 }
+
                 if (testResult.ART2SC != "")
                 {
                     ART2SC69 = " ";

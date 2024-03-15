@@ -42,6 +42,7 @@ namespace Web.Controllers
                 return NotFound();
             }
 
+            result.IsAdmin = result.IsAdmin ?? false;
             return Ok(_mapper.Map<UserDto>(result));
         }
 
