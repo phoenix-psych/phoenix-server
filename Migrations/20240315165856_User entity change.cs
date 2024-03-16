@@ -12,7 +12,8 @@ namespace Web.Migrations
                 name: "IsAdmin",
                 table: "Users",
                 type: "bit",
-                nullable: true);
+                nullable: false,
+                defaultValue: false);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

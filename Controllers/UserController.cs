@@ -28,7 +28,7 @@ namespace Web.Controllers
         [Route("user")]
         public async Task<ActionResult<List<UserDto>>> GetUser()
         {
-            var results = await _dbContext.Users.ToListAsync();
+            var results = await _dbContext.Users.OrderByDescending(x=>x.UserType).ToListAsync();
             return Ok(_mapper.Map<List<UserDto>>(results));
         }
 
@@ -42,7 +42,6 @@ namespace Web.Controllers
                 return NotFound();
             }
 
-            result.IsAdmin = result.IsAdmin ?? false;
             return Ok(_mapper.Map<UserDto>(result));
         }
 
@@ -188,6 +187,32 @@ namespace Web.Controllers
             var result = await _dbContext.SaveChangesAsync();
             if (result > 0)
             {
+                return Ok(new
+                {
+                    Data = _mapper.Map<UserDto>(user)
+                });
+            }
+
+            return Ok(new
+            {
+                Message = "Update failed!"
+            });
+        }
+
+        [HttpPut]
+        [Route("user/admin")]
+        public async Task<ActionResult> SetAdminAssessor([FromBody] UserDto userDto)
+        {
+            if (userDto == null)
+            {
+                return BadRequest();
+            }
+
+            var user = _dbContext.Users.FirstOrDefault(x=>x.Id == Guid.Parse(userDto.Id));
+            if (user != null)
+            {
+                user.IsAdmin = !user.IsAdmin;
+                await _dbContext.SaveChangesAsync();
                 return Ok(new
                 {
                     Data = _mapper.Map<UserDto>(user)

@@ -18,6 +18,7 @@ using Microsoft.Data.SqlClient.Server;
 using System;
 using AIMSService.Entity;
 using AIMSService.Model;
+using DocumentFormat.OpenXml.InkML;
 
 namespace Web.Controllers
 {
@@ -90,6 +91,31 @@ namespace Web.Controllers
             }
 
             return Ok(answer);
+        }
+
+
+        [HttpGet]
+        [Route("assessor/summary")]
+        public async Task<ActionResult<AssessorSummaryDto>> GetAssessorSummary()
+        {
+            var summ = new AssessorSummaryDto();
+
+            summ.Clients = _dbContext.Users.Count(x => 
+                            x.UserType == Helper.Enum.UserTypeEnum.Graduate_Student
+                            || x.UserType == Helper.Enum.UserTypeEnum.School_Student
+                            || x.UserType == Helper.Enum.UserTypeEnum.Post_Graduate
+                            || x.UserType == Helper.Enum.UserTypeEnum.Private_Individual
+                            || x.UserType == Helper.Enum.UserTypeEnum.ParentOrGuardian
+                            
+                            ).ToString();
+            summ.CompletedScreeners = _dbContext.Clients.Count(x => x.Status == Helper.Enum.ClientStatusEnum.Completed).ToString();
+            summ.ReportPending = _dbContext.Clients.Count(x => x.Status != Helper.Enum.ClientStatusEnum.Completed).ToString(); 
+            summ.ReportCompleted = _dbContext.ClientCTOPPDetails.GroupBy(x => x.ClientId).Count().ToString();
+            summ.PaymentPending = _dbContext.Clients.Count().ToString();
+            summ.Tests = _dbContext.Clients.Count().ToString();
+            summ.TestFinished = _dbContext.ClientCTOPPDetails.GroupBy(x => x.ClientId).Count().ToString();
+
+            return Ok(summ);
         }
 
 

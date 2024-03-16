@@ -3598,7 +3598,7 @@ namespace Web.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("IsAdmin")
+                    b.Property<bool>("IsAdmin")
                         .HasColumnType("bit");
 
                     b.Property<string>("LastName")

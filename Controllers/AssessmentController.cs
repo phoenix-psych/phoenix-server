@@ -573,7 +573,7 @@ namespace AIMSService.Controllers
                         WRITVB130 = testResult.WRITVB;
                     }
 
-                    var writVB = Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB69) ? "0" : WRITVB69) +
+                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB69) ? "0" : WRITVB69) +
                             Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB70to79) ? "0" : WRITVB70to79) +
                             Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB80to84) ? "0" : WRITVB80to84) +
                             Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB85to89) ? "0" : WRITVB85to89) +
@@ -583,7 +583,7 @@ namespace AIMSService.Controllers
                             Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB121to130) ? "0" : WRITVB121to130) +
                             Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB130) ? "0" : WRITVB130);
 
-                    WRITVB95CI = $"{writVB - 5} - {writVB + 5}";
+                    WRITVB95CI = GetCI(ciVal); //$"{ciVal - 5} - {ciVal + 5}";
                 }
 
                 if (!string.IsNullOrEmpty(testResult.WRITMAT))
@@ -890,7 +890,7 @@ namespace AIMSService.Controllers
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI121to130) ? "0" : TOMAL2ACI121to130) +
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI130) ? "0" : TOMAL2ACI130);
 
-                    TOMAL2ACI95CI = $"{ciVal - 5} - {ciVal + 5}";
+                    TOMAL2ACI95CI = GetCI(ciVal); //$"{ciVal - 5} - {ciVal + 5}";
                 }
 
                 if (!string.IsNullOrEmpty(testResult.CTOPP2MD))
@@ -1049,7 +1049,7 @@ namespace AIMSService.Controllers
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM121to130) ? "0" : CTOPP2PM121to130) +
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM130) ? "0" : CTOPP2PM130);
 
-                    CTOPP2PM95CI = $"{ciVal - 5} - {ciVal + 5}";
+                    CTOPP2PM95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
 
                 if (!string.IsNullOrEmpty(testResult.CTOPP2EL))
@@ -1258,7 +1258,7 @@ namespace AIMSService.Controllers
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
 
-                    CTOPP2PAC95CI = $"{ciVal - 5} - {ciVal + 5}";
+                    CTOPP2PAC95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
 
 
@@ -1322,7 +1322,7 @@ namespace AIMSService.Controllers
                 //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
                 //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
 
-                //    CTOPP2PAC95CI = $"{ciVal - 5} - {ciVal + 5}";
+                //    CTOPP2PAC95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 //}
 
                 //// string CTOPP2BNW95CI = " ";
@@ -1394,7 +1394,7 @@ namespace AIMSService.Controllers
                 //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
                 //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
 
-                //    CTOPP2PAC95CI = $"{ciVal - 5} - {ciVal + 5}";
+                //    CTOPP2PAC95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 //}
 
                 //// string CTOPP2SNW95CI = " ";
@@ -1467,7 +1467,7 @@ namespace AIMSService.Controllers
                 //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
                 //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
 
-                //    CTOPP2PAC95CI = $"{ciVal - 5} - {ciVal + 5}";
+                //    CTOPP2PAC95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 //}
 
 
@@ -1629,7 +1629,7 @@ namespace AIMSService.Controllers
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN121to130) ? "0" : CTOPP2RSN121to130) +
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN130) ? "0" : CTOPP2RSN130);
 
-                    CTOPP2RSN95CI = $"{ciVal - 5} - {ciVal + 5}";
+                    CTOPP2RSN95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
 
 
@@ -1692,7 +1692,7 @@ namespace AIMSService.Controllers
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR121to130) ? "0" : WRAT5WR121to130) +
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR130) ? "0" : WRAT5WR130);
 
-                    WRAT5WR95CI = $"{ciVal - 5} - {ciVal + 5}";
+                    WRAT5WR95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
 
                 if (testResult.WRAT5SP != "")
@@ -1754,7 +1754,7 @@ namespace AIMSService.Controllers
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP121to130) ? "0" : WRAT5SP121to130) +
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP130) ? "0" : WRAT5SP130);
 
-                    WRAT5SP95CI = $"{ciVal - 5} - {ciVal + 5}";
+                    WRAT5SP95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
                 if (testResult.TOWRE2SWE != "")
                 {
@@ -1913,7 +1913,7 @@ namespace AIMSService.Controllers
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND121to130) ? "0" : TOWRE2IND121to130) +
                                 Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND130) ? "0" : TOWRE2IND130);
 
-                    TOWRE2IND95CI = $"{ciVal - 5} - {ciVal + 5}";
+                    TOWRE2IND95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
 
                 if (testResult.ART2SC != "")
@@ -2363,6 +2363,16 @@ namespace AIMSService.Controllers
             // Replace "template.docx" with the path to your actual template
 
             return BadRequest();
+        }
+
+        private string GetCI(int ciVal)
+        {
+            if(ciVal > 0)
+            {
+                return $"{ciVal - 5} - {ciVal + 5}";
+            }
+
+            return "";
         }
 
         public static string GetPercentage(string val)

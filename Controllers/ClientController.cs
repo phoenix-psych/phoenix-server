@@ -487,6 +487,33 @@ namespace Web.Controllers
         }
 
 
+        [HttpPut]
+        [Route("client/completed")]
+        public async Task<ActionResult> SetCompletedStatus([FromBody] ClientDto ClientDto)
+        {
+            if (ClientDto == null)
+            {
+                return BadRequest();
+            }
+
+            var client = _dbContext.Clients.FirstOrDefault(x => x.UserId == Guid.Parse(ClientDto.Id));
+            if (client != null)
+            {
+                client.Status = ClientStatusEnum.Completed;
+                await _dbContext.SaveChangesAsync();
+                return Ok(new
+                {
+                    Data = _mapper.Map<ClientDto>(client)
+                });
+            }
+
+            return Ok(new
+            {
+                Message = "Update failed!"
+            });
+        }
+
+
         [HttpDelete]
         [Route("client")]
         public async Task<ActionResult> DeleteClient(ClientDto client)

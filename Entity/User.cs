@@ -15,7 +15,7 @@ namespace Web.Entity
 
         public DateTime Dob { get; set; }
 
-        public bool? IsAdmin { get; set; }
+        public bool IsAdmin { get; set; } = false;
 
         [Required]
         public string Username { get; set; }
