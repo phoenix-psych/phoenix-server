@@ -29,7 +29,13 @@ namespace Web.Controllers
         public async Task<ActionResult<List<UserDto>>> GetUser()
         {
             var results = await _dbContext.Users.OrderByDescending(x=>x.UserType).ToListAsync();
-            return Ok(_mapper.Map<List<UserDto>>(results));
+            var data = _mapper.Map<List<UserDto>>(results);
+            foreach (var item in data)
+            {
+                item.Type = item.UserType.ToString().Replace('_', ' ');
+            }
+
+            return Ok(data);
         }
 
         [HttpGet]
@@ -54,7 +60,7 @@ namespace Web.Controllers
                 return BadRequest();
             }
 
-            var currentUser = _dbContext.Users.FirstOrDefault(x => x.Username == userDto.Name);
+            var currentUser = _dbContext.Users.FirstOrDefault(x => x.Username == userDto.Username);
             if (currentUser != null)
             {
                 return BadRequest("Username exist");
@@ -94,19 +100,11 @@ namespace Web.Controllers
 
             }
 
-            var result = await _dbContext.SaveChangesAsync();
-            if (result > 0)
-            {
-                var mailtask = SendLoginNotification($"{user.FirstName} {user.LastName}");
-                return Ok(new
-                {
-                    Data = _mapper.Map<UserDto>(user)
-                });
-            }
-
+            await _dbContext.SaveChangesAsync();
+            var mailtask = SendLoginNotification($"{user.FirstName} {user.LastName}");
             return Ok(new
             {
-                Message = "Create failed!"
+                Data = _mapper.Map<UserDto>(user)
             });
         }
 

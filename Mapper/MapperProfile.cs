@@ -13,11 +13,11 @@ namespace Web.Mapper
         public MapperProfile()
         {
             CreateMap<UserDto, User>()
-                .ForMember(x => x.Id, y => y.MapFrom(z => Guid.Parse(z.Id)))
-                .ForMember(x => x.UserType, y => y.MapFrom(z => Enum.Parse<UserTypeEnum>(z.Type)));
+                .ForMember(x => x.Id, y => y.MapFrom(z => Guid.Parse(z.Id)));
+            //.ForMember(x => x.UserType, y => y.MapFrom(z => Enum.Parse<UserTypeEnum>(z.UserType)));
             CreateMap<User, UserDto>()
-                .ForMember(x => x.Id, y => y.MapFrom(z => z.Id.ToString()))
-                .ForMember(x => x.Type, y => y.MapFrom(z => z.UserType.ToString().Replace('_', ' ')));
+                .ForMember(x => x.Id, y => y.MapFrom(z => z.Id.ToString()));
+                //.ForMember(x => x.Type, y => y.MapFrom(z => z.UserType.ToString().Replace('_', ' ')));
 
             //CreateMap<User, UserDto>().ReverseMap();
             CreateMap<Questions, QuestionDto>().ReverseMap();
