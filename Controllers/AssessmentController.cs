@@ -438,39 +438,39 @@ namespace AIMSService.Controllers
                     WRITVA116to120 = " ";
                     WRITVA121to130 = " ";
                     WRITVA130 = " ";
-                    if (Convert.ToInt32(testResult.WRITVA) < 70)
+                    if (GetIntValue(testResult.WRITVA) < 70)
                     {
                         WRITVA69 = testResult.WRITVA;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVA) >= 70 && Convert.ToInt32(testResult.WRITVA) <= 79)
+                    else if (GetIntValue(testResult.WRITVA) >= 70 && GetIntValue(testResult.WRITVA) <= 79)
                     {
                         WRITVA70to79 = testResult.WRITVA;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVA) >= 80 && Convert.ToInt32(testResult.WRITVA) <= 84)
+                    else if (GetIntValue(testResult.WRITVA) >= 80 && GetIntValue(testResult.WRITVA) <= 84)
                     {
                         WRITVA80to84 = testResult.WRITVA;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVA) >= 85 && Convert.ToInt32(testResult.WRITVA) <= 89)
+                    else if (GetIntValue(testResult.WRITVA) >= 85 && GetIntValue(testResult.WRITVA) <= 89)
                     {
                         WRITVA85to89 = testResult.WRITVA;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVA) >= 90 && Convert.ToInt32(testResult.WRITVA) <= 109)
+                    else if (GetIntValue(testResult.WRITVA) >= 90 && GetIntValue(testResult.WRITVA) <= 109)
                     {
                         WRITVA90to109 = testResult.WRITVA;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVA) >= 110 && Convert.ToInt32(testResult.WRITVA) <= 115)
+                    else if (GetIntValue(testResult.WRITVA) >= 110 && GetIntValue(testResult.WRITVA) <= 115)
                     {
                         WRITVA110to115 = testResult.WRITVA;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVA) >= 116 && Convert.ToInt32(testResult.WRITVA) <= 120)
+                    else if (GetIntValue(testResult.WRITVA) >= 116 && GetIntValue(testResult.WRITVA) <= 120)
                     {
                         WRITVA116to120 = testResult.WRITVA;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVA) >= 121 && Convert.ToInt32(testResult.WRITVA) <= 130)
+                    else if (GetIntValue(testResult.WRITVA) >= 121 && GetIntValue(testResult.WRITVA) <= 130)
                     {
                         WRITVA121to130 = testResult.WRITVA;
                     }
-                    if (Convert.ToInt32(testResult.WRITVA) > 130)
+                    if (GetIntValue(testResult.WRITVA) > 130)
                     {
                         WRITVA130 = testResult.WRITVA;
                     }
@@ -487,39 +487,39 @@ namespace AIMSService.Controllers
                     WRITVC116to120 = " ";
                     WRITVC121to130 = " ";
                     WRITVC130 = " ";
-                    if (Convert.ToInt32(testResult.WRITVC) < 70)
+                    if (GetIntValue(testResult.WRITVC) < 70)
                     {
                         WRITVC69 = testResult.WRITVC;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVC) >= 70 && Convert.ToInt32(testResult.WRITVC) <= 79)
+                    else if (GetIntValue(testResult.WRITVC) >= 70 && GetIntValue(testResult.WRITVC) <= 79)
                     {
                         WRITVC70to79 = testResult.WRITVC;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVC) >= 80 && Convert.ToInt32(testResult.WRITVC) <= 84)
+                    else if (GetIntValue(testResult.WRITVC) >= 80 && GetIntValue(testResult.WRITVC) <= 84)
                     {
                         WRITVC80to84 = testResult.WRITVC;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVC) >= 85 && Convert.ToInt32(testResult.WRITVC) <= 89)
+                    else if (GetIntValue(testResult.WRITVC) >= 85 && GetIntValue(testResult.WRITVC) <= 89)
                     {
                         WRITVC85to89 = testResult.WRITVC;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVC) >= 90 && Convert.ToInt32(testResult.WRITVC) <= 109)
+                    else if (GetIntValue(testResult.WRITVC) >= 90 && GetIntValue(testResult.WRITVC) <= 109)
                     {
                         WRITVC90to109 = testResult.WRITVC;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVC) >= 110 && Convert.ToInt32(testResult.WRITVC) <= 115)
+                    else if (GetIntValue(testResult.WRITVC) >= 110 && GetIntValue(testResult.WRITVC) <= 115)
                     {
                         WRITVC110to115 = testResult.WRITVC;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVC) >= 116 && Convert.ToInt32(testResult.WRITVC) <= 120)
+                    else if (GetIntValue(testResult.WRITVC) >= 116 && GetIntValue(testResult.WRITVC) <= 120)
                     {
                         WRITVC116to120 = testResult.WRITVC;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVC) >= 121 && Convert.ToInt32(testResult.WRITVC) <= 130)
+                    else if (GetIntValue(testResult.WRITVC) >= 121 && GetIntValue(testResult.WRITVC) <= 130)
                     {
                         WRITVC121to130 = testResult.WRITVC;
                     }
-                    if (Convert.ToInt32(testResult.WRITVC) > 130)
+                    if (GetIntValue(testResult.WRITVC) > 130)
                     {
                         WRITVC130 = testResult.WRITVC;
                     }
@@ -536,52 +536,52 @@ namespace AIMSService.Controllers
                     WRITVB116to120 = " ";
                     WRITVB121to130 = " ";
                     WRITVB130 = " ";
-                    if (Convert.ToInt32(testResult.WRITVB) < 70)
+                    if (GetIntValue(testResult.WRITVB) < 70)
                     {
                         WRITVB69 = testResult.WRITVB;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVB) >= 70 && Convert.ToInt32(testResult.WRITVB) <= 79)
+                    else if (GetIntValue(testResult.WRITVB) >= 70 && GetIntValue(testResult.WRITVB) <= 79)
                     {
                         WRITVB70to79 = testResult.WRITVB;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVB) >= 80 && Convert.ToInt32(testResult.WRITVB) <= 84)
+                    else if (GetIntValue(testResult.WRITVB) >= 80 && GetIntValue(testResult.WRITVB) <= 84)
                     {
                         WRITVB80to84 = testResult.WRITVB;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVB) >= 85 && Convert.ToInt32(testResult.WRITVB) <= 89)
+                    else if (GetIntValue(testResult.WRITVB) >= 85 && GetIntValue(testResult.WRITVB) <= 89)
                     {
                         WRITVB85to89 = testResult.WRITVB;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVB) >= 90 && Convert.ToInt32(testResult.WRITVB) <= 109)
+                    else if (GetIntValue(testResult.WRITVB) >= 90 && GetIntValue(testResult.WRITVB) <= 109)
                     {
                         WRITVB90to109 = testResult.WRITVB;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVB) >= 110 && Convert.ToInt32(testResult.WRITVB) <= 115)
+                    else if (GetIntValue(testResult.WRITVB) >= 110 && GetIntValue(testResult.WRITVB) <= 115)
                     {
                         WRITVB110to115 = testResult.WRITVB;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVB) >= 116 && Convert.ToInt32(testResult.WRITVB) <= 120)
+                    else if (GetIntValue(testResult.WRITVB) >= 116 && GetIntValue(testResult.WRITVB) <= 120)
                     {
                         WRITVB116to120 = testResult.WRITVB;
                     }
-                    else if (Convert.ToInt32(testResult.WRITVB) >= 121 && Convert.ToInt32(testResult.WRITVB) <= 130)
+                    else if (GetIntValue(testResult.WRITVB) >= 121 && GetIntValue(testResult.WRITVB) <= 130)
                     {
                         WRITVB121to130 = testResult.WRITVB;
                     }
-                    if (Convert.ToInt32(testResult.WRITVB) > 130)
+                    if (GetIntValue(testResult.WRITVB) > 130)
                     {
                         WRITVB130 = testResult.WRITVB;
                     }
 
-                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB69) ? "0" : WRITVB69) +
-                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB70to79) ? "0" : WRITVB70to79) +
-                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB80to84) ? "0" : WRITVB80to84) +
-                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB85to89) ? "0" : WRITVB85to89) +
-                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB90to109) ? "0" : WRITVB90to109) +
-                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB110to115) ? "0" : WRITVB110to115) +
-                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB116to120) ? "0" : WRITVB116to120) +
-                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB121to130) ? "0" : WRITVB121to130) +
-                            Convert.ToInt32(string.IsNullOrWhiteSpace(WRITVB130) ? "0" : WRITVB130);
+                    var ciVal = GetIntValue(string.IsNullOrWhiteSpace(WRITVB69) ? "0" : WRITVB69) +
+                            GetIntValue(string.IsNullOrWhiteSpace(WRITVB70to79) ? "0" : WRITVB70to79) +
+                            GetIntValue(string.IsNullOrWhiteSpace(WRITVB80to84) ? "0" : WRITVB80to84) +
+                            GetIntValue(string.IsNullOrWhiteSpace(WRITVB85to89) ? "0" : WRITVB85to89) +
+                            GetIntValue(string.IsNullOrWhiteSpace(WRITVB90to109) ? "0" : WRITVB90to109) +
+                            GetIntValue(string.IsNullOrWhiteSpace(WRITVB110to115) ? "0" : WRITVB110to115) +
+                            GetIntValue(string.IsNullOrWhiteSpace(WRITVB116to120) ? "0" : WRITVB116to120) +
+                            GetIntValue(string.IsNullOrWhiteSpace(WRITVB121to130) ? "0" : WRITVB121to130) +
+                            GetIntValue(string.IsNullOrWhiteSpace(WRITVB130) ? "0" : WRITVB130);
 
                     WRITVB95CI = GetCI(ciVal); //$"{ciVal - 5} - {ciVal + 5}";
                 }
@@ -597,39 +597,39 @@ namespace AIMSService.Controllers
                     WRITMT116to120 = " ";
                     WRITMT121to130 = " ";
                     WRITMT130 = " ";
-                    if (Convert.ToInt32(testResult.WRITMAT) < 70)
+                    if (GetIntValue(testResult.WRITMAT) < 70)
                     {
                         WRITMT69 = testResult.WRITMAT;
                     }
-                    else if (Convert.ToInt32(testResult.WRITMAT) >= 70 && Convert.ToInt32(testResult.WRITMAT) <= 79)
+                    else if (GetIntValue(testResult.WRITMAT) >= 70 && GetIntValue(testResult.WRITMAT) <= 79)
                     {
                         WRITMT70to79 = testResult.WRITMAT;
                     }
-                    else if (Convert.ToInt32(testResult.WRITMAT) >= 80 && Convert.ToInt32(testResult.WRITMAT) <= 84)
+                    else if (GetIntValue(testResult.WRITMAT) >= 80 && GetIntValue(testResult.WRITMAT) <= 84)
                     {
                         WRITMT80to84 = testResult.WRITMAT;
                     }
-                    else if (Convert.ToInt32(testResult.WRITMAT) >= 85 && Convert.ToInt32(testResult.WRITMAT) <= 89)
+                    else if (GetIntValue(testResult.WRITMAT) >= 85 && GetIntValue(testResult.WRITMAT) <= 89)
                     {
                         WRITMT85to89 = testResult.WRITMAT;
                     }
-                    else if (Convert.ToInt32(testResult.WRITMAT) >= 90 && Convert.ToInt32(testResult.WRITMAT) <= 109)
+                    else if (GetIntValue(testResult.WRITMAT) >= 90 && GetIntValue(testResult.WRITMAT) <= 109)
                     {
                         WRITMT90to109 = testResult.WRITMAT;
                     }
-                    else if (Convert.ToInt32(testResult.WRITMAT) >= 110 && Convert.ToInt32(testResult.WRITMAT) <= 115)
+                    else if (GetIntValue(testResult.WRITMAT) >= 110 && GetIntValue(testResult.WRITMAT) <= 115)
                     {
                         WRITMT110to115 = testResult.WRITMAT;
                     }
-                    else if (Convert.ToInt32(testResult.WRITMAT) >= 116 && Convert.ToInt32(testResult.WRITMAT) <= 120)
+                    else if (GetIntValue(testResult.WRITMAT) >= 116 && GetIntValue(testResult.WRITMAT) <= 120)
                     {
                         WRITMT116to120 = testResult.WRITMAT;
                     }
-                    else if (Convert.ToInt32(testResult.WRITMAT) >= 121 && Convert.ToInt32(testResult.WRITMAT) <= 130)
+                    else if (GetIntValue(testResult.WRITMAT) >= 121 && GetIntValue(testResult.WRITMAT) <= 130)
                     {
                         WRITMT121to130 = testResult.WRITMAT;
                     }
-                    if (Convert.ToInt32(testResult.WRITMAT) > 130)
+                    if (GetIntValue(testResult.WRITMAT) > 130)
                     {
                         WRITMT130 = testResult.WRITMAT;
                     }
@@ -646,39 +646,39 @@ namespace AIMSService.Controllers
                     TOMAL2DF116to120 = " ";
                     TOMAL2DF121to130 = " ";
                     TOMAL2DF130 = " ";
-                    if (Convert.ToInt32(testResult.TOMAL2DF) < 70)
+                    if (GetIntValue(testResult.TOMAL2DF) < 70)
                     {
                         TOMAL2DF69 = testResult.TOMAL2DF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DF) >= 70 && Convert.ToInt32(testResult.TOMAL2DF) <= 79)
+                    else if (GetIntValue(testResult.TOMAL2DF) >= 70 && GetIntValue(testResult.TOMAL2DF) <= 79)
                     {
                         TOMAL2DF70to79 = testResult.TOMAL2DF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DF) >= 80 && Convert.ToInt32(testResult.TOMAL2DF) <= 84)
+                    else if (GetIntValue(testResult.TOMAL2DF) >= 80 && GetIntValue(testResult.TOMAL2DF) <= 84)
                     {
                         TOMAL2DF80to84 = testResult.TOMAL2DF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DF) >= 85 && Convert.ToInt32(testResult.TOMAL2DF) <= 89)
+                    else if (GetIntValue(testResult.TOMAL2DF) >= 85 && GetIntValue(testResult.TOMAL2DF) <= 89)
                     {
                         TOMAL2DF85to89 = testResult.TOMAL2DF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DF) >= 90 && Convert.ToInt32(testResult.TOMAL2DF) <= 109)
+                    else if (GetIntValue(testResult.TOMAL2DF) >= 90 && GetIntValue(testResult.TOMAL2DF) <= 109)
                     {
                         TOMAL2DF90to109 = testResult.TOMAL2DF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DF) >= 110 && Convert.ToInt32(testResult.TOMAL2DF) <= 115)
+                    else if (GetIntValue(testResult.TOMAL2DF) >= 110 && GetIntValue(testResult.TOMAL2DF) <= 115)
                     {
                         TOMAL2DF110to115 = testResult.TOMAL2DF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DF) >= 116 && Convert.ToInt32(testResult.TOMAL2DF) <= 120)
+                    else if (GetIntValue(testResult.TOMAL2DF) >= 116 && GetIntValue(testResult.TOMAL2DF) <= 120)
                     {
                         TOMAL2DF116to120 = testResult.TOMAL2DF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DF) >= 121 && Convert.ToInt32(testResult.TOMAL2DF) <= 130)
+                    else if (GetIntValue(testResult.TOMAL2DF) >= 121 && GetIntValue(testResult.TOMAL2DF) <= 130)
                     {
                         TOMAL2DF121to130 = testResult.TOMAL2DF;
                     }
-                    if (Convert.ToInt32(testResult.TOMAL2DF) > 130)
+                    if (GetIntValue(testResult.TOMAL2DF) > 130)
                     {
                         TOMAL2DF130 = testResult.TOMAL2DF;
                     }
@@ -695,39 +695,39 @@ namespace AIMSService.Controllers
                     TOMAL2LF116to120 = " ";
                     TOMAL2LF121to130 = " ";
                     TOMAL2LF130 = " ";
-                    if (Convert.ToInt32(testResult.TOMAL2LF) < 70)
+                    if (GetIntValue(testResult.TOMAL2LF) < 70)
                     {
                         TOMAL2LF69 = testResult.TOMAL2LF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LF) >= 70 && Convert.ToInt32(testResult.TOMAL2LF) <= 79)
+                    else if (GetIntValue(testResult.TOMAL2LF) >= 70 && GetIntValue(testResult.TOMAL2LF) <= 79)
                     {
                         TOMAL2LF70to79 = testResult.TOMAL2LF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LF) >= 80 && Convert.ToInt32(testResult.TOMAL2LF) <= 84)
+                    else if (GetIntValue(testResult.TOMAL2LF) >= 80 && GetIntValue(testResult.TOMAL2LF) <= 84)
                     {
                         TOMAL2LF80to84 = testResult.TOMAL2LF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LF) >= 85 && Convert.ToInt32(testResult.TOMAL2LF) <= 89)
+                    else if (GetIntValue(testResult.TOMAL2LF) >= 85 && GetIntValue(testResult.TOMAL2LF) <= 89)
                     {
                         TOMAL2LF85to89 = testResult.TOMAL2LF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LF) >= 90 && Convert.ToInt32(testResult.TOMAL2LF) <= 109)
+                    else if (GetIntValue(testResult.TOMAL2LF) >= 90 && GetIntValue(testResult.TOMAL2LF) <= 109)
                     {
                         TOMAL2LF90to109 = testResult.TOMAL2LF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LF) >= 110 && Convert.ToInt32(testResult.TOMAL2LF) <= 115)
+                    else if (GetIntValue(testResult.TOMAL2LF) >= 110 && GetIntValue(testResult.TOMAL2LF) <= 115)
                     {
                         TOMAL2LF110to115 = testResult.TOMAL2LF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LF) >= 116 && Convert.ToInt32(testResult.TOMAL2LF) <= 120)
+                    else if (GetIntValue(testResult.TOMAL2LF) >= 116 && GetIntValue(testResult.TOMAL2LF) <= 120)
                     {
                         TOMAL2LF116to120 = testResult.TOMAL2LF;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LF) >= 121 && Convert.ToInt32(testResult.TOMAL2LF) <= 130)
+                    else if (GetIntValue(testResult.TOMAL2LF) >= 121 && GetIntValue(testResult.TOMAL2LF) <= 130)
                     {
                         TOMAL2LF121to130 = testResult.TOMAL2LF;
                     }
-                    if (Convert.ToInt32(testResult.TOMAL2LF) > 130)
+                    if (GetIntValue(testResult.TOMAL2LF) > 130)
                     {
                         TOMAL2LF130 = testResult.TOMAL2LF;
                     }
@@ -744,39 +744,39 @@ namespace AIMSService.Controllers
                     TOMAL2DB116to120 = " ";
                     TOMAL2DB121to130 = " ";
                     TOMAL2DB130 = " ";
-                    if (Convert.ToInt32(testResult.TOMAL2DB) < 70)
+                    if (GetIntValue(testResult.TOMAL2DB) < 70)
                     {
                         TOMAL2DB69 = testResult.TOMAL2DB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DB) >= 70 && Convert.ToInt32(testResult.TOMAL2DB) <= 79)
+                    else if (GetIntValue(testResult.TOMAL2DB) >= 70 && GetIntValue(testResult.TOMAL2DB) <= 79)
                     {
                         TOMAL2DB70to79 = testResult.TOMAL2DB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DB) >= 80 && Convert.ToInt32(testResult.TOMAL2DB) <= 84)
+                    else if (GetIntValue(testResult.TOMAL2DB) >= 80 && GetIntValue(testResult.TOMAL2DB) <= 84)
                     {
                         TOMAL2DB80to84 = testResult.TOMAL2DB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DB) >= 85 && Convert.ToInt32(testResult.TOMAL2DB) <= 89)
+                    else if (GetIntValue(testResult.TOMAL2DB) >= 85 && GetIntValue(testResult.TOMAL2DB) <= 89)
                     {
                         TOMAL2DB85to89 = testResult.TOMAL2DB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DB) >= 90 && Convert.ToInt32(testResult.TOMAL2DB) <= 109)
+                    else if (GetIntValue(testResult.TOMAL2DB) >= 90 && GetIntValue(testResult.TOMAL2DB) <= 109)
                     {
                         TOMAL2DB90to109 = testResult.TOMAL2DB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DB) >= 110 && Convert.ToInt32(testResult.TOMAL2DB) <= 115)
+                    else if (GetIntValue(testResult.TOMAL2DB) >= 110 && GetIntValue(testResult.TOMAL2DB) <= 115)
                     {
                         TOMAL2DB110to115 = testResult.TOMAL2DB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DB) >= 116 && Convert.ToInt32(testResult.TOMAL2DB) <= 120)
+                    else if (GetIntValue(testResult.TOMAL2DB) >= 116 && GetIntValue(testResult.TOMAL2DB) <= 120)
                     {
                         TOMAL2DB116to120 = testResult.TOMAL2DB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2DB) >= 121 && Convert.ToInt32(testResult.TOMAL2DB) <= 130)
+                    else if (GetIntValue(testResult.TOMAL2DB) >= 121 && GetIntValue(testResult.TOMAL2DB) <= 130)
                     {
                         TOMAL2DB121to130 = testResult.TOMAL2DB;
                     }
-                    if (Convert.ToInt32(testResult.TOMAL2DB) > 130)
+                    if (GetIntValue(testResult.TOMAL2DB) > 130)
                     {
                         TOMAL2DB130 = testResult.TOMAL2DB;
                     }
@@ -793,39 +793,39 @@ namespace AIMSService.Controllers
                     TOMAL2LB116to120 = " ";
                     TOMAL2LB121to130 = " ";
                     TOMAL2LB130 = " ";
-                    if (Convert.ToInt32(testResult.TOMAL2LB) < 70)
+                    if (GetIntValue(testResult.TOMAL2LB) < 70)
                     {
                         TOMAL2LB69 = testResult.TOMAL2LB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LB) >= 70 && Convert.ToInt32(testResult.TOMAL2LB) <= 79)
+                    else if (GetIntValue(testResult.TOMAL2LB) >= 70 && GetIntValue(testResult.TOMAL2LB) <= 79)
                     {
                         TOMAL2LB70to79 = testResult.TOMAL2LB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LB) >= 80 && Convert.ToInt32(testResult.TOMAL2LB) <= 84)
+                    else if (GetIntValue(testResult.TOMAL2LB) >= 80 && GetIntValue(testResult.TOMAL2LB) <= 84)
                     {
                         TOMAL2LB80to84 = testResult.TOMAL2LB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LB) >= 85 && Convert.ToInt32(testResult.TOMAL2LB) <= 89)
+                    else if (GetIntValue(testResult.TOMAL2LB) >= 85 && GetIntValue(testResult.TOMAL2LB) <= 89)
                     {
                         TOMAL2LB85to89 = testResult.TOMAL2LB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LB) >= 90 && Convert.ToInt32(testResult.TOMAL2LB) <= 109)
+                    else if (GetIntValue(testResult.TOMAL2LB) >= 90 && GetIntValue(testResult.TOMAL2LB) <= 109)
                     {
                         TOMAL2LB90to109 = testResult.TOMAL2LB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LB) >= 110 && Convert.ToInt32(testResult.TOMAL2LB) <= 115)
+                    else if (GetIntValue(testResult.TOMAL2LB) >= 110 && GetIntValue(testResult.TOMAL2LB) <= 115)
                     {
                         TOMAL2LB110to115 = testResult.TOMAL2LB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LB) >= 116 && Convert.ToInt32(testResult.TOMAL2LB) <= 120)
+                    else if (GetIntValue(testResult.TOMAL2LB) >= 116 && GetIntValue(testResult.TOMAL2LB) <= 120)
                     {
                         TOMAL2LB116to120 = testResult.TOMAL2LB;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2LB) >= 121 && Convert.ToInt32(testResult.TOMAL2LB) <= 130)
+                    else if (GetIntValue(testResult.TOMAL2LB) >= 121 && GetIntValue(testResult.TOMAL2LB) <= 130)
                     {
                         TOMAL2LB121to130 = testResult.TOMAL2LB;
                     }
-                    if (Convert.ToInt32(testResult.TOMAL2LB) > 130)
+                    if (GetIntValue(testResult.TOMAL2LB) > 130)
                     {
                         TOMAL2LB130 = testResult.TOMAL2LB;
                     }
@@ -843,52 +843,52 @@ namespace AIMSService.Controllers
                     TOMAL2ACI116to120 = " ";
                     TOMAL2ACI121to130 = " ";
                     TOMAL2ACI130 = " ";
-                    if (Convert.ToInt32(testResult.TOMAL2ACI) < 70)
+                    if (GetIntValue(testResult.TOMAL2ACI) < 70)
                     {
                         TOMAL2ACI69 = testResult.TOMAL2ACI;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2ACI) >= 70 && Convert.ToInt32(testResult.TOMAL2ACI) <= 79)
+                    else if (GetIntValue(testResult.TOMAL2ACI) >= 70 && GetIntValue(testResult.TOMAL2ACI) <= 79)
                     {
                         TOMAL2ACI70to79 = testResult.TOMAL2ACI;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2ACI) >= 80 && Convert.ToInt32(testResult.TOMAL2ACI) <= 84)
+                    else if (GetIntValue(testResult.TOMAL2ACI) >= 80 && GetIntValue(testResult.TOMAL2ACI) <= 84)
                     {
                         TOMAL2ACI80to84 = testResult.TOMAL2ACI;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2ACI) >= 85 && Convert.ToInt32(testResult.TOMAL2ACI) <= 89)
+                    else if (GetIntValue(testResult.TOMAL2ACI) >= 85 && GetIntValue(testResult.TOMAL2ACI) <= 89)
                     {
                         TOMAL2ACI85to89 = testResult.TOMAL2ACI;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2ACI) >= 90 && Convert.ToInt32(testResult.TOMAL2ACI) <= 109)
+                    else if (GetIntValue(testResult.TOMAL2ACI) >= 90 && GetIntValue(testResult.TOMAL2ACI) <= 109)
                     {
                         TOMAL2ACI90to109 = testResult.TOMAL2ACI;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2ACI) >= 110 && Convert.ToInt32(testResult.TOMAL2ACI) <= 115)
+                    else if (GetIntValue(testResult.TOMAL2ACI) >= 110 && GetIntValue(testResult.TOMAL2ACI) <= 115)
                     {
                         TOMAL2ACI110to115 = testResult.TOMAL2ACI;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2ACI) >= 116 && Convert.ToInt32(testResult.TOMAL2ACI) <= 120)
+                    else if (GetIntValue(testResult.TOMAL2ACI) >= 116 && GetIntValue(testResult.TOMAL2ACI) <= 120)
                     {
                         TOMAL2ACI116to120 = testResult.TOMAL2ACI;
                     }
-                    else if (Convert.ToInt32(testResult.TOMAL2ACI) >= 121 && Convert.ToInt32(testResult.TOMAL2ACI) <= 130)
+                    else if (GetIntValue(testResult.TOMAL2ACI) >= 121 && GetIntValue(testResult.TOMAL2ACI) <= 130)
                     {
                         TOMAL2ACI121to130 = testResult.TOMAL2ACI;
                     }
-                    if (Convert.ToInt32(testResult.TOMAL2ACI) > 130)
+                    if (GetIntValue(testResult.TOMAL2ACI) > 130)
                     {
                         TOMAL2ACI130 = testResult.TOMAL2ACI;
                     }
 
-                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI69) ? "0" : TOMAL2ACI69) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI70to79) ? "0" : TOMAL2ACI70to79) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI80to84) ? "0" : TOMAL2ACI80to84) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI85to89) ? "0" : TOMAL2ACI85to89) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI90to109) ? "0" : TOMAL2ACI90to109) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI110to115) ? "0" : TOMAL2ACI110to115) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI116to120) ? "0" : TOMAL2ACI116to120) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI121to130) ? "0" : TOMAL2ACI121to130) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOMAL2ACI130) ? "0" : TOMAL2ACI130);
+                    var ciVal = GetIntValue(string.IsNullOrWhiteSpace(TOMAL2ACI69) ? "0" : TOMAL2ACI69) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOMAL2ACI70to79) ? "0" : TOMAL2ACI70to79) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOMAL2ACI80to84) ? "0" : TOMAL2ACI80to84) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOMAL2ACI85to89) ? "0" : TOMAL2ACI85to89) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOMAL2ACI90to109) ? "0" : TOMAL2ACI90to109) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOMAL2ACI110to115) ? "0" : TOMAL2ACI110to115) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOMAL2ACI116to120) ? "0" : TOMAL2ACI116to120) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOMAL2ACI121to130) ? "0" : TOMAL2ACI121to130) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOMAL2ACI130) ? "0" : TOMAL2ACI130);
 
                     TOMAL2ACI95CI = GetCI(ciVal); //$"{ciVal - 5} - {ciVal + 5}";
                 }
@@ -904,39 +904,39 @@ namespace AIMSService.Controllers
                     CTOPP2MD116to120 = " ";
                     CTOPP2MD121to130 = " ";
                     CTOPP2MD130 = " ";
-                    if (Convert.ToInt32(testResult.CTOPP2MD) < 70)
+                    if (GetIntValue(testResult.CTOPP2MD) < 70)
                     {
                         CTOPP2MD69 = testResult.CTOPP2MD;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2MD) >= 70 && Convert.ToInt32(testResult.CTOPP2MD) <= 79)
+                    else if (GetIntValue(testResult.CTOPP2MD) >= 70 && GetIntValue(testResult.CTOPP2MD) <= 79)
                     {
                         CTOPP2MD70to79 = testResult.CTOPP2MD;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2MD) >= 80 && Convert.ToInt32(testResult.CTOPP2MD) <= 84)
+                    else if (GetIntValue(testResult.CTOPP2MD) >= 80 && GetIntValue(testResult.CTOPP2MD) <= 84)
                     {
                         CTOPP2MD80to84 = testResult.CTOPP2MD;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2MD) >= 85 && Convert.ToInt32(testResult.CTOPP2MD) <= 89)
+                    else if (GetIntValue(testResult.CTOPP2MD) >= 85 && GetIntValue(testResult.CTOPP2MD) <= 89)
                     {
                         CTOPP2MD85to89 = testResult.CTOPP2MD;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2MD) >= 90 && Convert.ToInt32(testResult.CTOPP2MD) <= 109)
+                    else if (GetIntValue(testResult.CTOPP2MD) >= 90 && GetIntValue(testResult.CTOPP2MD) <= 109)
                     {
                         CTOPP2MD90to109 = testResult.CTOPP2MD;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2MD) >= 110 && Convert.ToInt32(testResult.CTOPP2MD) <= 115)
+                    else if (GetIntValue(testResult.CTOPP2MD) >= 110 && GetIntValue(testResult.CTOPP2MD) <= 115)
                     {
                         CTOPP2MD110to115 = testResult.CTOPP2MD;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2MD) >= 116 && Convert.ToInt32(testResult.CTOPP2MD) <= 120)
+                    else if (GetIntValue(testResult.CTOPP2MD) >= 116 && GetIntValue(testResult.CTOPP2MD) <= 120)
                     {
                         CTOPP2MD116to120 = testResult.CTOPP2MD;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2MD) >= 121 && Convert.ToInt32(testResult.CTOPP2MD) <= 130)
+                    else if (GetIntValue(testResult.CTOPP2MD) >= 121 && GetIntValue(testResult.CTOPP2MD) <= 130)
                     {
                         CTOPP2MD121to130 = testResult.CTOPP2MD;
                     }
-                    if (Convert.ToInt32(testResult.CTOPP2MD) > 130)
+                    if (GetIntValue(testResult.CTOPP2MD) > 130)
                     {
                         CTOPP2MD130 = testResult.CTOPP2MD;
                     }
@@ -953,39 +953,39 @@ namespace AIMSService.Controllers
                     CTOPP2NWR116to120 = " ";
                     CTOPP2NWR121to130 = " ";
                     CTOPP2NWR130 = " ";
-                    if (Convert.ToInt32(testResult.CTOPP2NWR) < 70)
+                    if (GetIntValue(testResult.CTOPP2NWR) < 70)
                     {
                         CTOPP2NWR69 = testResult.CTOPP2NWR;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2NWR) >= 70 && Convert.ToInt32(testResult.CTOPP2NWR) <= 79)
+                    else if (GetIntValue(testResult.CTOPP2NWR) >= 70 && GetIntValue(testResult.CTOPP2NWR) <= 79)
                     {
                         CTOPP2NWR70to79 = testResult.CTOPP2NWR;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2NWR) >= 80 && Convert.ToInt32(testResult.CTOPP2NWR) <= 84)
+                    else if (GetIntValue(testResult.CTOPP2NWR) >= 80 && GetIntValue(testResult.CTOPP2NWR) <= 84)
                     {
                         CTOPP2NWR80to84 = testResult.CTOPP2NWR;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2NWR) >= 85 && Convert.ToInt32(testResult.CTOPP2NWR) <= 89)
+                    else if (GetIntValue(testResult.CTOPP2NWR) >= 85 && GetIntValue(testResult.CTOPP2NWR) <= 89)
                     {
                         CTOPP2NWR85to89 = testResult.CTOPP2NWR;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2NWR) >= 90 && Convert.ToInt32(testResult.CTOPP2NWR) <= 109)
+                    else if (GetIntValue(testResult.CTOPP2NWR) >= 90 && GetIntValue(testResult.CTOPP2NWR) <= 109)
                     {
                         CTOPP2NWR90to109 = testResult.CTOPP2NWR;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2NWR) >= 110 && Convert.ToInt32(testResult.CTOPP2NWR) <= 115)
+                    else if (GetIntValue(testResult.CTOPP2NWR) >= 110 && GetIntValue(testResult.CTOPP2NWR) <= 115)
                     {
                         CTOPP2NWR110to115 = testResult.CTOPP2NWR;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2NWR) >= 116 && Convert.ToInt32(testResult.CTOPP2NWR) <= 120)
+                    else if (GetIntValue(testResult.CTOPP2NWR) >= 116 && GetIntValue(testResult.CTOPP2NWR) <= 120)
                     {
                         CTOPP2NWR116to120 = testResult.CTOPP2NWR;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2NWR) >= 121 && Convert.ToInt32(testResult.CTOPP2NWR) <= 130)
+                    else if (GetIntValue(testResult.CTOPP2NWR) >= 121 && GetIntValue(testResult.CTOPP2NWR) <= 130)
                     {
                         CTOPP2NWR121to130 = testResult.CTOPP2NWR;
                     }
-                    if (Convert.ToInt32(testResult.CTOPP2NWR) > 130)
+                    if (GetIntValue(testResult.CTOPP2NWR) > 130)
                     {
                         CTOPP2NWR130 = testResult.CTOPP2NWR;
                     }
@@ -1002,52 +1002,52 @@ namespace AIMSService.Controllers
                     CTOPP2PM116to120 = " ";
                     CTOPP2PM121to130 = " ";
                     CTOPP2PM130 = " ";
-                    if (Convert.ToInt32(testResult.CTOPP2PM) < 70)
+                    if (GetIntValue(testResult.CTOPP2PM) < 70)
                     {
                         CTOPP2PM69 = testResult.CTOPP2PM;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PM) >= 70 && Convert.ToInt32(testResult.CTOPP2PM) <= 79)
+                    else if (GetIntValue(testResult.CTOPP2PM) >= 70 && GetIntValue(testResult.CTOPP2PM) <= 79)
                     {
                         CTOPP2PM70to79 = testResult.CTOPP2PM;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PM) >= 80 && Convert.ToInt32(testResult.CTOPP2PM) <= 84)
+                    else if (GetIntValue(testResult.CTOPP2PM) >= 80 && GetIntValue(testResult.CTOPP2PM) <= 84)
                     {
                         CTOPP2PM80to84 = testResult.CTOPP2PM;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PM) >= 85 && Convert.ToInt32(testResult.CTOPP2PM) <= 89)
+                    else if (GetIntValue(testResult.CTOPP2PM) >= 85 && GetIntValue(testResult.CTOPP2PM) <= 89)
                     {
                         CTOPP2PM85to89 = testResult.CTOPP2PM;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PM) >= 90 && Convert.ToInt32(testResult.CTOPP2PM) <= 109)
+                    else if (GetIntValue(testResult.CTOPP2PM) >= 90 && GetIntValue(testResult.CTOPP2PM) <= 109)
                     {
                         CTOPP2PM90to109 = testResult.CTOPP2PM;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PM) >= 110 && Convert.ToInt32(testResult.CTOPP2PM) <= 115)
+                    else if (GetIntValue(testResult.CTOPP2PM) >= 110 && GetIntValue(testResult.CTOPP2PM) <= 115)
                     {
                         CTOPP2PM110to115 = testResult.CTOPP2PM;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PM) >= 116 && Convert.ToInt32(testResult.CTOPP2PM) <= 120)
+                    else if (GetIntValue(testResult.CTOPP2PM) >= 116 && GetIntValue(testResult.CTOPP2PM) <= 120)
                     {
                         CTOPP2PM116to120 = testResult.CTOPP2PM;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PM) >= 121 && Convert.ToInt32(testResult.CTOPP2PM) <= 130)
+                    else if (GetIntValue(testResult.CTOPP2PM) >= 121 && GetIntValue(testResult.CTOPP2PM) <= 130)
                     {
                         CTOPP2PM121to130 = testResult.CTOPP2PM;
                     }
-                    if (Convert.ToInt32(testResult.CTOPP2PM) > 130)
+                    if (GetIntValue(testResult.CTOPP2PM) > 130)
                     {
                         CTOPP2PM130 = testResult.CTOPP2PM;
                     }
 
-                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM69) ? "0" : CTOPP2PM69) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM70to79) ? "0" : CTOPP2PM70to79) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM80to84) ? "0" : CTOPP2PM80to84) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM85to89) ? "0" : CTOPP2PM85to89) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM90to109) ? "0" : CTOPP2PM90to109) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM110to115) ? "0" : CTOPP2PM110to115) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM116to120) ? "0" : CTOPP2PM116to120) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM121to130) ? "0" : CTOPP2PM121to130) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PM130) ? "0" : CTOPP2PM130);
+                    var ciVal = GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PM69) ? "0" : CTOPP2PM69) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PM70to79) ? "0" : CTOPP2PM70to79) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PM80to84) ? "0" : CTOPP2PM80to84) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PM85to89) ? "0" : CTOPP2PM85to89) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PM90to109) ? "0" : CTOPP2PM90to109) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PM110to115) ? "0" : CTOPP2PM110to115) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PM116to120) ? "0" : CTOPP2PM116to120) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PM121to130) ? "0" : CTOPP2PM121to130) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PM130) ? "0" : CTOPP2PM130);
 
                     CTOPP2PM95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
@@ -1063,39 +1063,39 @@ namespace AIMSService.Controllers
                     CTOPP2EL116to120 = " ";
                     CTOPP2EL121to130 = " ";
                     CTOPP2EL130 = " ";
-                    if (Convert.ToInt32(testResult.CTOPP2EL) < 70)
+                    if (GetIntValue(testResult.CTOPP2EL) < 70)
                     {
                         CTOPP2EL69 = testResult.CTOPP2EL;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2EL) >= 70 && Convert.ToInt32(testResult.CTOPP2EL) <= 79)
+                    else if (GetIntValue(testResult.CTOPP2EL) >= 70 && GetIntValue(testResult.CTOPP2EL) <= 79)
                     {
                         CTOPP2EL70to79 = testResult.CTOPP2EL;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2EL) >= 80 && Convert.ToInt32(testResult.CTOPP2EL) <= 84)
+                    else if (GetIntValue(testResult.CTOPP2EL) >= 80 && GetIntValue(testResult.CTOPP2EL) <= 84)
                     {
                         CTOPP2EL80to84 = testResult.CTOPP2EL;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2EL) >= 85 && Convert.ToInt32(testResult.CTOPP2EL) <= 89)
+                    else if (GetIntValue(testResult.CTOPP2EL) >= 85 && GetIntValue(testResult.CTOPP2EL) <= 89)
                     {
                         CTOPP2EL85to89 = testResult.CTOPP2EL;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2EL) >= 90 && Convert.ToInt32(testResult.CTOPP2EL) <= 109)
+                    else if (GetIntValue(testResult.CTOPP2EL) >= 90 && GetIntValue(testResult.CTOPP2EL) <= 109)
                     {
                         CTOPP2EL90to109 = testResult.CTOPP2EL;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2EL) >= 110 && Convert.ToInt32(testResult.CTOPP2EL) <= 115)
+                    else if (GetIntValue(testResult.CTOPP2EL) >= 110 && GetIntValue(testResult.CTOPP2EL) <= 115)
                     {
                         CTOPP2EL110to115 = testResult.CTOPP2EL;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2EL) >= 116 && Convert.ToInt32(testResult.CTOPP2EL) <= 120)
+                    else if (GetIntValue(testResult.CTOPP2EL) >= 116 && GetIntValue(testResult.CTOPP2EL) <= 120)
                     {
                         CTOPP2EL116to120 = testResult.CTOPP2EL;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2EL) >= 121 && Convert.ToInt32(testResult.CTOPP2EL) <= 130)
+                    else if (GetIntValue(testResult.CTOPP2EL) >= 121 && GetIntValue(testResult.CTOPP2EL) <= 130)
                     {
                         CTOPP2EL121to130 = testResult.CTOPP2EL;
                     }
-                    if (Convert.ToInt32(testResult.CTOPP2EL) > 130)
+                    if (GetIntValue(testResult.CTOPP2EL) > 130)
                     {
                         CTOPP2EL130 = testResult.CTOPP2EL;
                     }
@@ -1112,39 +1112,39 @@ namespace AIMSService.Controllers
                     CTOPP2BW116to120 = " ";
                     CTOPP2BW121to130 = " ";
                     CTOPP2BW130 = " ";
-                    if (Convert.ToInt32(testResult.CTOPP2BW) < 70)
+                    if (GetIntValue(testResult.CTOPP2BW) < 70)
                     {
                         CTOPP2BW69 = testResult.CTOPP2BW;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2BW) >= 70 && Convert.ToInt32(testResult.CTOPP2BW) <= 79)
+                    else if (GetIntValue(testResult.CTOPP2BW) >= 70 && GetIntValue(testResult.CTOPP2BW) <= 79)
                     {
                         CTOPP2BW70to79 = testResult.CTOPP2BW;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2BW) >= 80 && Convert.ToInt32(testResult.CTOPP2BW) <= 84)
+                    else if (GetIntValue(testResult.CTOPP2BW) >= 80 && GetIntValue(testResult.CTOPP2BW) <= 84)
                     {
                         CTOPP2BW80to84 = testResult.CTOPP2BW;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2BW) >= 85 && Convert.ToInt32(testResult.CTOPP2BW) <= 89)
+                    else if (GetIntValue(testResult.CTOPP2BW) >= 85 && GetIntValue(testResult.CTOPP2BW) <= 89)
                     {
                         CTOPP2BW85to89 = testResult.CTOPP2BW;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2BW) >= 90 && Convert.ToInt32(testResult.CTOPP2BW) <= 109)
+                    else if (GetIntValue(testResult.CTOPP2BW) >= 90 && GetIntValue(testResult.CTOPP2BW) <= 109)
                     {
                         CTOPP2BW90to109 = testResult.CTOPP2BW;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2BW) >= 110 && Convert.ToInt32(testResult.CTOPP2BW) <= 115)
+                    else if (GetIntValue(testResult.CTOPP2BW) >= 110 && GetIntValue(testResult.CTOPP2BW) <= 115)
                     {
                         CTOPP2BW110to115 = testResult.CTOPP2BW;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2BW) >= 116 && Convert.ToInt32(testResult.CTOPP2BW) <= 120)
+                    else if (GetIntValue(testResult.CTOPP2BW) >= 116 && GetIntValue(testResult.CTOPP2BW) <= 120)
                     {
                         CTOPP2BW116to120 = testResult.CTOPP2BW;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2BW) >= 121 && Convert.ToInt32(testResult.CTOPP2BW) <= 130)
+                    else if (GetIntValue(testResult.CTOPP2BW) >= 121 && GetIntValue(testResult.CTOPP2BW) <= 130)
                     {
                         CTOPP2BW121to130 = testResult.CTOPP2BW;
                     }
-                    if (Convert.ToInt32(testResult.CTOPP2BW) > 130)
+                    if (GetIntValue(testResult.CTOPP2BW) > 130)
                     {
                         CTOPP2BW130 = testResult.CTOPP2BW;
                     }
@@ -1161,39 +1161,39 @@ namespace AIMSService.Controllers
                     CTOPP2PI116to120 = " ";
                     CTOPP2PI121to130 = " ";
                     CTOPP2PI130 = " ";
-                    if (Convert.ToInt32(testResult.CTOPP2PI) < 70)
+                    if (GetIntValue(testResult.CTOPP2PI) < 70)
                     {
                         CTOPP2PI69 = testResult.CTOPP2PI;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PI) >= 70 && Convert.ToInt32(testResult.CTOPP2PI) <= 79)
+                    else if (GetIntValue(testResult.CTOPP2PI) >= 70 && GetIntValue(testResult.CTOPP2PI) <= 79)
                     {
                         CTOPP2PI70to79 = testResult.CTOPP2PI;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PI) >= 80 && Convert.ToInt32(testResult.CTOPP2PI) <= 84)
+                    else if (GetIntValue(testResult.CTOPP2PI) >= 80 && GetIntValue(testResult.CTOPP2PI) <= 84)
                     {
                         CTOPP2PI80to84 = testResult.CTOPP2PI;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PI) >= 85 && Convert.ToInt32(testResult.CTOPP2PI) <= 89)
+                    else if (GetIntValue(testResult.CTOPP2PI) >= 85 && GetIntValue(testResult.CTOPP2PI) <= 89)
                     {
                         CTOPP2PI85to89 = testResult.CTOPP2PI;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PI) >= 90 && Convert.ToInt32(testResult.CTOPP2PI) <= 109)
+                    else if (GetIntValue(testResult.CTOPP2PI) >= 90 && GetIntValue(testResult.CTOPP2PI) <= 109)
                     {
                         CTOPP2PI90to109 = testResult.CTOPP2PI;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PI) >= 110 && Convert.ToInt32(testResult.CTOPP2PI) <= 115)
+                    else if (GetIntValue(testResult.CTOPP2PI) >= 110 && GetIntValue(testResult.CTOPP2PI) <= 115)
                     {
                         CTOPP2PI110to115 = testResult.CTOPP2PI;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PI) >= 116 && Convert.ToInt32(testResult.CTOPP2PI) <= 120)
+                    else if (GetIntValue(testResult.CTOPP2PI) >= 116 && GetIntValue(testResult.CTOPP2PI) <= 120)
                     {
                         CTOPP2PI116to120 = testResult.CTOPP2PI;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PI) >= 121 && Convert.ToInt32(testResult.CTOPP2PI) <= 130)
+                    else if (GetIntValue(testResult.CTOPP2PI) >= 121 && GetIntValue(testResult.CTOPP2PI) <= 130)
                     {
                         CTOPP2PI121to130 = testResult.CTOPP2PI;
                     }
-                    if (Convert.ToInt32(testResult.CTOPP2PI) > 130)
+                    if (GetIntValue(testResult.CTOPP2PI) > 130)
                     {
                         CTOPP2PI130 = testResult.CTOPP2PI;
                     }
@@ -1211,52 +1211,52 @@ namespace AIMSService.Controllers
                     CTOPP2PAC121to130 = " ";
                     CTOPP2PAC130 = " ";
                     
-                    if (Convert.ToInt32(testResult.CTOPP2PAC) < 70)
+                    if (GetIntValue(testResult.CTOPP2PAC) < 70)
                     {
                         CTOPP2PAC69 = testResult.CTOPP2PAC;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 70 && Convert.ToInt32(testResult.CTOPP2PAC) <= 79)
+                    else if (GetIntValue(testResult.CTOPP2PAC) >= 70 && GetIntValue(testResult.CTOPP2PAC) <= 79)
                     {
                         CTOPP2PAC70to79 = testResult.CTOPP2PAC;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 80 && Convert.ToInt32(testResult.CTOPP2PAC) <= 84)
+                    else if (GetIntValue(testResult.CTOPP2PAC) >= 80 && GetIntValue(testResult.CTOPP2PAC) <= 84)
                     {
                         CTOPP2PAC80to84 = testResult.CTOPP2PAC;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 85 && Convert.ToInt32(testResult.CTOPP2PAC) <= 89)
+                    else if (GetIntValue(testResult.CTOPP2PAC) >= 85 && GetIntValue(testResult.CTOPP2PAC) <= 89)
                     {
                         CTOPP2PAC85to89 = testResult.CTOPP2PAC;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 90 && Convert.ToInt32(testResult.CTOPP2PAC) <= 109)
+                    else if (GetIntValue(testResult.CTOPP2PAC) >= 90 && GetIntValue(testResult.CTOPP2PAC) <= 109)
                     {
                         CTOPP2PAC90to109 = testResult.CTOPP2PAC;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 110 && Convert.ToInt32(testResult.CTOPP2PAC) <= 115)
+                    else if (GetIntValue(testResult.CTOPP2PAC) >= 110 && GetIntValue(testResult.CTOPP2PAC) <= 115)
                     {
                         CTOPP2PAC110to115 = testResult.CTOPP2PAC;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 116 && Convert.ToInt32(testResult.CTOPP2PAC) <= 120)
+                    else if (GetIntValue(testResult.CTOPP2PAC) >= 116 && GetIntValue(testResult.CTOPP2PAC) <= 120)
                     {
                         CTOPP2PAC116to120 = testResult.CTOPP2PAC;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 121 && Convert.ToInt32(testResult.CTOPP2PAC) <= 130)
+                    else if (GetIntValue(testResult.CTOPP2PAC) >= 121 && GetIntValue(testResult.CTOPP2PAC) <= 130)
                     {
                         CTOPP2PAC121to130 = testResult.CTOPP2PAC;
                     }
-                    if (Convert.ToInt32(testResult.CTOPP2PAC) > 130)
+                    if (GetIntValue(testResult.CTOPP2PAC) > 130)
                     {
                         CTOPP2PAC130 = testResult.CTOPP2PAC;
                     }
 
-                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC69) ? "0" : CTOPP2PAC69) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC70to79) ? "0" : CTOPP2PAC70to79) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC80to84) ? "0" : CTOPP2PAC80to84) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC85to89) ? "0" : CTOPP2PAC85to89) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC90to109) ? "0" : CTOPP2PAC90to109) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC110to115) ? "0" : CTOPP2PAC110to115) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC116to120) ? "0" : CTOPP2PAC116to120) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
+                    var ciVal = GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC69) ? "0" : CTOPP2PAC69) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC70to79) ? "0" : CTOPP2PAC70to79) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC80to84) ? "0" : CTOPP2PAC80to84) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC85to89) ? "0" : CTOPP2PAC85to89) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC90to109) ? "0" : CTOPP2PAC90to109) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC110to115) ? "0" : CTOPP2PAC110to115) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC116to120) ? "0" : CTOPP2PAC116to120) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
 
                     CTOPP2PAC95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
@@ -1275,52 +1275,52 @@ namespace AIMSService.Controllers
                 //    CTOPP2BNW121to130 = " ";
                 //    CTOPP2BNW130 = " ";
 
-                //    if (Convert.ToInt32(testResult.CTOPP2PAC) < 70)
+                //    if (GetIntValue(testResult.CTOPP2PAC) < 70)
                 //    {
                 //        CTOPP2PAC69 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 70 && Convert.ToInt32(testResult.CTOPP2PAC) <= 79)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 70 && GetIntValue(testResult.CTOPP2PAC) <= 79)
                 //    {
                 //        CTOPP2PAC70to79 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 80 && Convert.ToInt32(testResult.CTOPP2PAC) <= 84)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 80 && GetIntValue(testResult.CTOPP2PAC) <= 84)
                 //    {
                 //        CTOPP2PAC80to84 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 85 && Convert.ToInt32(testResult.CTOPP2PAC) <= 89)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 85 && GetIntValue(testResult.CTOPP2PAC) <= 89)
                 //    {
                 //        CTOPP2PAC85to89 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 90 && Convert.ToInt32(testResult.CTOPP2PAC) <= 109)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 90 && GetIntValue(testResult.CTOPP2PAC) <= 109)
                 //    {
                 //        CTOPP2PAC90to109 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 110 && Convert.ToInt32(testResult.CTOPP2PAC) <= 115)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 110 && GetIntValue(testResult.CTOPP2PAC) <= 115)
                 //    {
                 //        CTOPP2PAC110to115 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 116 && Convert.ToInt32(testResult.CTOPP2PAC) <= 120)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 116 && GetIntValue(testResult.CTOPP2PAC) <= 120)
                 //    {
                 //        CTOPP2PAC116to120 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 121 && Convert.ToInt32(testResult.CTOPP2PAC) <= 130)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 121 && GetIntValue(testResult.CTOPP2PAC) <= 130)
                 //    {
                 //        CTOPP2PAC121to130 = testResult.CTOPP2PAC;
                 //    }
-                //    if (Convert.ToInt32(testResult.CTOPP2PAC) > 130)
+                //    if (GetIntValue(testResult.CTOPP2PAC) > 130)
                 //    {
                 //        CTOPP2PAC130 = testResult.CTOPP2PAC;
                 //    }
 
-                //    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC69) ? "0" : CTOPP2PAC69) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC70to79) ? "0" : CTOPP2PAC70to79) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC80to84) ? "0" : CTOPP2PAC80to84) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC85to89) ? "0" : CTOPP2PAC85to89) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC90to109) ? "0" : CTOPP2PAC90to109) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC110to115) ? "0" : CTOPP2PAC110to115) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC116to120) ? "0" : CTOPP2PAC116to120) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
+                //    var ciVal = GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC69) ? "0" : CTOPP2PAC69) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC70to79) ? "0" : CTOPP2PAC70to79) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC80to84) ? "0" : CTOPP2PAC80to84) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC85to89) ? "0" : CTOPP2PAC85to89) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC90to109) ? "0" : CTOPP2PAC90to109) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC110to115) ? "0" : CTOPP2PAC110to115) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC116to120) ? "0" : CTOPP2PAC116to120) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
 
                 //    CTOPP2PAC95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 //}
@@ -1347,52 +1347,52 @@ namespace AIMSService.Controllers
                 //    CTOPP2PAC121to130 = " ";
                 //    CTOPP2PAC130 = " ";
 
-                //    if (Convert.ToInt32(testResult.CTOPP2PAC) < 70)
+                //    if (GetIntValue(testResult.CTOPP2PAC) < 70)
                 //    {
                 //        CTOPP2PAC69 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 70 && Convert.ToInt32(testResult.CTOPP2PAC) <= 79)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 70 && GetIntValue(testResult.CTOPP2PAC) <= 79)
                 //    {
                 //        CTOPP2PAC70to79 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 80 && Convert.ToInt32(testResult.CTOPP2PAC) <= 84)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 80 && GetIntValue(testResult.CTOPP2PAC) <= 84)
                 //    {
                 //        CTOPP2PAC80to84 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 85 && Convert.ToInt32(testResult.CTOPP2PAC) <= 89)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 85 && GetIntValue(testResult.CTOPP2PAC) <= 89)
                 //    {
                 //        CTOPP2PAC85to89 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 90 && Convert.ToInt32(testResult.CTOPP2PAC) <= 109)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 90 && GetIntValue(testResult.CTOPP2PAC) <= 109)
                 //    {
                 //        CTOPP2PAC90to109 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 110 && Convert.ToInt32(testResult.CTOPP2PAC) <= 115)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 110 && GetIntValue(testResult.CTOPP2PAC) <= 115)
                 //    {
                 //        CTOPP2PAC110to115 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 116 && Convert.ToInt32(testResult.CTOPP2PAC) <= 120)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 116 && GetIntValue(testResult.CTOPP2PAC) <= 120)
                 //    {
                 //        CTOPP2PAC116to120 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 121 && Convert.ToInt32(testResult.CTOPP2PAC) <= 130)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 121 && GetIntValue(testResult.CTOPP2PAC) <= 130)
                 //    {
                 //        CTOPP2PAC121to130 = testResult.CTOPP2PAC;
                 //    }
-                //    if (Convert.ToInt32(testResult.CTOPP2PAC) > 130)
+                //    if (GetIntValue(testResult.CTOPP2PAC) > 130)
                 //    {
                 //        CTOPP2PAC130 = testResult.CTOPP2PAC;
                 //    }
 
-                //    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC69) ? "0" : CTOPP2PAC69) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC70to79) ? "0" : CTOPP2PAC70to79) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC80to84) ? "0" : CTOPP2PAC80to84) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC85to89) ? "0" : CTOPP2PAC85to89) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC90to109) ? "0" : CTOPP2PAC90to109) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC110to115) ? "0" : CTOPP2PAC110to115) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC116to120) ? "0" : CTOPP2PAC116to120) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
+                //    var ciVal = GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC69) ? "0" : CTOPP2PAC69) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC70to79) ? "0" : CTOPP2PAC70to79) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC80to84) ? "0" : CTOPP2PAC80to84) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC85to89) ? "0" : CTOPP2PAC85to89) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC90to109) ? "0" : CTOPP2PAC90to109) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC110to115) ? "0" : CTOPP2PAC110to115) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC116to120) ? "0" : CTOPP2PAC116to120) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
 
                 //    CTOPP2PAC95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 //}
@@ -1420,52 +1420,52 @@ namespace AIMSService.Controllers
                 //    CTOPP2PAC121to130 = " ";
                 //    CTOPP2PAC130 = " ";
 
-                //    if (Convert.ToInt32(testResult.CTOPP2PAC) < 70)
+                //    if (GetIntValue(testResult.CTOPP2PAC) < 70)
                 //    {
                 //        CTOPP2PAC69 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 70 && Convert.ToInt32(testResult.CTOPP2PAC) <= 79)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 70 && GetIntValue(testResult.CTOPP2PAC) <= 79)
                 //    {
                 //        CTOPP2PAC70to79 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 80 && Convert.ToInt32(testResult.CTOPP2PAC) <= 84)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 80 && GetIntValue(testResult.CTOPP2PAC) <= 84)
                 //    {
                 //        CTOPP2PAC80to84 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 85 && Convert.ToInt32(testResult.CTOPP2PAC) <= 89)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 85 && GetIntValue(testResult.CTOPP2PAC) <= 89)
                 //    {
                 //        CTOPP2PAC85to89 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 90 && Convert.ToInt32(testResult.CTOPP2PAC) <= 109)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 90 && GetIntValue(testResult.CTOPP2PAC) <= 109)
                 //    {
                 //        CTOPP2PAC90to109 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 110 && Convert.ToInt32(testResult.CTOPP2PAC) <= 115)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 110 && GetIntValue(testResult.CTOPP2PAC) <= 115)
                 //    {
                 //        CTOPP2PAC110to115 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 116 && Convert.ToInt32(testResult.CTOPP2PAC) <= 120)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 116 && GetIntValue(testResult.CTOPP2PAC) <= 120)
                 //    {
                 //        CTOPP2PAC116to120 = testResult.CTOPP2PAC;
                 //    }
-                //    else if (Convert.ToInt32(testResult.CTOPP2PAC) >= 121 && Convert.ToInt32(testResult.CTOPP2PAC) <= 130)
+                //    else if (GetIntValue(testResult.CTOPP2PAC) >= 121 && GetIntValue(testResult.CTOPP2PAC) <= 130)
                 //    {
                 //        CTOPP2PAC121to130 = testResult.CTOPP2PAC;
                 //    }
-                //    if (Convert.ToInt32(testResult.CTOPP2PAC) > 130)
+                //    if (GetIntValue(testResult.CTOPP2PAC) > 130)
                 //    {
                 //        CTOPP2PAC130 = testResult.CTOPP2PAC;
                 //    }
 
-                //    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC69) ? "0" : CTOPP2PAC69) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC70to79) ? "0" : CTOPP2PAC70to79) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC80to84) ? "0" : CTOPP2PAC80to84) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC85to89) ? "0" : CTOPP2PAC85to89) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC90to109) ? "0" : CTOPP2PAC90to109) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC110to115) ? "0" : CTOPP2PAC110to115) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC116to120) ? "0" : CTOPP2PAC116to120) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
-                //                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
+                //    var ciVal = GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC69) ? "0" : CTOPP2PAC69) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC70to79) ? "0" : CTOPP2PAC70to79) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC80to84) ? "0" : CTOPP2PAC80to84) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC85to89) ? "0" : CTOPP2PAC85to89) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC90to109) ? "0" : CTOPP2PAC90to109) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC110to115) ? "0" : CTOPP2PAC110to115) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC116to120) ? "0" : CTOPP2PAC116to120) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
+                //                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
 
                 //    CTOPP2PAC95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 //}
@@ -1483,39 +1483,39 @@ namespace AIMSService.Controllers
                     CTOPP2RDN116to120 = " ";
                     CTOPP2RDN121to130 = " ";
                     CTOPP2RDN130 = " ";
-                    if (Convert.ToInt32(testResult.CTOPP2RDN) < 70)
+                    if (GetIntValue(testResult.CTOPP2RDN) < 70)
                     {
                         CTOPP2RDN69 = testResult.CTOPP2RDN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RDN) >= 70 && Convert.ToInt32(testResult.CTOPP2RDN) <= 79)
+                    else if (GetIntValue(testResult.CTOPP2RDN) >= 70 && GetIntValue(testResult.CTOPP2RDN) <= 79)
                     {
                         CTOPP2RDN70to79 = testResult.CTOPP2RDN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RDN) >= 80 && Convert.ToInt32(testResult.CTOPP2RDN) <= 84)
+                    else if (GetIntValue(testResult.CTOPP2RDN) >= 80 && GetIntValue(testResult.CTOPP2RDN) <= 84)
                     {
                         CTOPP2RDN80to84 = testResult.CTOPP2RDN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RDN) >= 85 && Convert.ToInt32(testResult.CTOPP2RDN) <= 89)
+                    else if (GetIntValue(testResult.CTOPP2RDN) >= 85 && GetIntValue(testResult.CTOPP2RDN) <= 89)
                     {
                         CTOPP2RDN85to89 = testResult.CTOPP2RDN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RDN) >= 90 && Convert.ToInt32(testResult.CTOPP2RDN) <= 109)
+                    else if (GetIntValue(testResult.CTOPP2RDN) >= 90 && GetIntValue(testResult.CTOPP2RDN) <= 109)
                     {
                         CTOPP2RDN90to109 = testResult.CTOPP2RDN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RDN) >= 110 && Convert.ToInt32(testResult.CTOPP2RDN) <= 115)
+                    else if (GetIntValue(testResult.CTOPP2RDN) >= 110 && GetIntValue(testResult.CTOPP2RDN) <= 115)
                     {
                         CTOPP2RDN110to115 = testResult.CTOPP2RDN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RDN) >= 116 && Convert.ToInt32(testResult.CTOPP2RDN) <= 120)
+                    else if (GetIntValue(testResult.CTOPP2RDN) >= 116 && GetIntValue(testResult.CTOPP2RDN) <= 120)
                     {
                         CTOPP2RDN116to120 = testResult.CTOPP2RDN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RDN) >= 121 && Convert.ToInt32(testResult.CTOPP2RDN) <= 130)
+                    else if (GetIntValue(testResult.CTOPP2RDN) >= 121 && GetIntValue(testResult.CTOPP2RDN) <= 130)
                     {
                         CTOPP2RDN121to130 = testResult.CTOPP2RDN;
                     }
-                    if (Convert.ToInt32(testResult.CTOPP2RDN) > 130)
+                    if (GetIntValue(testResult.CTOPP2RDN) > 130)
                     {
                         CTOPP2RDN130 = testResult.CTOPP2RDN;
                     }
@@ -1532,39 +1532,39 @@ namespace AIMSService.Controllers
                     CTOPP2RLN116to120 = " ";
                     CTOPP2RLN121to130 = " ";
                     CTOPP2RLN130 = " ";
-                    if (Convert.ToInt32(testResult.CTOPP2RLN) < 70)
+                    if (GetIntValue(testResult.CTOPP2RLN) < 70)
                     {
                         CTOPP2RLN69 = testResult.CTOPP2RLN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RLN) >= 70 && Convert.ToInt32(testResult.CTOPP2RLN) <= 79)
+                    else if (GetIntValue(testResult.CTOPP2RLN) >= 70 && GetIntValue(testResult.CTOPP2RLN) <= 79)
                     {
                         CTOPP2RLN70to79 = testResult.CTOPP2RLN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RLN) >= 80 && Convert.ToInt32(testResult.CTOPP2RLN) <= 84)
+                    else if (GetIntValue(testResult.CTOPP2RLN) >= 80 && GetIntValue(testResult.CTOPP2RLN) <= 84)
                     {
                         CTOPP2RLN80to84 = testResult.CTOPP2RLN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RLN) >= 85 && Convert.ToInt32(testResult.CTOPP2RLN) <= 89)
+                    else if (GetIntValue(testResult.CTOPP2RLN) >= 85 && GetIntValue(testResult.CTOPP2RLN) <= 89)
                     {
                         CTOPP2RLN85to89 = testResult.CTOPP2RLN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RLN) >= 90 && Convert.ToInt32(testResult.CTOPP2RLN) <= 109)
+                    else if (GetIntValue(testResult.CTOPP2RLN) >= 90 && GetIntValue(testResult.CTOPP2RLN) <= 109)
                     {
                         CTOPP2RLN90to109 = testResult.CTOPP2RLN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RLN) >= 110 && Convert.ToInt32(testResult.CTOPP2RLN) <= 115)
+                    else if (GetIntValue(testResult.CTOPP2RLN) >= 110 && GetIntValue(testResult.CTOPP2RLN) <= 115)
                     {
                         CTOPP2RLN110to115 = testResult.CTOPP2RLN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RLN) >= 116 && Convert.ToInt32(testResult.CTOPP2RLN) <= 120)
+                    else if (GetIntValue(testResult.CTOPP2RLN) >= 116 && GetIntValue(testResult.CTOPP2RLN) <= 120)
                     {
                         CTOPP2RLN116to120 = testResult.CTOPP2RLN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RLN) >= 121 && Convert.ToInt32(testResult.CTOPP2RLN) <= 130)
+                    else if (GetIntValue(testResult.CTOPP2RLN) >= 121 && GetIntValue(testResult.CTOPP2RLN) <= 130)
                     {
                         CTOPP2RLN121to130 = testResult.CTOPP2RLN;
                     }
-                    if (Convert.ToInt32(testResult.CTOPP2RLN) > 130)
+                    if (GetIntValue(testResult.CTOPP2RLN) > 130)
                     {
                         CTOPP2RLN130 = testResult.CTOPP2RLN;
                     }
@@ -1582,52 +1582,52 @@ namespace AIMSService.Controllers
                     CTOPP2RSN121to130 = " ";
                     CTOPP2RSN130 = " ";
                     
-                    if (Convert.ToInt32(testResult.CTOPP2RSN) < 70)
+                    if (GetIntValue(testResult.CTOPP2RSN) < 70)
                     {
                         CTOPP2RSN69 = testResult.CTOPP2RSN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RSN) >= 70 && Convert.ToInt32(testResult.CTOPP2RSN) <= 79)
+                    else if (GetIntValue(testResult.CTOPP2RSN) >= 70 && GetIntValue(testResult.CTOPP2RSN) <= 79)
                     {
                         CTOPP2RSN70to79 = testResult.CTOPP2RSN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RSN) >= 80 && Convert.ToInt32(testResult.CTOPP2RSN) <= 84)
+                    else if (GetIntValue(testResult.CTOPP2RSN) >= 80 && GetIntValue(testResult.CTOPP2RSN) <= 84)
                     {
                         CTOPP2RSN80to84 = testResult.CTOPP2RSN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RSN) >= 85 && Convert.ToInt32(testResult.CTOPP2RSN) <= 89)
+                    else if (GetIntValue(testResult.CTOPP2RSN) >= 85 && GetIntValue(testResult.CTOPP2RSN) <= 89)
                     {
                         CTOPP2RSN85to89 = testResult.CTOPP2RSN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RSN) >= 90 && Convert.ToInt32(testResult.CTOPP2RSN) <= 109)
+                    else if (GetIntValue(testResult.CTOPP2RSN) >= 90 && GetIntValue(testResult.CTOPP2RSN) <= 109)
                     {
                         CTOPP2RSN90to109 = testResult.CTOPP2RSN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RSN) >= 110 && Convert.ToInt32(testResult.CTOPP2RSN) <= 115)
+                    else if (GetIntValue(testResult.CTOPP2RSN) >= 110 && GetIntValue(testResult.CTOPP2RSN) <= 115)
                     {
                         CTOPP2RSN110to115 = testResult.CTOPP2RSN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RSN) >= 116 && Convert.ToInt32(testResult.CTOPP2RSN) <= 120)
+                    else if (GetIntValue(testResult.CTOPP2RSN) >= 116 && GetIntValue(testResult.CTOPP2RSN) <= 120)
                     {
                         CTOPP2RSN116to120 = testResult.CTOPP2RSN;
                     }
-                    else if (Convert.ToInt32(testResult.CTOPP2RSN) >= 121 && Convert.ToInt32(testResult.CTOPP2RSN) <= 130)
+                    else if (GetIntValue(testResult.CTOPP2RSN) >= 121 && GetIntValue(testResult.CTOPP2RSN) <= 130)
                     {
                         CTOPP2RSN121to130 = testResult.CTOPP2RSN;
                     }
-                    if (Convert.ToInt32(testResult.CTOPP2RSN) > 130)
+                    if (GetIntValue(testResult.CTOPP2RSN) > 130)
                     {
                         CTOPP2RSN130 = testResult.CTOPP2RSN;
                     }
 
-                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN69) ? "0" : CTOPP2RSN69) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN70to79) ? "0" : CTOPP2RSN70to79) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN80to84) ? "0" : CTOPP2RSN80to84) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN85to89) ? "0" : CTOPP2RSN85to89) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN90to109) ? "0" : CTOPP2RSN90to109) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN110to115) ? "0" : CTOPP2RSN110to115) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN116to120) ? "0" : CTOPP2RSN116to120) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN121to130) ? "0" : CTOPP2RSN121to130) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(CTOPP2RSN130) ? "0" : CTOPP2RSN130);
+                    var ciVal = GetIntValue(string.IsNullOrWhiteSpace(CTOPP2RSN69) ? "0" : CTOPP2RSN69) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2RSN70to79) ? "0" : CTOPP2RSN70to79) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2RSN80to84) ? "0" : CTOPP2RSN80to84) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2RSN85to89) ? "0" : CTOPP2RSN85to89) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2RSN90to109) ? "0" : CTOPP2RSN90to109) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2RSN110to115) ? "0" : CTOPP2RSN110to115) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2RSN116to120) ? "0" : CTOPP2RSN116to120) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2RSN121to130) ? "0" : CTOPP2RSN121to130) +
+                                GetIntValue(string.IsNullOrWhiteSpace(CTOPP2RSN130) ? "0" : CTOPP2RSN130);
 
                     CTOPP2RSN95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
@@ -1645,52 +1645,52 @@ namespace AIMSService.Controllers
                     WRAT5WR121to130 = " ";
                     WRAT5WR130 = " ";
                     
-                    if (Convert.ToInt32(testResult.WRAT5WR) < 70)
+                    if (GetIntValue(testResult.WRAT5WR) < 70)
                     {
                         WRAT5WR69 = testResult.WRAT5WR;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5WR) >= 70 && Convert.ToInt32(testResult.WRAT5WR) <= 79)
+                    else if (GetIntValue(testResult.WRAT5WR) >= 70 && GetIntValue(testResult.WRAT5WR) <= 79)
                     {
                         WRAT5WR70to79 = testResult.WRAT5WR;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5WR) >= 80 && Convert.ToInt32(testResult.WRAT5WR) <= 84)
+                    else if (GetIntValue(testResult.WRAT5WR) >= 80 && GetIntValue(testResult.WRAT5WR) <= 84)
                     {
                         WRAT5WR80to84 = testResult.WRAT5WR;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5WR) >= 85 && Convert.ToInt32(testResult.WRAT5WR) <= 89)
+                    else if (GetIntValue(testResult.WRAT5WR) >= 85 && GetIntValue(testResult.WRAT5WR) <= 89)
                     {
                         WRAT5WR85to89 = testResult.WRAT5WR;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5WR) >= 90 && Convert.ToInt32(testResult.WRAT5WR) <= 109)
+                    else if (GetIntValue(testResult.WRAT5WR) >= 90 && GetIntValue(testResult.WRAT5WR) <= 109)
                     {
                         WRAT5WR90to109 = testResult.WRAT5WR;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5WR) >= 110 && Convert.ToInt32(testResult.WRAT5WR) <= 115)
+                    else if (GetIntValue(testResult.WRAT5WR) >= 110 && GetIntValue(testResult.WRAT5WR) <= 115)
                     {
                         WRAT5WR110to115 = testResult.WRAT5WR;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5WR) >= 116 && Convert.ToInt32(testResult.WRAT5WR) <= 120)
+                    else if (GetIntValue(testResult.WRAT5WR) >= 116 && GetIntValue(testResult.WRAT5WR) <= 120)
                     {
                         WRAT5WR116to120 = testResult.WRAT5WR;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5WR) >= 121 && Convert.ToInt32(testResult.WRAT5WR) <= 130)
+                    else if (GetIntValue(testResult.WRAT5WR) >= 121 && GetIntValue(testResult.WRAT5WR) <= 130)
                     {
                         WRAT5WR121to130 = testResult.WRAT5WR;
                     }
-                    if (Convert.ToInt32(testResult.WRAT5WR) > 130)
+                    if (GetIntValue(testResult.WRAT5WR) > 130)
                     {
                         WRAT5WR130 = testResult.WRAT5WR;
                     }
 
-                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR69) ? "0" : WRAT5WR69) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR70to79) ? "0" : WRAT5WR70to79) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR80to84) ? "0" : WRAT5WR80to84) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR85to89) ? "0" : WRAT5WR85to89) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR90to109) ? "0" : WRAT5WR90to109) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR110to115) ? "0" : WRAT5WR110to115) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR116to120) ? "0" : WRAT5WR116to120) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR121to130) ? "0" : WRAT5WR121to130) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5WR130) ? "0" : WRAT5WR130);
+                    var ciVal = GetIntValue(string.IsNullOrWhiteSpace(WRAT5WR69) ? "0" : WRAT5WR69) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5WR70to79) ? "0" : WRAT5WR70to79) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5WR80to84) ? "0" : WRAT5WR80to84) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5WR85to89) ? "0" : WRAT5WR85to89) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5WR90to109) ? "0" : WRAT5WR90to109) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5WR110to115) ? "0" : WRAT5WR110to115) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5WR116to120) ? "0" : WRAT5WR116to120) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5WR121to130) ? "0" : WRAT5WR121to130) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5WR130) ? "0" : WRAT5WR130);
 
                     WRAT5WR95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
@@ -1707,52 +1707,52 @@ namespace AIMSService.Controllers
                     WRAT5SP121to130 = " ";
                     WRAT5SP130 = " ";
                     
-                    if (Convert.ToInt32(testResult.WRAT5SP) < 70)
+                    if (GetIntValue(testResult.WRAT5SP) < 70)
                     {
                         WRAT5SP69 = testResult.WRAT5SP;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5SP) >= 70 && Convert.ToInt32(testResult.WRAT5SP) <= 79)
+                    else if (GetIntValue(testResult.WRAT5SP) >= 70 && GetIntValue(testResult.WRAT5SP) <= 79)
                     {
                         WRAT5SP70to79 = testResult.WRAT5SP;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5SP) >= 80 && Convert.ToInt32(testResult.WRAT5SP) <= 84)
+                    else if (GetIntValue(testResult.WRAT5SP) >= 80 && GetIntValue(testResult.WRAT5SP) <= 84)
                     {
                         WRAT5SP80to84 = testResult.WRAT5SP;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5SP) >= 85 && Convert.ToInt32(testResult.WRAT5SP) <= 89)
+                    else if (GetIntValue(testResult.WRAT5SP) >= 85 && GetIntValue(testResult.WRAT5SP) <= 89)
                     {
                         WRAT5SP85to89 = testResult.WRAT5SP;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5SP) >= 90 && Convert.ToInt32(testResult.WRAT5SP) <= 109)
+                    else if (GetIntValue(testResult.WRAT5SP) >= 90 && GetIntValue(testResult.WRAT5SP) <= 109)
                     {
                         WRAT5SP90to109 = testResult.WRAT5SP;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5SP) >= 110 && Convert.ToInt32(testResult.WRAT5SP) <= 115)
+                    else if (GetIntValue(testResult.WRAT5SP) >= 110 && GetIntValue(testResult.WRAT5SP) <= 115)
                     {
                         WRAT5SP110to115 = testResult.WRAT5SP;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5SP) >= 116 && Convert.ToInt32(testResult.WRAT5SP) <= 120)
+                    else if (GetIntValue(testResult.WRAT5SP) >= 116 && GetIntValue(testResult.WRAT5SP) <= 120)
                     {
                         WRAT5SP116to120 = testResult.WRAT5SP;
                     }
-                    else if (Convert.ToInt32(testResult.WRAT5SP) >= 121 && Convert.ToInt32(testResult.WRAT5SP) <= 130)
+                    else if (GetIntValue(testResult.WRAT5SP) >= 121 && GetIntValue(testResult.WRAT5SP) <= 130)
                     {
                         WRAT5SP121to130 = testResult.WRAT5SP;
                     }
-                    if (Convert.ToInt32(testResult.WRAT5SP) > 130)
+                    if (GetIntValue(testResult.WRAT5SP) > 130)
                     {
                         WRAT5SP130 = testResult.WRAT5SP;
                     }
 
-                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP69) ? "0" : WRAT5SP69) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP70to79) ? "0" : WRAT5SP70to79) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP80to84) ? "0" : WRAT5SP80to84) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP85to89) ? "0" : WRAT5SP85to89) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP90to109) ? "0" : WRAT5SP90to109) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP110to115) ? "0" : WRAT5SP110to115) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP116to120) ? "0" : WRAT5SP116to120) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP121to130) ? "0" : WRAT5SP121to130) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(WRAT5SP130) ? "0" : WRAT5SP130);
+                    var ciVal = GetIntValue(string.IsNullOrWhiteSpace(WRAT5SP69) ? "0" : WRAT5SP69) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5SP70to79) ? "0" : WRAT5SP70to79) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5SP80to84) ? "0" : WRAT5SP80to84) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5SP85to89) ? "0" : WRAT5SP85to89) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5SP90to109) ? "0" : WRAT5SP90to109) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5SP110to115) ? "0" : WRAT5SP110to115) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5SP116to120) ? "0" : WRAT5SP116to120) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5SP121to130) ? "0" : WRAT5SP121to130) +
+                                GetIntValue(string.IsNullOrWhiteSpace(WRAT5SP130) ? "0" : WRAT5SP130);
 
                     WRAT5SP95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
@@ -1767,39 +1767,39 @@ namespace AIMSService.Controllers
                     TOWRE2SWE116to120 = " ";
                     TOWRE2SWE121to130 = " ";
                     TOWRE2SWE130 = " ";
-                    if (Convert.ToInt32(testResult.TOWRE2SWE) < 70)
+                    if (GetIntValue(testResult.TOWRE2SWE) < 70)
                     {
                         TOWRE2SWE69 = testResult.TOWRE2SWE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2SWE) >= 70 && Convert.ToInt32(testResult.TOWRE2SWE) <= 79)
+                    else if (GetIntValue(testResult.TOWRE2SWE) >= 70 && GetIntValue(testResult.TOWRE2SWE) <= 79)
                     {
                         TOWRE2SWE70to79 = testResult.TOWRE2SWE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2SWE) >= 80 && Convert.ToInt32(testResult.TOWRE2SWE) <= 84)
+                    else if (GetIntValue(testResult.TOWRE2SWE) >= 80 && GetIntValue(testResult.TOWRE2SWE) <= 84)
                     {
                         TOWRE2SWE80to84 = testResult.TOWRE2SWE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2SWE) >= 85 && Convert.ToInt32(testResult.TOWRE2SWE) <= 89)
+                    else if (GetIntValue(testResult.TOWRE2SWE) >= 85 && GetIntValue(testResult.TOWRE2SWE) <= 89)
                     {
                         TOWRE2SWE85to89 = testResult.TOWRE2SWE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2SWE) >= 90 && Convert.ToInt32(testResult.TOWRE2SWE) <= 109)
+                    else if (GetIntValue(testResult.TOWRE2SWE) >= 90 && GetIntValue(testResult.TOWRE2SWE) <= 109)
                     {
                         TOWRE2SWE90to109 = testResult.TOWRE2SWE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2SWE) >= 110 && Convert.ToInt32(testResult.TOWRE2SWE) <= 115)
+                    else if (GetIntValue(testResult.TOWRE2SWE) >= 110 && GetIntValue(testResult.TOWRE2SWE) <= 115)
                     {
                         TOWRE2SWE110to115 = testResult.TOWRE2SWE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2SWE) >= 116 && Convert.ToInt32(testResult.TOWRE2SWE) <= 120)
+                    else if (GetIntValue(testResult.TOWRE2SWE) >= 116 && GetIntValue(testResult.TOWRE2SWE) <= 120)
                     {
                         TOWRE2SWE116to120 = testResult.TOWRE2SWE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2SWE) >= 121 && Convert.ToInt32(testResult.TOWRE2SWE) <= 130)
+                    else if (GetIntValue(testResult.TOWRE2SWE) >= 121 && GetIntValue(testResult.TOWRE2SWE) <= 130)
                     {
                         TOWRE2SWE121to130 = testResult.TOWRE2SWE;
                     }
-                    if (Convert.ToInt32(testResult.TOWRE2SWE) > 130)
+                    if (GetIntValue(testResult.TOWRE2SWE) > 130)
                     {
                         TOWRE2SWE130 = testResult.TOWRE2SWE;
                     }
@@ -1816,39 +1816,39 @@ namespace AIMSService.Controllers
                     TOWRE2PDE116to120 = " ";
                     TOWRE2PDE121to130 = " ";
                     TOWRE2PDE130 = " ";
-                    if (Convert.ToInt32(testResult.TOWRE2PDE) < 70)
+                    if (GetIntValue(testResult.TOWRE2PDE) < 70)
                     {
                         TOWRE2PDE69 = testResult.TOWRE2PDE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2PDE) >= 70 && Convert.ToInt32(testResult.TOWRE2PDE) <= 79)
+                    else if (GetIntValue(testResult.TOWRE2PDE) >= 70 && GetIntValue(testResult.TOWRE2PDE) <= 79)
                     {
                         TOWRE2PDE70to79 = testResult.TOWRE2PDE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2PDE) >= 80 && Convert.ToInt32(testResult.TOWRE2PDE) <= 84)
+                    else if (GetIntValue(testResult.TOWRE2PDE) >= 80 && GetIntValue(testResult.TOWRE2PDE) <= 84)
                     {
                         TOWRE2PDE80to84 = testResult.TOWRE2PDE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2PDE) >= 85 && Convert.ToInt32(testResult.TOWRE2PDE) <= 89)
+                    else if (GetIntValue(testResult.TOWRE2PDE) >= 85 && GetIntValue(testResult.TOWRE2PDE) <= 89)
                     {
                         TOWRE2PDE85to89 = testResult.TOWRE2PDE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2PDE) >= 90 && Convert.ToInt32(testResult.TOWRE2PDE) <= 109)
+                    else if (GetIntValue(testResult.TOWRE2PDE) >= 90 && GetIntValue(testResult.TOWRE2PDE) <= 109)
                     {
                         TOWRE2PDE90to109 = testResult.TOWRE2PDE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2PDE) >= 110 && Convert.ToInt32(testResult.TOWRE2PDE) <= 115)
+                    else if (GetIntValue(testResult.TOWRE2PDE) >= 110 && GetIntValue(testResult.TOWRE2PDE) <= 115)
                     {
                         TOWRE2PDE110to115 = testResult.TOWRE2PDE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2PDE) >= 116 && Convert.ToInt32(testResult.TOWRE2PDE) <= 120)
+                    else if (GetIntValue(testResult.TOWRE2PDE) >= 116 && GetIntValue(testResult.TOWRE2PDE) <= 120)
                     {
                         TOWRE2PDE116to120 = testResult.TOWRE2PDE;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2PDE) >= 121 && Convert.ToInt32(testResult.TOWRE2PDE) <= 130)
+                    else if (GetIntValue(testResult.TOWRE2PDE) >= 121 && GetIntValue(testResult.TOWRE2PDE) <= 130)
                     {
                         TOWRE2PDE121to130 = testResult.TOWRE2PDE;
                     }
-                    if (Convert.ToInt32(testResult.TOWRE2PDE) > 130)
+                    if (GetIntValue(testResult.TOWRE2PDE) > 130)
                     {
                         TOWRE2PDE130 = testResult.TOWRE2PDE;
                     }
@@ -1866,52 +1866,52 @@ namespace AIMSService.Controllers
                     TOWRE2IND121to130 = " ";
                     TOWRE2IND130 = " ";
                     
-                    if (Convert.ToInt32(testResult.TOWRE2IND) < 70)
+                    if (GetIntValue(testResult.TOWRE2IND) < 70)
                     {
                         TOWRE2IND69 = testResult.TOWRE2IND;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2IND) >= 70 && Convert.ToInt32(testResult.TOWRE2IND) <= 79)
+                    else if (GetIntValue(testResult.TOWRE2IND) >= 70 && GetIntValue(testResult.TOWRE2IND) <= 79)
                     {
                         TOWRE2IND70to79 = testResult.TOWRE2IND;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2IND) >= 80 && Convert.ToInt32(testResult.TOWRE2IND) <= 84)
+                    else if (GetIntValue(testResult.TOWRE2IND) >= 80 && GetIntValue(testResult.TOWRE2IND) <= 84)
                     {
                         TOWRE2IND80to84 = testResult.TOWRE2IND;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2IND) >= 85 && Convert.ToInt32(testResult.TOWRE2IND) <= 89)
+                    else if (GetIntValue(testResult.TOWRE2IND) >= 85 && GetIntValue(testResult.TOWRE2IND) <= 89)
                     {
                         TOWRE2IND85to89 = testResult.TOWRE2IND;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2IND) >= 90 && Convert.ToInt32(testResult.TOWRE2IND) <= 109)
+                    else if (GetIntValue(testResult.TOWRE2IND) >= 90 && GetIntValue(testResult.TOWRE2IND) <= 109)
                     {
                         TOWRE2IND90to109 = testResult.TOWRE2IND;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2IND) >= 110 && Convert.ToInt32(testResult.TOWRE2IND) <= 115)
+                    else if (GetIntValue(testResult.TOWRE2IND) >= 110 && GetIntValue(testResult.TOWRE2IND) <= 115)
                     {
                         TOWRE2IND110to115 = testResult.TOWRE2IND;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2IND) >= 116 && Convert.ToInt32(testResult.TOWRE2IND) <= 120)
+                    else if (GetIntValue(testResult.TOWRE2IND) >= 116 && GetIntValue(testResult.TOWRE2IND) <= 120)
                     {
                         TOWRE2IND116to120 = testResult.TOWRE2IND;
                     }
-                    else if (Convert.ToInt32(testResult.TOWRE2IND) >= 121 && Convert.ToInt32(testResult.TOWRE2IND) <= 130)
+                    else if (GetIntValue(testResult.TOWRE2IND) >= 121 && GetIntValue(testResult.TOWRE2IND) <= 130)
                     {
                         TOWRE2IND121to130 = testResult.TOWRE2IND;
                     }
-                    if (Convert.ToInt32(testResult.TOWRE2IND) > 130)
+                    if (GetIntValue(testResult.TOWRE2IND) > 130)
                     {
                         TOWRE2IND130 = testResult.TOWRE2IND;
                     }
 
-                    var ciVal = Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND69) ? "0" : TOWRE2IND69) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND70to79) ? "0" : TOWRE2IND70to79) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND80to84) ? "0" : TOWRE2IND80to84) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND85to89) ? "0" : TOWRE2IND85to89) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND90to109) ? "0" : TOWRE2IND90to109) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND110to115) ? "0" : TOWRE2IND110to115) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND116to120) ? "0" : TOWRE2IND116to120) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND121to130) ? "0" : TOWRE2IND121to130) +
-                                Convert.ToInt32(string.IsNullOrWhiteSpace(TOWRE2IND130) ? "0" : TOWRE2IND130);
+                    var ciVal = GetIntValue(string.IsNullOrWhiteSpace(TOWRE2IND69) ? "0" : TOWRE2IND69) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOWRE2IND70to79) ? "0" : TOWRE2IND70to79) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOWRE2IND80to84) ? "0" : TOWRE2IND80to84) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOWRE2IND85to89) ? "0" : TOWRE2IND85to89) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOWRE2IND90to109) ? "0" : TOWRE2IND90to109) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOWRE2IND110to115) ? "0" : TOWRE2IND110to115) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOWRE2IND116to120) ? "0" : TOWRE2IND116to120) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOWRE2IND121to130) ? "0" : TOWRE2IND121to130) +
+                                GetIntValue(string.IsNullOrWhiteSpace(TOWRE2IND130) ? "0" : TOWRE2IND130);
 
                     TOWRE2IND95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
@@ -1927,39 +1927,39 @@ namespace AIMSService.Controllers
                     ART2SC116to120 = " ";
                     ART2SC121to130 = " ";
                     ART2SC130 = " ";
-                    if (Convert.ToInt32(testResult.ART2SC) < 70)
+                    if (GetIntValue(testResult.ART2SC) < 70)
                     {
                         ART2SC69 = testResult.ART2SC;
                     }
-                    else if (Convert.ToInt32(testResult.ART2SC) >= 70 && Convert.ToInt32(testResult.ART2SC) <= 79)
+                    else if (GetIntValue(testResult.ART2SC) >= 70 && GetIntValue(testResult.ART2SC) <= 79)
                     {
                         ART2SC70to79 = testResult.ART2SC;
                     }
-                    else if (Convert.ToInt32(testResult.ART2SC) >= 80 && Convert.ToInt32(testResult.ART2SC) <= 84)
+                    else if (GetIntValue(testResult.ART2SC) >= 80 && GetIntValue(testResult.ART2SC) <= 84)
                     {
                         ART2SC80to84 = testResult.ART2SC;
                     }
-                    else if (Convert.ToInt32(testResult.ART2SC) >= 85 && Convert.ToInt32(testResult.ART2SC) <= 89)
+                    else if (GetIntValue(testResult.ART2SC) >= 85 && GetIntValue(testResult.ART2SC) <= 89)
                     {
                         ART2SC85to89 = testResult.ART2SC;
                     }
-                    else if (Convert.ToInt32(testResult.ART2SC) >= 90 && Convert.ToInt32(testResult.ART2SC) <= 109)
+                    else if (GetIntValue(testResult.ART2SC) >= 90 && GetIntValue(testResult.ART2SC) <= 109)
                     {
                         ART2SC90to109 = testResult.ART2SC;
                     }
-                    else if (Convert.ToInt32(testResult.ART2SC) >= 110 && Convert.ToInt32(testResult.ART2SC) <= 115)
+                    else if (GetIntValue(testResult.ART2SC) >= 110 && GetIntValue(testResult.ART2SC) <= 115)
                     {
                         ART2SC110to115 = testResult.ART2SC;
                     }
-                    else if (Convert.ToInt32(testResult.ART2SC) >= 116 && Convert.ToInt32(testResult.ART2SC) <= 120)
+                    else if (GetIntValue(testResult.ART2SC) >= 116 && GetIntValue(testResult.ART2SC) <= 120)
                     {
                         ART2SC116to120 = testResult.ART2SC;
                     }
-                    else if (Convert.ToInt32(testResult.ART2SC) >= 121 && Convert.ToInt32(testResult.ART2SC) <= 130)
+                    else if (GetIntValue(testResult.ART2SC) >= 121 && GetIntValue(testResult.ART2SC) <= 130)
                     {
                         ART2SC121to130 = testResult.ART2SC;
                     }
-                    if (Convert.ToInt32(testResult.ART2SC) > 130)
+                    if (GetIntValue(testResult.ART2SC) > 130)
                     {
                         ART2SC130 = testResult.ART2SC;
                     }
@@ -2308,17 +2308,17 @@ namespace AIMSService.Controllers
                     int i=0, j=85;
 
                     int[] chartData = new int[] { 
-                        Convert.ToInt32(Art2ChartVal) ,
-                        Convert.ToInt32(Towre2ChartVal) ,
-                        Convert.ToInt32(Wrat5SChartVal) ,
-                        Convert.ToInt32(Wrat5RChartVal) ,
-                        Convert.ToInt32(Ctopp2RSNChartVal) ,
-                        Convert.ToInt32(Ctopp2PAChartVal) ,
-                        Convert.ToInt32(Ctopp2PMChartVal) ,
-                        Convert.ToInt32(WMChartVal) ,
-                        Convert.ToInt32(NVRChartVal) ,
-                        Convert.ToInt32(VRVChartVal) ,
-                        Convert.ToInt32(VRVAChartVal) ,
+                        GetIntValue(Art2ChartVal) ,
+                        GetIntValue(Towre2ChartVal) ,
+                        GetIntValue(Wrat5SChartVal) ,
+                        GetIntValue(Wrat5RChartVal) ,
+                        GetIntValue(Ctopp2RSNChartVal) ,
+                        GetIntValue(Ctopp2PAChartVal) ,
+                        GetIntValue(Ctopp2PMChartVal) ,
+                        GetIntValue(WMChartVal) ,
+                        GetIntValue(NVRChartVal) ,
+                        GetIntValue(VRVChartVal) ,
+                        GetIntValue(VRVAChartVal) ,
 
                     };
                     
@@ -2375,8 +2375,18 @@ namespace AIMSService.Controllers
             return "";
         }
 
+        private int GetIntValue(string val)
+        {
+            return Convert.ToInt32(string.IsNullOrWhiteSpace(val) ? "0" : val);
+        }
+
         public static string GetPercentage(string val)
         {
+            if (string.IsNullOrWhiteSpace(val))
+            {
+                return "0%";
+            }
+
             return $"{Math.Round(Convert.ToDouble(val) / 140 * 100)}%";
         }
 
