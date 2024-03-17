@@ -2355,6 +2355,7 @@ namespace AIMSService.Controllers
                 {
                     var fileName = System.IO.Path.GetFileName(outputPath);
                     var response = System.IO.File.ReadAllBytes(outputPath);
+                    System.IO.File.Delete(outputPath);
                     return File(response, "application/octet-stream", fileName);
                 }
 
