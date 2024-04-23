@@ -43,8 +43,8 @@ namespace AIMSService.Controllers
                 return BadRequest();
             }
 
-            var userId = _dbContext.Clients.FirstOrDefault(x=>x.Id == Guid.Parse(studentId))?.UserId;
-            if (userId == null) 
+            var userId = _dbContext.Clients.FirstOrDefault(x => x.Id == Guid.Parse(studentId))?.UserId;
+            if (userId == null)
             {
                 return BadRequest();
             }
@@ -367,30 +367,30 @@ namespace AIMSService.Controllers
             string ART2TY = " ";
 
 
-           string Art2Chart = "";
-           string Art2ChartVal = "";
-           string Towre2Chart = "";
-           string Towre2ChartVal = "";
-           string Wrat5SChart = "";
-           string Wrat5SChartVal = "";
-           string Wrat5RChart = "";
-           string Wrat5RChartVal = "";
-           string Ctopp2RSNChart = "";
-           string Ctopp2RSNChartVal = "";
-           string Ctopp2PAChart = "";
-           string Ctopp2PAChartVal = "";
-           string Ctopp2PMChart = "";
-           string Ctopp2PMChartVal = "";
-           string WMChart = "";
-           string WMChartVal = "";
-           string NVRChart = "";
-           string NVRChartVal = "";
-           string VRVChart = "";
-           string VRVChartVal = "";
-           string VRVAChart = "";
-           string VRVAChartVal = "";
+            string Art2Chart = "";
+            string Art2ChartVal = "";
+            string Towre2Chart = "";
+            string Towre2ChartVal = "";
+            string Wrat5SChart = "";
+            string Wrat5SChartVal = "";
+            string Wrat5RChart = "";
+            string Wrat5RChartVal = "";
+            string Ctopp2RSNChart = "";
+            string Ctopp2RSNChartVal = "";
+            string Ctopp2PAChart = "";
+            string Ctopp2PAChartVal = "";
+            string Ctopp2PMChart = "";
+            string Ctopp2PMChartVal = "";
+            string WMChart = "";
+            string WMChartVal = "";
+            string NVRChart = "";
+            string NVRChartVal = "";
+            string VRVChart = "";
+            string VRVChartVal = "";
+            string VRVAChart = "";
+            string VRVAChartVal = "";
 
-        #endregion
+            #endregion
 
             var client = _dbContext.Clients.FirstOrDefault(x => x.Id == Guid.Parse(studentId));
             if (client != null)
@@ -412,14 +412,19 @@ namespace AIMSService.Controllers
                 Dictionary<string, string> placeholders = new Dictionary<string, string>()
                 {
                     { "[NAME]", client.Name },
-                    { "[DATE]", DateTime.Now.ToString("yyyy-MM-dd") },
-                    { "[DOB]", client.Dob.ToString("yyyy-MM-dd") },
-                    { "[ASDATE]",DateTime.Now.ToString("yyyy-MM-dd") },
+                    { "[cNAME]", client.Name.Split(' ')[0] },
+                    { "[DATE]", DateTime.Now.ToString("dd-MM-yyyy") },
+                    { "[DOB]", client.Dob.ToString("dd-MM-yyyy") },
+                    { "[ASDATE]",DateTime.Now.ToString("dd-MM-yyyy") },
                     { "[AGE]", age.ToString() },
                     { "[ADDRESS]", client.Address },
                     { "[UNIVERSITY]", client.University },
                     { "[COURSE]", client.Course },
                     { "[CYEAR]", client.CourseYear },
+
+                    { "{HisHer}", client.Gender == 1 ? "his":"her" },
+                    { "{HimHer}", client.Gender == 1 ? "him":"her" },
+                    { "{HeShe}", client.Gender == 1 ? "he":"she" },
 
                 };
 
@@ -1049,7 +1054,7 @@ namespace AIMSService.Controllers
                                 GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PM121to130) ? "0" : CTOPP2PM121to130) +
                                 GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PM130) ? "0" : CTOPP2PM130);
 
-                    CTOPP2PM95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
+                    CTOPP2PM95CI = GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
 
                 if (!string.IsNullOrEmpty(testResult.CTOPP2EL))
@@ -1210,7 +1215,7 @@ namespace AIMSService.Controllers
                     CTOPP2PAC116to120 = " ";
                     CTOPP2PAC121to130 = " ";
                     CTOPP2PAC130 = " ";
-                    
+
                     if (GetIntValue(testResult.CTOPP2PAC) < 70)
                     {
                         CTOPP2PAC69 = testResult.CTOPP2PAC;
@@ -1258,11 +1263,11 @@ namespace AIMSService.Controllers
                                 GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC121to130) ? "0" : CTOPP2PAC121to130) +
                                 GetIntValue(string.IsNullOrWhiteSpace(CTOPP2PAC130) ? "0" : CTOPP2PAC130);
 
-                    CTOPP2PAC95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
+                    CTOPP2PAC95CI = GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
 
 
-                
+
                 //if (!string.IsNullOrEmpty(testResult.CTOPP2))
                 //{
                 //    CTOPP2BNW69 = " ";
@@ -1581,7 +1586,7 @@ namespace AIMSService.Controllers
                     CTOPP2RSN116to120 = " ";
                     CTOPP2RSN121to130 = " ";
                     CTOPP2RSN130 = " ";
-                    
+
                     if (GetIntValue(testResult.CTOPP2RSN) < 70)
                     {
                         CTOPP2RSN69 = testResult.CTOPP2RSN;
@@ -1629,7 +1634,7 @@ namespace AIMSService.Controllers
                                 GetIntValue(string.IsNullOrWhiteSpace(CTOPP2RSN121to130) ? "0" : CTOPP2RSN121to130) +
                                 GetIntValue(string.IsNullOrWhiteSpace(CTOPP2RSN130) ? "0" : CTOPP2RSN130);
 
-                    CTOPP2RSN95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
+                    CTOPP2RSN95CI = GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
 
 
@@ -1644,7 +1649,7 @@ namespace AIMSService.Controllers
                     WRAT5WR116to120 = " ";
                     WRAT5WR121to130 = " ";
                     WRAT5WR130 = " ";
-                    
+
                     if (GetIntValue(testResult.WRAT5WR) < 70)
                     {
                         WRAT5WR69 = testResult.WRAT5WR;
@@ -1692,7 +1697,7 @@ namespace AIMSService.Controllers
                                 GetIntValue(string.IsNullOrWhiteSpace(WRAT5WR121to130) ? "0" : WRAT5WR121to130) +
                                 GetIntValue(string.IsNullOrWhiteSpace(WRAT5WR130) ? "0" : WRAT5WR130);
 
-                    WRAT5WR95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
+                    WRAT5WR95CI = GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
 
                 if (testResult.WRAT5SP != "")
@@ -1706,7 +1711,7 @@ namespace AIMSService.Controllers
                     WRAT5SP116to120 = " ";
                     WRAT5SP121to130 = " ";
                     WRAT5SP130 = " ";
-                    
+
                     if (GetIntValue(testResult.WRAT5SP) < 70)
                     {
                         WRAT5SP69 = testResult.WRAT5SP;
@@ -1754,7 +1759,7 @@ namespace AIMSService.Controllers
                                 GetIntValue(string.IsNullOrWhiteSpace(WRAT5SP121to130) ? "0" : WRAT5SP121to130) +
                                 GetIntValue(string.IsNullOrWhiteSpace(WRAT5SP130) ? "0" : WRAT5SP130);
 
-                    WRAT5SP95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
+                    WRAT5SP95CI = GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
                 if (testResult.TOWRE2SWE != "")
                 {
@@ -1804,7 +1809,7 @@ namespace AIMSService.Controllers
                         TOWRE2SWE130 = testResult.TOWRE2SWE;
                     }
                 }
-                
+
                 if (testResult.TOWRE2PDE != "")
                 {
                     TOWRE2PDE69 = " ";
@@ -1853,7 +1858,7 @@ namespace AIMSService.Controllers
                         TOWRE2PDE130 = testResult.TOWRE2PDE;
                     }
                 }
-                
+
                 if (testResult.TOWRE2IND != "")
                 {
                     TOWRE2IND69 = " ";
@@ -1865,7 +1870,7 @@ namespace AIMSService.Controllers
                     TOWRE2IND116to120 = " ";
                     TOWRE2IND121to130 = " ";
                     TOWRE2IND130 = " ";
-                    
+
                     if (GetIntValue(testResult.TOWRE2IND) < 70)
                     {
                         TOWRE2IND69 = testResult.TOWRE2IND;
@@ -1913,7 +1918,7 @@ namespace AIMSService.Controllers
                                 GetIntValue(string.IsNullOrWhiteSpace(TOWRE2IND121to130) ? "0" : TOWRE2IND121to130) +
                                 GetIntValue(string.IsNullOrWhiteSpace(TOWRE2IND130) ? "0" : TOWRE2IND130);
 
-                    TOWRE2IND95CI =GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
+                    TOWRE2IND95CI = GetCI(ciVal); //  $"{ciVal - 5} - {ciVal + 5}";;
                 }
 
                 if (testResult.ART2SC != "")
@@ -2305,9 +2310,9 @@ namespace AIMSService.Controllers
 
                     // ss
                     var chartParts = mainPart.ChartParts;
-                    int i=0, j=85;
+                    int i = 0, j = 85;
 
-                    int[] chartData = new int[] { 
+                    int[] chartData = new int[] {
                         GetIntValue(Art2ChartVal) ,
                         GetIntValue(Towre2ChartVal) ,
                         GetIntValue(Wrat5SChartVal) ,
@@ -2321,7 +2326,7 @@ namespace AIMSService.Controllers
                         GetIntValue(VRVAChartVal) ,
 
                     };
-                    
+
 
                     foreach (var chartPart in chartParts)
                     {
@@ -2368,7 +2373,7 @@ namespace AIMSService.Controllers
 
         private string GetCI(int ciVal)
         {
-            if(ciVal > 0)
+            if (ciVal > 0)
             {
                 return $"{ciVal - 5} - {ciVal + 5}";
             }
@@ -2400,7 +2405,7 @@ namespace AIMSService.Controllers
                 return null;
             }
 
-            var writ =  _dbContext.ClientWRITDetails.FirstOrDefault(x => x.ClientId == clientId);
+            var writ = _dbContext.ClientWRITDetails.FirstOrDefault(x => x.ClientId == clientId);
             if (writ != null)
             {
                 clientReport.WRITVA = writ.vaStandardScore;
@@ -2409,7 +2414,7 @@ namespace AIMSService.Controllers
                 clientReport.WRITVB = writ.diStandardScore;
             }
 
-            var tomal =  _dbContext.ClientTOMALDetails.FirstOrDefault(x => x.ClientId == clientId);
+            var tomal = _dbContext.ClientTOMALDetails.FirstOrDefault(x => x.ClientId == clientId);
             if (tomal != null)
             {
                 clientReport.TOMAL2DF = (tomal.ofVerbalScaleScore * 5 + 50).ToString();
@@ -2419,7 +2424,7 @@ namespace AIMSService.Controllers
                 clientReport.TOMAL2ACI = tomal.indAci.ToString();
             }
 
-            var ctopp =  _dbContext.ClientCTOPPDetails.FirstOrDefault(x => x.ClientId == clientId);
+            var ctopp = _dbContext.ClientCTOPPDetails.FirstOrDefault(x => x.ClientId == clientId);
             if (ctopp != null)
             {
                 clientReport.CTOPP2MD = (ctopp.MdScaleScore * 5 + 50).ToString();
@@ -2436,14 +2441,14 @@ namespace AIMSService.Controllers
                 clientReport.CTOPP2RSN = ctopp.RSNScore.ToString();
             }
 
-            var wrat =  _dbContext.ClientWRATDetails.FirstOrDefault(x => x.ClientId == clientId);
+            var wrat = _dbContext.ClientWRATDetails.FirstOrDefault(x => x.ClientId == clientId);
             if (wrat != null)
             {
                 clientReport.WRAT5WR = wrat.wrStandardScore.ToString();
                 clientReport.WRAT5SP = wrat.spStandardScore.ToString();
             }
 
-            var towre =  _dbContext.ClientTOWREDetails.FirstOrDefault(x => x.ClientId == clientId);
+            var towre = _dbContext.ClientTOWREDetails.FirstOrDefault(x => x.ClientId == clientId);
             if (towre != null)
             {
                 clientReport.TOWRE2SWE = towre.sweScale;
@@ -2451,7 +2456,7 @@ namespace AIMSService.Controllers
                 clientReport.TOWRE2IND = "79";
             }
 
-            var art =  _dbContext.ClientARTDetails.FirstOrDefault(x => x.ClientId == clientId);
+            var art = _dbContext.ClientARTDetails.FirstOrDefault(x => x.ClientId == clientId);
             if (art != null)
             {
                 clientReport.ART2SC = art.SmCompreSilentStd;

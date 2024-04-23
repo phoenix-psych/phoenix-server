@@ -21,6 +21,8 @@ namespace AIMSService.Entity
         public string? UserName { get; set; }
         public string? Passwod { get; set; }
 
+        public int? Gender { get; set; }
+
         public Guid? UserId { get; set; }
         public Guid? AsssessorId { get; set; }
 

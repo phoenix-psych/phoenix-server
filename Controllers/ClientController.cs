@@ -47,8 +47,8 @@ namespace Web.Controllers
                 CourseYear = x.CourseYear,
 
                 Status = x.Status != null ? x.Status?.ToString().Replace('_', ' ') : string.Empty,
-
-            });
+                GenderString = x.Gender == null ? string.Empty : ((GenderEnum)x.Gender).ToString()
+            }); 
 
             return Ok(data);
         }
@@ -285,7 +285,7 @@ namespace Web.Controllers
                     Email = clientDto.Email,
                     Phone = clientDto.Phone,
                     Service = clientDto.Service,
-
+                    Gender = clientDto.Gender,
                     Address = clientDto.Address,
                     University = clientDto.University,
                     Course = clientDto.Course,
