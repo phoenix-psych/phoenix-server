@@ -5,6 +5,7 @@ using Azure;
 using Azure.Storage.Blobs;
 using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Office2010.Word;
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
@@ -2288,6 +2289,27 @@ namespace AIMSService.Controllers
                 placeholders.Add("[ART2HW]", ART2HW);
                 placeholders.Add("[ART2TY]", ART2TY);
 
+                placeholders.Add("[vocabularyRange]", GetDescriptiveRange(testResult.WRITVC, 2));
+                placeholders.Add("[verbalReasoningRange]", GetDescriptiveRange(testResult.WRITVA, 2));
+                placeholders.Add("[verbalReasoningScore]", GetDescriptiveRange(testResult.WRITVA, 1));
+                placeholders.Add("[visualAbilityRange]", string.Empty);
+                placeholders.Add("[workingMemoryRange]", string.Empty);;
+                placeholders.Add("[workingMemoryScore]", string.Empty);;
+                placeholders.Add("[phonologicalMemoryRange]", GetDescriptiveRange(testResult.CTOPP2PM, 2));
+                placeholders.Add("[phonologicalAwarenessRange]", GetDescriptiveRange(testResult.CTOPP2PAC, 2));
+                placeholders.Add("[phonologicalAwarenessScore]", GetDescriptiveRange(testResult.CTOPP2PAC, 1));
+                placeholders.Add("[readingEfficiency]", string.Empty);;
+                placeholders.Add("[VerbalAbilityScore]", GetDescriptiveRange(testResult.WRITVB, 1));
+                placeholders.Add("[VerbalAbilityRange]", GetDescriptiveRange(testResult.WRITVB, 2));
+                placeholders.Add("[rapidSymbolicNamingRange]", GetDescriptiveRange(testResult.CTOPP2RSN, 2));
+                placeholders.Add("[rapidSymbolicNamingScores]", GetDescriptiveRange(testResult.CTOPP2RSN, 1));
+                placeholders.Add("[ReadingAccuracyRange]", string.Empty);;
+                placeholders.Add("[ReadingAccuracyScores]", string.Empty);;
+                placeholders.Add("[ReadingEfficiencyRange]", string.Empty);;
+                placeholders.Add("[ReadingEfficiencyScore]", string.Empty);;
+                placeholders.Add("[readingComprehensionScore]", string.Empty);;
+                placeholders.Add("[readingComprehensionRange]", string.Empty);;
+
                 #endregion
 
 
@@ -2371,11 +2393,66 @@ namespace AIMSService.Controllers
             return BadRequest();
         }
 
+        
+
+        private string GetDescriptiveRange(string score, int type)
+        {
+            if (type == 1)
+            {
+                return score;
+            }
+
+            return GetDescriptiveString(score);
+        }
+
+        private string GetDescriptiveString(string data)
+        {
+            int d = Convert.ToInt32(string.IsNullOrEmpty(data) ? "0" : data);
+            if (d >= 131)
+            {
+                return "Very High";
+            }
+            if (d >= 121 && d <= 130)
+            {
+                return "High";
+            }
+            if (d >= 116 && d <= 120)
+            {
+                return "Above Average";
+            }
+            if (d >= 111 && d <= 115)
+            {
+                return "High Average";
+            }
+            if (d >= 90 && d <= 110)
+            {
+                return "Mid Average";
+            }
+            if (d >= 85 && d <= 89)
+            {
+                return "Low Average";
+            }
+            if (d >= 80 && d <= 84)
+            {
+                return "Below Average";
+            }
+            if (d >= 70 && d <= 79)
+            {
+                return "Low";
+            }
+            if (d <= 69)
+            {
+                return "Very Low";
+            }
+
+            return "";
+        }
+
         private string GetCI(int ciVal)
         {
             if (ciVal > 0)
             {
-                return $"{ciVal - 5} - {ciVal + 5}";
+                return $"{ciVal - 6} - {ciVal + 6}";
             }
 
             return "";
@@ -2453,7 +2530,7 @@ namespace AIMSService.Controllers
             {
                 clientReport.TOWRE2SWE = towre.sweScale;
                 clientReport.TOWRE2PDE = towre.pdeScale;
-                clientReport.TOWRE2IND = "79";
+                clientReport.TOWRE2IND = towre.towreScaleScore;
             }
 
             var art = _dbContext.ClientARTDetails.FirstOrDefault(x => x.ClientId == clientId);

@@ -23,5 +23,8 @@ namespace AIMSService.Entity
         public string? pdeDesc { get; set; }
         public string? pdeSum { get; set; }
         public string descriptiveTerm { get; set; }
+
+        public string? towreScaleScore { get; set; }
+
     }
 }

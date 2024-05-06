@@ -965,7 +965,7 @@ namespace Web.Controllers
 
         [HttpGet]
         [Route("assessor/towre")]
-        public async Task<ActionResult<TowreScoreDto>> GetTowreScore([FromQuery] string type, [FromQuery] int score, [FromQuery] int year, [FromQuery] int month)
+        public async Task<ActionResult<TowreScoreDto>> GetTowreScore([FromQuery] string type, [FromQuery] int score, [FromQuery] int year, [FromQuery] int month, [FromQuery] int pwe, [FromQuery] int swe)
         {
             var result = new TowreScoreDto();
 
@@ -977,7 +977,7 @@ namespace Web.Controllers
                 if (data != null)
                 {
                     result.Scale = data.Score;
-
+                    result.TowreScore = GetTowreScaleScore(pwe, result.Scale.Value);
                 }
             }
             if (type == "pde")
@@ -988,11 +988,23 @@ namespace Web.Controllers
                 if (data != null)
                 {
                     result.Scale = data.Score;
-
+                    result.TowreScore = GetTowreScaleScore(result.Scale.Value, swe);
                 }
             }
 
             return Ok(result);
+        }
+
+        private int GetTowreScaleScore(int pwe, int swe)
+        {
+            var score = pwe + swe;
+            var data = _dbContext.TowreWRs.FirstOrDefault(x => score >= x.Sum_of_SWE_PDE_FROM && (score <= x.Sum_of_SWE_PDE_TO || x.Sum_of_SWE_PDE_TO == 0));
+            if (data != null && data.Index != null)
+            {
+                return data.Index.Value;
+            }
+
+            return 0;
         }
 
 

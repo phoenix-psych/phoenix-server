@@ -7,5 +7,7 @@
         public int? PercentageRank { get; set; }
         public int? Scale { get; set; }
         public int? Descriptive { get; set; }
+        public int? TowreScore { get; set; }
+
     }
 }
